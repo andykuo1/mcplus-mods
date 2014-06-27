@@ -1,8 +1,5 @@
 package com.minecraftplus.modFossil;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-
 import com.minecraftplus._base.ICommonProxy;
 import com.minecraftplus._base.registry.Registry;
 
