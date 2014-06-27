@@ -1,0 +1,6 @@
+v1.0.1
+- Implemented ability to replace tall grass to plant
+
+v1.0.0*
+- Implemented ability for Saplings to plant themselves automatically
+- Updated to 1.7.2

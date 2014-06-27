@@ -1,0 +1,10 @@
+v1.0.1*
+- Bugfix: Beetroot Seeds drop in Creative Mode
+
+v1.0.0*
+- Added Beetroot
+- Added Beetroot Seeds
+- Added Beetroot Soup
+- Added crafting recipe for Beetroot Soup
+- Implemented ability to find Beetroot Seeds by tilling Dirt or Grass
+- Updated to 1.7.2

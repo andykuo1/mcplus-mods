@@ -1,0 +1,26 @@
+v1.2.1
+- Minor reorganization to source
+
+v1.2.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.1.2*
+- Adjusted Chocolate Bar heal amount
+
+v1.1.1*
+- Adjusted Chocolate Bar heal amount
+- Adjusted crafting recipe for Chocolate Bar
+
+v1.1.0*
+- Added Chocolate Pie
+- Added crafting recipe for Chocolate Pie
+- Adjusted saturation
+- Adjusted heal amount
+- Adjusted crafting recipe for Chocolate Bar
+- Updated to 1.6.4
+
+v1.0.0*
+- Added Chocolate Bar
+- Added crafting recipe for Chocolate Bar
+- Updated to 1.6.2

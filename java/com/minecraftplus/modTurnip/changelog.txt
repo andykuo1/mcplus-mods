@@ -1,0 +1,5 @@
+v1.0.0
+- Added Turnip
+- Added Turnip Seeds
+- Implemented drop from tall grass
+- Updated to 1.7.2

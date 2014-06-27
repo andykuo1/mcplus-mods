@@ -1,0 +1,3 @@
+v1.0.0
+- Implemented possible baby chicken spawn from eggs when dropped and despawned
+- Updated to 1.7.2

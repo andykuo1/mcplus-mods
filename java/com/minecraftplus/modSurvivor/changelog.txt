@@ -1,0 +1,8 @@
+v1.0.0
+- Added Hatchet
+- Added Dagger
+- Added crafting recipe for Hatchet
+- Added crafting recipe for Dagger
+- Added stick drops from leaves
+- Changed recipe for crafting table
+- Updated to 1.7.2

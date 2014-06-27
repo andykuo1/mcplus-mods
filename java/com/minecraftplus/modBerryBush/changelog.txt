@@ -1,0 +1,11 @@
+v1.0.0*
+- Added Raspberry
+- Added Blueberry
+- Added Cranberry
+- Added Blackberry
+- Added Raspberry Bush
+- Added Blueberry Bush
+- Added Cranberry Bush
+- Added Blackberry Bush
+- Added Berry Bushes to world generation
+- Updated to 1.7.2

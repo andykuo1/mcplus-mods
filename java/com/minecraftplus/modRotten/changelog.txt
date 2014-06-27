@@ -1,0 +1,9 @@
+v1.0.1
+- Increased stack size for all foods to original size
+- Changed rotting duration according to crafted, cooked, or raw
+
+v1.0.0*
+- Decreased stack size to one for all foods
+- Implemented ability for food items to grow stale
+- Implemented ability for food items to grow rotten
+- Updated to 1.7.2

@@ -1,0 +1,18 @@
+v1.1.1
+- Minor reorganization to source
+
+v1.1.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.1*
+- Implemented ability to erase color with Cauldron
+- Minor reorganization to source
+
+v1.0.0*
+- Added Gift Box
+- Added crafting recipe for Gift Box
+- Implemented sound for opening Gift Box
+- Implemented animation for opening Gift Box
+- Implemented ability to dye Gift Box
+- Updated to 1.6.4

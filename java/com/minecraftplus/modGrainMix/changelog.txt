@@ -1,0 +1,11 @@
+v1.1.1
+- Increased heal amount
+
+v1.1.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.0*
+- Added Grain Mix
+- Added crafting recipe for Grain Mix
+- Updated to 1.6.4

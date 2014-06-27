@@ -1,0 +1,6 @@
+v1.0.0
+- Added Sweet Potato
+- Added Baked Sweet Potato
+- Added smelting recipe for Sweet Potato
+- Added Sweet Potato to Grass Block drops
+- Updated to 1.7.2

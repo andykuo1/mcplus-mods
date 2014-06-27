@@ -1,0 +1,19 @@
+v1.0.1*
+- Added experience for cooking food
+- Added light to Fire Pit
+- Added burning if stepped on
+- Changed crafting recipe for Fire Pit
+- Removed Ash
+- Removed smelting recipe for all foods to Ash
+- Increased FirePit render size
+- Increased cook time for Fire Pit
+- Minor reorganization to source
+
+v1.0.0*
+- Added Fire Pit
+- Added Ash
+- Added smelting recipe for all Foods to Ash
+- Added fire pit cooking recipe for all Foods
+- Added fire pit cooking recipe for Wood Logs
+- Implemented custom model for Fire Pit
+- Updated to 1.7.2

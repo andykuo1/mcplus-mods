@@ -1,0 +1,9 @@
+v1.0.1*
+- Bugfix: Constant loop of sound tool breaking
+- Bugfix: Instant update of max health
+- Added sound to lowering xp
+
+v1.0.0*
+- Implemented ability to increase max Health every five levels
+- Implemented ability to update max Health by sleeping
+- Updated to 1.7.2

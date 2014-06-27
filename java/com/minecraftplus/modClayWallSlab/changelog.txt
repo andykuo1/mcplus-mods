@@ -1,0 +1,7 @@
+v1.0.1*
+- Minor reorganization to source
+
+v1.0.0*
+- Added Clay Wall Slab
+- Added crafting recipe for Clay Wall Slab
+- Updated to 1.7.2
