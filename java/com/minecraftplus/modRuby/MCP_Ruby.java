@@ -15,7 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Ruby.MODBASE, name = "MC+ " + MCP_Ruby.MODBASE, version = "1.0.1")
+@Mod(modid = "MCP_" + MCP_Ruby.MODBASE, name = "MC+ " + MCP_Ruby.MODBASE, version = "1.1.0")
 public class MCP_Ruby extends MCP
 {
 	protected static final String MODBASE = "Ruby";
@@ -31,6 +31,11 @@ public class MCP_Ruby extends MCP
 	public static final Item ruby = new ItemRuby().setUnlocalizedName("ruby");
 	public static final Block rubyOre = new BlockOreRuby().setBlockName("ruby_ore");
 	public static final Block rubyBlock = new BlockRuby().setBlockName("block_of_ruby");
+	
+	public static final Item Sapphire = new ItemSapphire().setUnlocalizedName("Sapphire");
+	public static final Block SapphireOre = new BlockOreSapphire().setBlockName("Sapphire_Ore");
+	public static final Block SapphireBlock = new BlockSapphire().setBlockName("Block_Of_Sapphire");
+	
 
 	@EventHandler
 	@Override
@@ -41,8 +46,13 @@ public class MCP_Ruby extends MCP
 		ItemRegistry.add(ruby);
 		ItemRegistry.add(rubyOre);
 		ItemRegistry.add(rubyBlock);
+		
+		ItemRegistry.add(Sapphire);
+		ItemRegistry.add(SapphireOre);
+		ItemRegistry.add(SapphireBlock);
 
 		Registry.addWorldGen(new WorldGenBlockRuby());
+		Registry.addWorldGen(new WorldGenBlockSapphire());
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

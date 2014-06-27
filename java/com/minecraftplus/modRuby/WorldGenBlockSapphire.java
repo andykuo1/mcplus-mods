@@ -8,11 +8,11 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import com.minecraftplus._base.worldgen.IWorldGenSurface;
 import com.minecraftplus._base.worldgen.WorldGenBlock;
 
-public class WorldGenBlockRuby extends WorldGenBlock implements IWorldGenSurface
+public class WorldGenBlockSapphire extends WorldGenBlock implements IWorldGenSurface
 {
-	public WorldGenBlockRuby()
+	public WorldGenBlockSapphire()
 	{
-		super(MCP_Ruby.rubyOre);
+		super(MCP_Ruby.SapphireOre);
 	}
 
 	public void generateSurface(World par1World, Random par2Random, int par3, int par4)

@@ -4,9 +4,9 @@ import net.minecraft.creativetab.CreativeTabs;
 
 import com.minecraftplus._common.item.ItemBase;
 
-public class ItemRuby extends ItemBase
+public class ItemSapphire extends ItemBase
 {
-	public ItemRuby()
+	public ItemSapphire()
 	{
 		super(CreativeTabs.tabMaterials);
 	}

@@ -14,9 +14,9 @@ import com.minecraftplus._base.registry.IconRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockOreRuby extends BlockOre
+public class BlockOreSapphire extends BlockOre
 {
-	public BlockOreRuby()
+	public BlockOreSapphire()
 	{
 		this.setHardness(3.0F);
 		this.setResistance(5.0F);
@@ -33,7 +33,7 @@ public class BlockOreRuby extends BlockOre
 	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return MCP_Ruby.ruby;
+		return MCP_Ruby.Sapphire;
 	}
 	
 	private Random rand = new Random();
@@ -48,3 +48,4 @@ public class BlockOreRuby extends BlockOre
         return 0;
     }
 }
+
