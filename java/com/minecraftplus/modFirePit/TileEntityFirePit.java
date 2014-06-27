@@ -23,7 +23,7 @@ public class TileEntityFirePit extends TileEntity implements ISidedInventory
 	private ItemStack[] firePitItemStacks = new ItemStack[3];
 	/** The number of ticks that the fire pit will keep burning */
 	public int firePitBurnTime;
-	
+
 	/**
 	 * The number of ticks that a fresh copy of the currently-burning item would keep the fire pit burning for
 	 */
@@ -44,7 +44,7 @@ public class TileEntityFirePit extends TileEntity implements ISidedInventory
 	{
 		this(false);
 	}
-	
+
 	public boolean isItem()
 	{
 		return this.isItem;
@@ -243,7 +243,7 @@ public class TileEntityFirePit extends TileEntity implements ISidedInventory
 
 		if (!this.worldObj.isRemote)
 		{
-			if (this.firePitBurnTime == 0 && this.canSmelt())
+			if (this.firePitBurnTime == 0 && this.canBurn())
 			{
 				this.currentItemBurnTime = this.firePitBurnTime = getItemBurnTime(this.firePitItemStacks[1]);
 
@@ -290,6 +290,24 @@ public class TileEntityFirePit extends TileEntity implements ISidedInventory
 		{
 			this.markDirty();
 		}
+	}
+
+	private boolean canBurn()
+	{
+		if (this.firePitItemStacks[0] == null && ((BlockFirePit) this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord)).isActive())
+		{
+			if (!this.worldObj.isRemote)
+			{
+				if (this.worldObj.rand.nextInt(6) == 0)
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+
+		return this.canSmelt();
 	}
 
 	/**

@@ -38,7 +38,7 @@ public class MCP_FirePit extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.1");
 
 		ItemRegistry.add(firePit);
 		ItemRegistry.addUnLocal(firePitLit);

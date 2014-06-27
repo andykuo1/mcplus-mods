@@ -1,12 +1,14 @@
-v1.0.1*
+v1.0.1
 - Added experience for cooking food
 - Added light to Fire Pit
 - Added burning if stepped on
+- Added ignition step, must constantly hit to ignite either using stick, blaze rod, or flint and steal
 - Changed crafting recipe for Fire Pit
 - Removed Ash
 - Removed smelting recipe for all foods to Ash
 - Increased FirePit render size
 - Increased cook time for Fire Pit
+- Implemented ability to burn nothing, just for the light; but will distinguish
 - Minor reorganization to source
 
 v1.0.0*
