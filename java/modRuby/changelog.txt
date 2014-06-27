@@ -1,0 +1,17 @@
+v1.1.0
+- Added Sapphire Ore
+- Added Sapphire's
+- Added Sapphire Blocks
+- Added World Generation for Sapphire Ore
+ 
+ 
+
+v1.0.1
+- Adjusted world generation
+
+v1.0.0*
+- Added Ruby
+- Added Ruby Ore
+- Added Block of Ruby
+- Added world generation for Ruby Ore
+- Updated to 1.7.2
