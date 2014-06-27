@@ -1,5 +1,8 @@
 package com.minecraftplus.modSilver;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
