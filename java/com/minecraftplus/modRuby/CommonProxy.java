@@ -31,5 +31,8 @@ public class CommonProxy implements ICommonProxy
 		par1Registry.addShapedRecipe(new ItemStack(MCP_Ruby.rubyBlock, 1), new Object[] {
 			"###", "###", "###",
 			Character.valueOf('#'), MCP_Ruby.ruby});
+		par1Registry.addShapedRecipe(new ItemStack(MCP_Ruby.sapphireBlock, 1), new Object[] {
+			"###", "###", "###",
+			Character.valueOf('#'), MCP_Ruby.sapphire});
 	}
 }

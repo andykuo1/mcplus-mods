@@ -33,19 +33,19 @@ public class BlockOreSapphire extends BlockOre
 	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return MCP_Ruby.Sapphire;
+		return MCP_Ruby.sapphire;
 	}
-	
+
 	private Random rand = new Random();
 	@Override
-    public int getExpDrop(IBlockAccess par1IBlockAccess, int par2, int par3)
-    {
-        if (this.getItemDropped(par2, rand, par3) != Item.getItemFromBlock(this))
-        {
-            return MathHelper.getRandomIntegerInRange(rand, 2, 5);
-        }
-        
-        return 0;
-    }
+	public int getExpDrop(IBlockAccess par1IBlockAccess, int par2, int par3)
+	{
+		if (this.getItemDropped(par2, rand, par3) != Item.getItemFromBlock(this))
+		{
+			return MathHelper.getRandomIntegerInRange(rand, 2, 5);
+		}
+
+		return 0;
+	}
 }
 

@@ -12,7 +12,7 @@ public class WorldGenBlockSapphire extends WorldGenBlock implements IWorldGenSur
 {
 	public WorldGenBlockSapphire()
 	{
-		super(MCP_Ruby.SapphireOre);
+		super(MCP_Ruby.sapphireOre);
 	}
 
 	public void generateSurface(World par1World, Random par2Random, int par3, int par4)

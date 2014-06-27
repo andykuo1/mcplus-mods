@@ -32,9 +32,9 @@ public class MCP_Ruby extends MCP
 	public static final Block rubyOre = new BlockOreRuby().setBlockName("ruby_ore");
 	public static final Block rubyBlock = new BlockRuby().setBlockName("block_of_ruby");
 	
-	public static final Item Sapphire = new ItemSapphire().setUnlocalizedName("Sapphire");
-	public static final Block SapphireOre = new BlockOreSapphire().setBlockName("Sapphire_Ore");
-	public static final Block SapphireBlock = new BlockSapphire().setBlockName("Block_Of_Sapphire");
+	public static final Item sapphire = new ItemSapphire().setUnlocalizedName("sapphire");
+	public static final Block sapphireOre = new BlockOreSapphire().setBlockName("sapphire_ore");
+	public static final Block sapphireBlock = new BlockSapphire().setBlockName("block_of_sapphire");
 	
 
 	@EventHandler
@@ -47,9 +47,9 @@ public class MCP_Ruby extends MCP
 		ItemRegistry.add(rubyOre);
 		ItemRegistry.add(rubyBlock);
 		
-		ItemRegistry.add(Sapphire);
-		ItemRegistry.add(SapphireOre);
-		ItemRegistry.add(SapphireBlock);
+		ItemRegistry.add(sapphire);
+		ItemRegistry.add(sapphireOre);
+		ItemRegistry.add(sapphireBlock);
 
 		Registry.addWorldGen(new WorldGenBlockRuby());
 		Registry.addWorldGen(new WorldGenBlockSapphire());
