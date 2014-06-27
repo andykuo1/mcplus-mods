@@ -1,10 +1,15 @@
 package com.minecraftplus.modSilver;
 
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._common.item.ItemBase;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -26,21 +31,27 @@ public class MCP_Silver extends MCP
 	public static CommonProxy proxy;
 
 	//TODO: Nothing yet. . .
+	//NAME, BLOCKLEVEL, DURABILITY, SPEED, DAMAGE, ENCHANTABLITY
+	public static ToolMaterial toolSilver = EnumHelper.addToolMaterial("SILVER", 1, 104, 4.5F, 1.2F, 4); //TODO: Change this
+	public static final Item silverIngot = new ItemBase(CreativeTabs.tabMaterials).setUnlocalizedName("silver_ingot");
+	public static final Item silverNugget = new ItemBase(CreativeTabs.tabMaterials).setUnlocalizedName("silver_nugget");
+	public static final Item silverSword = new ItemSilverSword(toolSilver).setUnlocalizedName("silver_sword");
+
+	public static final Block silverOre = new BlockOreSilver().setBlockName("silver_ore");
+	public static final Block silverBlock = new BlockSilver().setBlockName("block_of_silver");
 
 	@EventHandler
 	@Override
-	public void preInit(FMLPreInitializationEvent par1Event) {
-	}
-	
-	public static final Item silverIngot = new ItemSilverIngot().setUnlocalizedName("silver_ingot");
-	public static final Item silverNugget = new ItemSilverNugget().setUnlocalizedName("silver_nugget");
-	public static final Item silverSword = new ItemSilverSword().setUnlocalizedName("silver_sword");
-	
-	public static final Block silverOre = new BlockOreSilver().setBlockName("silver_ore");
-	public static final Block silverBlock = new BlockSilver().setBlockName("block_of_silver");
-			
+	public void preInit(FMLPreInitializationEvent par1Event)
 	{
 		MCP.initMain(par1Event, "1.1");
+
+		ItemRegistry.add(silverIngot);
+		ItemRegistry.add(silverNugget);
+		ItemRegistry.add(silverSword);
+
+		ItemRegistry.add(silverOre);
+		ItemRegistry.add(silverBlock);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

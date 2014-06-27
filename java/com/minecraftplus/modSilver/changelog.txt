@@ -1,2 +1,7 @@
 v1.0.0
+- Added Silver Ore
+- Added Silver Ingot
+- Added Silver Sword
+- Added Block of Silver
+- Added Silver Nugget
 - Updated to 1.7.2
