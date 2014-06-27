@@ -1,0 +1,4 @@
+v1.0.0
+- Added Rabbit
+- Implemented ability to jump for Rabbit
+- Updated to 1.7.2

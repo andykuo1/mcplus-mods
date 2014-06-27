@@ -1,9 +1,6 @@
-package com.minecraftplus.modDayCounter;
-
-import net.minecraft.item.Item;
+package com.minecraftplus.modRabbit;
 
 import com.minecraftplus._base.MCP;
-import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
@@ -14,28 +11,24 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_DayCounter.MODBASE, name = "MC+ " + MCP_DayCounter.MODBASE, version = "1.1.1")
-public class MCP_DayCounter extends MCP
+@Mod(modid = "MCP_" + MCP_Rabbit.MODBASE, name = "MC+ " + MCP_Rabbit.MODBASE, version = "1.0.0")
+public class MCP_Rabbit extends MCP
 {
-	protected static final String MODBASE = "DayCounter";
+	protected static final String MODBASE = "Rabbit";
 
-	@Instance("MCP_" + MCP_DayCounter.MODBASE)
-	public static MCP_DayCounter INSTANCE;
+	@Instance("MCP_" + MCP_Rabbit.MODBASE)
+	public static MCP_Rabbit INSTANCE;
 
 	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
 	public static CommonProxy proxy;
 
 	//TODO: Nothing yet. . .
 
-	public static final Item dayCounter = new ItemDayCounter().setUnlocalizedName("day_counter");
-
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
 		MCP.initMain(par1Event, "1.1");
-
-		ItemRegistry.add(dayCounter);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
