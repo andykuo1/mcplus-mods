@@ -1,4 +1,9 @@
-v1.0.1*
+v1.0.2
+- Bugfix: Fixed traveling dimension resets max health
+- Bugfix: Uninstalling mod does not reset health
+- Bugfix: Health resets to 4 hearts when traveling dimensions
+
+v1.0.1
 - Bugfix: Constant loop of sound tool breaking
 - Bugfix: Instant update of max health
 - Added sound to lowering xp

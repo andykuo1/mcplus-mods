@@ -3,17 +3,21 @@ package com.minecraftplus.modBattleHearts;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
+
+import com.minecraftplus._base.MCP;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 
 public class EventMaxHealthHandler
 {
-	private static final double HEALTH_BASE = 8D;
-	private static final double HEALTH_INCR = 2D;
-	private static final double HEALTH_PER_LEVEL = 5D;
+	public static final int HEALTH_BASE = 8;
+	public static final int HEALTH_INCR = 2;
+	public static final int HEALTH_PER_LEVEL = 5;
 
 	@SubscribeEvent
 	public void onLivingEntityUpdate(LivingEvent.LivingUpdateEvent parEvent)
@@ -21,13 +25,16 @@ public class EventMaxHealthHandler
 		if (parEvent.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) parEvent.entity;
+			System.out.println(player.worldObj.isRemote);
+			System.out.println(player.getEntityData().getInteger("maxHealth"));
 
 			if (player.isPlayerFullyAsleep())
 			{
-				int amount = (int) (HEALTH_INCR * (int) (player.experienceLevel / HEALTH_PER_LEVEL));
-				this.setMaxHealth(player, amount);
-				//this.setMaxDamage(player, amount / 2F);
-				this.updateMaxHealth(player);
+				int amount = getMaxHealthByExp(player);
+				setMaxHealthData(player, amount);
+				setMaxHealth(player);
+
+				MCP.packetHandler.sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
 
 				if (player.equals(Minecraft.getMinecraft().thePlayer))
 				{
@@ -37,47 +44,67 @@ public class EventMaxHealthHandler
 			}
 			else if (player.worldObj.getTotalWorldTime() % 100 == 0)
 			{
-				int amount = (int) (HEALTH_INCR * (int) (player.experienceLevel / HEALTH_PER_LEVEL));
-				if (amount + 8 < player.getMaxHealth())
-				{
-					this.setMaxHealth(player, amount);
-					//this.setMaxDamage(player, amount / 2F);
-					this.updateMaxHealth(player);
-
-					if (player.equals(Minecraft.getMinecraft().thePlayer))
-					{
-						float f = player.experienceLevel > 30 ? 1.0F : (float)player.experienceLevel / 30.0F;
-						player.worldObj.playSoundAtEntity(player, "random.break", f * 0.6F, 0.6F);
-					}
-				}
+				setMaxHealth(player);
 			}
 		}
 	}
 
 	@SubscribeEvent
-	public void onPlayerAttack(AttackEntityEvent parEvent)
+	public void onEntityJoinWorld(EntityJoinWorldEvent par1Event)
 	{
-		parEvent.target.attackEntityFrom(DamageSource.causePlayerDamage(parEvent.entityPlayer), parEvent.entityPlayer.getEntityData().getFloat("maxDamage"));
+		if (!(par1Event.entity instanceof EntityPlayer)) return;
+		EntityPlayer player = (EntityPlayer) par1Event.entity;
+		if (!par1Event.world.isRemote)
+		{
+			MCP.packetHandler.sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
+		}
+		setMaxHealth((EntityPlayer) player);
 	}
 
-	public void setMaxHealth(EntityPlayer parEntityPlayer, int parAmount)
+	@SubscribeEvent
+	public void onPlayerChangedDimension(PlayerChangedDimensionEvent par1Event)
 	{
-		parEntityPlayer.getEntityData().setInteger("maxHealth", parAmount);
+		MCP.packetHandler.sendTo(new PacketMaxHealth(par1Event.player), (EntityPlayerMP)par1Event.player);
 	}
 
-	public void addMaxHealth(EntityPlayer parEntityPlayer, int parAmount)
+	@SubscribeEvent
+	public void onPlayerLogout(PlayerLoggedOutEvent par1Event)
 	{
-		int max = parEntityPlayer.getEntityData().getInteger("maxHealth");
-		this.setMaxHealth(parEntityPlayer, max + parAmount);
+		setMaxHealth(par1Event.player, 20);
 	}
 
-	public void updateMaxHealth(EntityPlayer parEntityPlayer)
+	public static int getMaxHealthData(EntityPlayer par1EntityPlayer)
 	{
-		int health = parEntityPlayer.getEntityData().getInteger("maxHealth");
-		parEntityPlayer.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(HEALTH_BASE + health);
+		return par1EntityPlayer.getEntityData().getInteger("maxHealth");
 	}
 
-	public void setMaxDamage(EntityPlayer parEntityPlayer, float parAmount)
+	public static int getMaxHealth(EntityPlayer par1EntityPlayer)
+	{
+		return (int) Math.round(par1EntityPlayer.getMaxHealth());
+	}
+
+	public static int getMaxHealthByExp(EntityPlayer par1EntityPlayer)
+	{
+		return (int) (HEALTH_INCR * (int) (par1EntityPlayer.experienceLevel / HEALTH_PER_LEVEL));
+	}
+
+	public static void setMaxHealthData(EntityPlayer par1EntityPlayer, int par2)
+	{
+		par1EntityPlayer.getEntityData().setInteger("maxHealth", par2);
+	}
+
+	public static void setMaxHealth(EntityPlayer par1EntityPlayer)
+	{
+		int health = par1EntityPlayer.getEntityData().getInteger("maxHealth");
+		par1EntityPlayer.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(HEALTH_BASE + health);
+	}
+
+	public static void setMaxHealth(EntityPlayer par1EntityPlayer, int par2)
+	{
+		par1EntityPlayer.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(par2);
+	}
+
+	/*public void setMaxDamage(EntityPlayer parEntityPlayer, float parAmount)
 	{
 		parEntityPlayer.getEntityData().setFloat("maxDamage", parAmount);
 	}
@@ -89,9 +116,8 @@ public class EventMaxHealthHandler
 	}
 
 	@SubscribeEvent
-	public void onEntityJoinWorld(EntityJoinWorldEvent parEvent)
+	public void onPlayerAttack(AttackEntityEvent parEvent)
 	{
-		if (!(parEvent.entity instanceof EntityPlayer)) return;
-		this.updateMaxHealth((EntityPlayer)parEvent.entity);
-	}
+		parEvent.target.attackEntityFrom(DamageSource.causePlayerDamage(parEvent.entityPlayer), parEvent.entityPlayer.getEntityData().getFloat("maxDamage"));
+	}*/
 }

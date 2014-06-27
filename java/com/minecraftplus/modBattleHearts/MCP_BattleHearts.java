@@ -5,6 +5,7 @@ import net.minecraftforge.common.MinecraftForge;
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.Registry;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -13,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_BattleHearts.MODBASE, name = "MC+ " + MCP_BattleHearts.MODBASE, version = "1.0.1")
+@Mod(modid = "MCP_" + MCP_BattleHearts.MODBASE, name = "MC+ " + MCP_BattleHearts.MODBASE, version = "1.0.2")
 public class MCP_BattleHearts extends MCP
 {
 	protected static final String MODBASE = "BattleHearts";
@@ -30,9 +31,13 @@ public class MCP_BattleHearts extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.1");
 
-		MinecraftForge.EVENT_BUS.register(new EventMaxHealthHandler());
+		Registry.addPacket(PacketMaxHealth.class);
+
+		Object obj = new EventMaxHealthHandler();
+		MinecraftForge.EVENT_BUS.register(obj);
+		FMLCommonHandler.instance().bus().register(obj);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
