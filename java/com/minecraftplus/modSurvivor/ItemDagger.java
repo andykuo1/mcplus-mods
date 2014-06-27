@@ -1,9 +1,7 @@
 package com.minecraftplus.modSurvivor;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
 import com.minecraftplus._base.registry.IconRegistry;
