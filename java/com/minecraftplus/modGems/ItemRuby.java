@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import net.minecraft.creativetab.CreativeTabs;
 

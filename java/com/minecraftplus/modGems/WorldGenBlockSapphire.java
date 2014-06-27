@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import java.util.Random;
 
@@ -12,7 +12,7 @@ public class WorldGenBlockSapphire extends WorldGenBlock implements IWorldGenSur
 {
 	public WorldGenBlockSapphire()
 	{
-		super(MCP_Ruby.sapphireOre);
+		super(MCP_Gems.sapphireOre);
 	}
 
 	public void generateSurface(World par1World, Random par2Random, int par3, int par4)

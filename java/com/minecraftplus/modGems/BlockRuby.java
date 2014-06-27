@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCompressed;
@@ -11,11 +11,11 @@ import com.minecraftplus._base.registry.IconRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockSapphire extends BlockCompressed
+public class BlockRuby extends BlockCompressed
 {
-	public BlockSapphire()
+	public BlockRuby()
 	{
-		super(MapColor.blueColor);
+		super(MapColor.redColor);
 
 		this.setHardness(3.0F);
 		this.setResistance(5.0F);

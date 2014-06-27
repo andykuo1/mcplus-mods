@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import java.util.Random;
 
@@ -33,7 +33,7 @@ public class BlockOreRuby extends BlockOre
 	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return MCP_Ruby.ruby;
+		return MCP_Gems.ruby;
 	}
 	
 	private Random rand = new Random();

@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import java.util.Random;
 
@@ -12,7 +12,7 @@ public class WorldGenBlockRuby extends WorldGenBlock implements IWorldGenSurface
 {
 	public WorldGenBlockRuby()
 	{
-		super(MCP_Ruby.rubyOre);
+		super(MCP_Gems.rubyOre);
 	}
 
 	public void generateSurface(World par1World, Random par2Random, int par3, int par4)

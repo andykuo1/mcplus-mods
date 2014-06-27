@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -15,13 +15,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Ruby.MODBASE, name = "MC+ " + MCP_Ruby.MODBASE, version = "1.1.0")
-public class MCP_Ruby extends MCP
+@Mod(modid = "MCP_" + MCP_Gems.MODBASE, name = "MC+ " + MCP_Gems.MODBASE, version = "1.1.0")
+public class MCP_Gems extends MCP
 {
-	protected static final String MODBASE = "Ruby";
+	protected static final String MODBASE = "Gems";
 
-	@Instance("MCP_" + MCP_Ruby.MODBASE)
-	public static MCP_Ruby INSTANCE;
+	@Instance("MCP_" + MCP_Gems.MODBASE)
+	public static MCP_Gems INSTANCE;
 
 	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
 	public static CommonProxy proxy;

@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import net.minecraft.item.ItemStack;
 
@@ -28,11 +28,11 @@ public class CommonProxy implements ICommonProxy
 	@Override
 	public void register(Registry.RecipeMode par1Registry)
 	{
-		par1Registry.addShapedRecipe(new ItemStack(MCP_Ruby.rubyBlock, 1), new Object[] {
+		par1Registry.addShapedRecipe(new ItemStack(MCP_Gems.rubyBlock, 1), new Object[] {
 			"###", "###", "###",
-			Character.valueOf('#'), MCP_Ruby.ruby});
-		par1Registry.addShapedRecipe(new ItemStack(MCP_Ruby.sapphireBlock, 1), new Object[] {
+			Character.valueOf('#'), MCP_Gems.ruby});
+		par1Registry.addShapedRecipe(new ItemStack(MCP_Gems.sapphireBlock, 1), new Object[] {
 			"###", "###", "###",
-			Character.valueOf('#'), MCP_Ruby.sapphire});
+			Character.valueOf('#'), MCP_Gems.sapphire});
 	}
 }

@@ -1,4 +1,4 @@
-package com.minecraftplus.modRuby;
+package com.minecraftplus.modGems;
 
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.Registry;
