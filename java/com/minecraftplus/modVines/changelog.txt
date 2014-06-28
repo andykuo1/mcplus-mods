@@ -1,0 +1,3 @@
+v1.0.0
+- Implemented ability to use bonemeal to grow Vine
+- Updated to 1.7.2

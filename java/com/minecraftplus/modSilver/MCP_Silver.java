@@ -22,7 +22,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = "MCP_" + MCP_Silver.MODBASE, name = "MC+ " + MCP_Silver.MODBASE, version = "1.0.0")
 public class MCP_Silver extends MCP
 {
-	protected static final String MODBASE = "Base";
+	protected static final String MODBASE = "Silver";
 
 	@Instance("MCP_" + MCP_Silver.MODBASE)
 	public static MCP_Silver INSTANCE;
