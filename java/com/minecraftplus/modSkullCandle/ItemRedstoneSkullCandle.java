@@ -18,24 +18,23 @@ public class ItemRedstoneSkullCandle extends ItemSkull
 {
 	private static final String[] skullTypes = new String[] {"skeleton", "wither", "zombie", "char", "creeper"};
 	private IIcon[] itemIcons;
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
-    public IIcon getIconFromDamage(int par1)
-    {
-        if (par1 < 0 || par1 >= skullTypes.length)
-        {
-            par1 = 0;
-        }
+	public IIcon getIconFromDamage(int par1)
+	{
+		if (par1 < 0 || par1 >= skullTypes.length)
+		{
+			par1 = 0;
+		}
 
-        return this.itemIcons[par1];
-    }
+		return this.itemIcons[par1];
+	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
-		super.registerIcons(par1IIconRegister);
 		this.itemIcons = new IIcon[field_94587_a.length];
 
 		for (int i = 0; i < itemIcons.length; ++i)

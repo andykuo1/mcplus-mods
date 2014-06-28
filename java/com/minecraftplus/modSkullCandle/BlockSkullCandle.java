@@ -72,4 +72,11 @@ public class BlockSkullCandle extends BlockSkull
 
 	@Override
 	public void func_149965_a(World p_149965_1_, int p_149965_2_, int p_149965_3_, int p_149965_4_, TileEntitySkull p_149965_5_) {}
+	
+	@SideOnly(Side.CLIENT)
+	@Override
+    public String getItemIconName()
+    {
+        return null;
+    }
 }

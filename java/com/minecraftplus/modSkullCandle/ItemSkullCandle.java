@@ -35,7 +35,6 @@ public class ItemSkullCandle extends ItemSkull
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
-		super.registerIcons(par1IIconRegister);
 		this.itemIcons = new IIcon[field_94587_a.length];
 
 		for (int i = 0; i < itemIcons.length; ++i)

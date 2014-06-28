@@ -25,8 +25,6 @@ public class EventMaxHealthHandler
 		if (parEvent.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) parEvent.entity;
-			System.out.println(player.worldObj.isRemote);
-			System.out.println(player.getEntityData().getInteger("maxHealth"));
 
 			if (player.isPlayerFullyAsleep())
 			{
