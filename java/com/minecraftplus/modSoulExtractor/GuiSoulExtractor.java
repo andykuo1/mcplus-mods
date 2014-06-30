@@ -30,7 +30,7 @@ public class GuiSoulExtractor extends GuiContainer
 	{	
 		super.initGui();
 		this.buttonList.clear();
-		GuiButton button = new GuiButton(0, 0, 0, 80, 20, "Extract");
+		GuiButton button = new GuiButton(0, this.guiLeft + 98, this.guiTop + 60, 60, 16, "Extract");
 		button.enabled = false;
 		this.buttonList.add(button);
 	}

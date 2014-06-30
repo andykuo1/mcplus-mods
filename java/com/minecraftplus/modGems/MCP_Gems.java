@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
+import com.minecraftplus._base.registry.LanguageRegistry;
 import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
@@ -15,7 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Gems.MODBASE, name = "MC+ " + MCP_Gems.MODBASE, version = "1.1.0")
+@Mod(modid = "MCP_" + MCP_Gems.MODBASE, name = "MC+ " + MCP_Gems.MODBASE, version = "1.1.1")
 public class MCP_Gems extends MCP
 {
 	protected static final String MODBASE = "Gems";
@@ -45,19 +46,23 @@ public class MCP_Gems extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.1");
 
 		ItemRegistry.add(ruby);
 		ItemRegistry.add(rubyOre);
-		ItemRegistry.add(rubyBlock);
+		ItemRegistry.addUnLocal(rubyBlock);
 
 		ItemRegistry.add(sapphire);
 		ItemRegistry.add(sapphireOre);
-		ItemRegistry.add(sapphireBlock);
+		ItemRegistry.addUnLocal(sapphireBlock);
 
 		ItemRegistry.add(amethyst);
 		ItemRegistry.add(amethystOre);
-		ItemRegistry.add(amethystBlock);
+		ItemRegistry.addUnLocal(amethystBlock);
+		
+		LanguageRegistry.add("tile.block_of_ruby.name", "Block of Ruby");
+		LanguageRegistry.add("tile.block_of_sapphire.name", "Block of Sapphire");
+		LanguageRegistry.add("tile.block_of_amethyst.name", "Block of Amethyst");
 
 		Registry.addWorldGen(new WorldGenBlockRuby());
 		Registry.addWorldGen(new WorldGenBlockSapphire());

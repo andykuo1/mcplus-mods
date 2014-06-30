@@ -40,6 +40,7 @@ public class MCP_SoulExtractor extends MCP
 		Items.experience_bottle.setMaxStackSize(1);
 
 		Registry.addPacket(PacketAbsorbSoul.class);
+		Registry.addGuiHandler(this, new GuiHandler());
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
