@@ -1,6 +1,9 @@
 package com.minecraftplus.modLeafLitter;
 
+import net.minecraft.block.Block;
+
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
@@ -24,12 +27,16 @@ public class MCP_LeafLitter extends MCP
 
 	//TODO: Nothing yet. . .
 
+	public static final Block leafLitter = new BlockLeafLitter().setBlockName("leaf_litter");
+	
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
 		MCP.initMain(par1Event, "1.1");
 
+		ItemRegistry.add(leafLitter);
+		
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
 		proxy.register(Registry.CUSTOM_ENTITY);
