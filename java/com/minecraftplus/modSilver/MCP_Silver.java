@@ -28,7 +28,7 @@ public class MCP_Silver extends MCP
 
 	//TODO: Nothing yet. . .
 	public static final Block silverOre = new BlockSilverOre().setBlockName("silver_ore");
-	public static final Block silverBlock = new BlockSilver().setBlockName("silver_block");
+	public static final Block silverBlock = new BlockSilver().setBlockName("block_of_silver");
 	
 	public static final Item silverIngot = new ItemSilverIngot().setUnlocalizedName("silver_ingot");
 	public static final Item silverNugget = new ItemSilverNugget().setUnlocalizedName("silver_nugget");
