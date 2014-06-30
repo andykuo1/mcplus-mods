@@ -1,6 +1,10 @@
 package com.minecraftplus.modSilver;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
@@ -23,6 +27,11 @@ public class MCP_Silver extends MCP
 	public static CommonProxy proxy;
 
 	//TODO: Nothing yet. . .
+	public static final Block silverOre = new BlockSilverOre().setBlockName("silver_ore");
+	public static final Block silverBlock = new BlockSilver().setBlockName("silver_block");
+	
+	public static final Item silverIngot = new ItemSilverIngot().setUnlocalizedName("silver_ingot");
+	public static final Item silverNugget = new ItemSilverNugget().setUnlocalizedName("silver_nugget");
 
 	@EventHandler
 	@Override
@@ -30,6 +39,13 @@ public class MCP_Silver extends MCP
 	{
 		MCP.initMain(par1Event, "1.1");
 
+		ItemRegistry.add(silverOre);
+		ItemRegistry.add(silverBlock);
+		ItemRegistry.add(silverIngot);
+		ItemRegistry.add(silverNugget);
+		
+		Registry.addWorldGen(new WorldGenBlockOreSilver());
+		
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
 		proxy.register(Registry.CUSTOM_ENTITY);
