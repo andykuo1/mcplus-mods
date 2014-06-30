@@ -16,7 +16,7 @@ public class GuiHandler implements IGuiHandler
 			switch (par1)
 			{
 			case 0:
-				return new com.minecraftplus.modSoulExtractor.ContainerSoulExtractor(par2EntityPlayer, (com.minecraftplus.modSoulExtractor.TileEntitySoulExtractor) tileentity);
+				return new ContainerSoulExtractor(par2EntityPlayer, (TileEntitySoulExtractor) tileentity);
 			}
 		}
 		return null;
@@ -31,7 +31,7 @@ public class GuiHandler implements IGuiHandler
 			switch (par1)
 			{
 			case 0:
-				return new com.minecraftplus.modSoulExtractor.GuiSoulExtractor(par2EntityPlayer, (com.minecraftplus.modSoulExtractor.TileEntitySoulExtractor) tileentity);
+				return new GuiSoulExtractor(par2EntityPlayer, (TileEntitySoulExtractor) tileentity);
 			}
 		}
 		return null;
