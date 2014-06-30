@@ -34,5 +34,12 @@ public class CommonProxy implements ICommonProxy
 		par1Registry.addShapedRecipe(new ItemStack(MCP_Gems.sapphireBlock, 1), new Object[] {
 			"###", "###", "###",
 			Character.valueOf('#'), MCP_Gems.sapphire});
+		par1Registry.addShapedRecipe(new ItemStack(MCP_Gems.amethystBlock, 1), new Object[] {
+			"###", "###", "###",
+			Character.valueOf('#'), MCP_Gems.amethyst});
+		
+		par1Registry.addShapelessRecipe(new ItemStack(MCP_Gems.ruby, 9), MCP_Gems.rubyBlock);
+		par1Registry.addShapelessRecipe(new ItemStack(MCP_Gems.sapphire, 9), MCP_Gems.sapphireBlock);
+		par1Registry.addShapelessRecipe(new ItemStack(MCP_Gems.amethyst, 9), MCP_Gems.amethystBlock);
 	}
 }
