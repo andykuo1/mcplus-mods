@@ -1,8 +1,12 @@
-v1.1.0
+v1.1.0*
 - Added Sapphire Ore
 - Added Sapphire
 - Added Block of Sapphire
 - Added World Generation for Sapphire Ore
+- Added Amethyst Ore
+- Added Amethyst
+- Added Block of Amethyst
+- Added World Generation for Amethyst Ore
 
 v1.0.1
 - Adjusted world generation

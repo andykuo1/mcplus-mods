@@ -1,4 +1,4 @@
-v1.0.1
+v1.0.1*
 - Minor reorganization to source
 
 v1.0.0*
