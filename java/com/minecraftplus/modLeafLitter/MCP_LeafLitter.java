@@ -28,7 +28,7 @@ public class MCP_LeafLitter extends MCP
 	//TODO: Nothing yet. . .
 
 	public static final Block leafLitter = new BlockLeafLitter().setBlockName("leaf_litter");
-	
+
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
@@ -36,7 +36,9 @@ public class MCP_LeafLitter extends MCP
 		MCP.initMain(par1Event, "1.1");
 
 		ItemRegistry.add(leafLitter);
-		
+
+		Registry.addWorldGen(new WorldGenBlockLeafLitter());
+
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
 		proxy.register(Registry.CUSTOM_ENTITY);
