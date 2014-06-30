@@ -31,11 +31,15 @@ public class MCP_Gems extends MCP
 	public static final Item ruby = new ItemRuby().setUnlocalizedName("ruby");
 	public static final Block rubyOre = new BlockOreRuby().setBlockName("ruby_ore");
 	public static final Block rubyBlock = new BlockRuby().setBlockName("block_of_ruby");
-	
+
 	public static final Item sapphire = new ItemSapphire().setUnlocalizedName("sapphire");
 	public static final Block sapphireOre = new BlockOreSapphire().setBlockName("sapphire_ore");
 	public static final Block sapphireBlock = new BlockSapphire().setBlockName("block_of_sapphire");
-	
+
+	public static final Item amethyst = new ItemAmethyst().setUnlocalizedName("amethyst");
+	public static final Block amethystOre = new BlockOreAmethyst().setBlockName("amethyst_ore");
+	public static final Block amethystBlock = new BlockAmethyst().setBlockName("block_of_amethyst");
+
 
 	@EventHandler
 	@Override
@@ -46,13 +50,18 @@ public class MCP_Gems extends MCP
 		ItemRegistry.add(ruby);
 		ItemRegistry.add(rubyOre);
 		ItemRegistry.add(rubyBlock);
-		
+
 		ItemRegistry.add(sapphire);
 		ItemRegistry.add(sapphireOre);
 		ItemRegistry.add(sapphireBlock);
 
+		ItemRegistry.add(amethyst);
+		ItemRegistry.add(amethystOre);
+		ItemRegistry.add(amethystBlock);
+
 		Registry.addWorldGen(new WorldGenBlockRuby());
 		Registry.addWorldGen(new WorldGenBlockSapphire());
+		Registry.addWorldGen(new WorldGenBlockAmethyst());
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

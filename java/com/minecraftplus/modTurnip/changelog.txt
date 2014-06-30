@@ -1,4 +1,4 @@
-v1.0.0
+v1.0.0*
 - Added Turnip
 - Added Turnip Seeds
 - Implemented drop from tall grass

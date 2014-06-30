@@ -1,0 +1,3 @@
+v1.0.0
+- Added Saw
+- Updated to 1.7.2

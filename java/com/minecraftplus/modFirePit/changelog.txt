@@ -1,4 +1,4 @@
-v1.0.1
+v1.0.1*
 - Added experience for cooking food
 - Added light to Fire Pit
 - Added burning if stepped on

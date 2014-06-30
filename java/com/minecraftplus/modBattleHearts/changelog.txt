@@ -1,4 +1,4 @@
-v1.0.2
+v1.0.2*
 - Bugfix: Fixed traveling dimension resets max health
 - Bugfix: Uninstalling mod does not reset health
 - Bugfix: Health resets to 4 hearts when traveling dimensions

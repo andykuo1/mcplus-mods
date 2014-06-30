@@ -1,4 +1,4 @@
-v1.0.0
+v1.0.0*
 - Added Sweet Potato
 - Added Baked Sweet Potato
 - Added smelting recipe for Sweet Potato
