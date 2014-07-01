@@ -28,7 +28,7 @@ public class MCP_Decay extends MCP
 	public static CommonProxy proxy;
 
 	//TODO: Nothing yet. . .
-	public static final Block torchLit = new BlockTorch().setBlockName("torch_on");
+	public static final Block torchLit = new BlockTorchLit().setBlockName("torch_on");
 	public static final Block torchUnlit = new BlockTorchUnlit().setBlockName("torch_off");
 
 	@EventHandler
@@ -37,6 +37,8 @@ public class MCP_Decay extends MCP
 	{
 		MCP.initMain(par1Event, "1.1");
 
+		LanguageRegistry.add("tile.torch_off.name", "Torch");
+		
 		ItemRegistry.addUnLocal(torchLit);
 		ItemRegistry.addUnLocal(torchUnlit);
 
