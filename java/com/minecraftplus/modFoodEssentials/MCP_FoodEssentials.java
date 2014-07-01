@@ -8,7 +8,6 @@ import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
 import com.minecraftplus._common.item.ItemFoodstuff;
-import com.minecraftplus.modFoodEssentials.EventSquidDropHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -35,6 +34,9 @@ public class MCP_FoodEssentials extends MCP
 	
 	public static final Item rawSquid = new ItemFoodstuff(3, 0.3F).setPotionEffect(PotionHelper.spiderEyeEffect).setUnlocalizedName("raw_squid");
 	public static final Item calamari = new ItemFoodstuff(8, 0.8F).setUnlocalizedName("calamari");
+	
+	public static final Item coldBeefStew = new ItemFoodstuff(3, 1.0F).setPotionEffect(PotionHelper.spiderEyeEffect).setUnlocalizedName("cold_beef_stew");
+	public static final Item beefStew = new ItemFoodstuff(12, 1.0F).setUnlocalizedName("beef_stew");
 	
 	public static final Block saltOre = new BlockSaltOre().setBlockName("salt_ore");
 	
