@@ -37,6 +37,7 @@ public class BlockTorchUnlit extends net.minecraft.block.BlockTorch
 			int metadata = par1World.getBlockMetadata(par2, par3, par4);
 			par1World.setBlock(par2, par3, par4, MCP_Decay.torchLit);
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, metadata, 2);
+			return true;
 		}
 		
 		return super.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, par6, par7, par8, par9);

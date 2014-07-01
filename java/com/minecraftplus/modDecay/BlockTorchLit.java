@@ -44,9 +44,12 @@ public class BlockTorchLit extends BlockTorch
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		super.updateTick(par1World, par2, par3, par4, par5Random);
-		int metadata = par1World.getBlockMetadata(par2, par3, par4);
-		par1World.setBlock(par2, par3, par4, MCP_Decay.torchUnlit);
-		par1World.setBlockMetadataWithNotify(par2, par3, par4, metadata, 2);
+		if (!par1World.isRemote && (par1World.rand.nextInt(4) == 0 || (par1World.isRaining() && par1World.canBlockSeeTheSky(par2, par3, par4))))
+		{
+			int metadata = par1World.getBlockMetadata(par2, par3, par4);
+			par1World.setBlock(par2, par3, par4, MCP_Decay.torchUnlit);
+			par1World.setBlockMetadataWithNotify(par2, par3, par4, metadata, 2);
+		}
 	}
 
 	@Override
