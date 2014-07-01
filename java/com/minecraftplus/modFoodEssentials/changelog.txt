@@ -1,0 +1,5 @@
+v1.0.0
+
+- Adds a few essential ingredients including;
+  - Salt - (Obtainable through Salt Ore)
+- Updated to 1.7.2
