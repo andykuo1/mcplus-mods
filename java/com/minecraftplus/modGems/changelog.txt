@@ -1,7 +1,7 @@
 v1.1.1*
 - Added crafting recipes for Amethyst
 - Added crafting recipes from Block to Item
-- Changed en_US localization for Block of gems
+- Changed localization for gems
 
 v1.1.0*
 - Added Sapphire Ore

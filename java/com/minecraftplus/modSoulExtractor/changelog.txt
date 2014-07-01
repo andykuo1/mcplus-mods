@@ -1,5 +1,6 @@
 v1.0.2*
-- Bugfix: Unable to open Soul Extractor
+- Bugfix: Unable to open Soul Extractor gui
+- Bugfix: Quick gui flash
 - Minor reorganization to source
 
 v1.0.1*
