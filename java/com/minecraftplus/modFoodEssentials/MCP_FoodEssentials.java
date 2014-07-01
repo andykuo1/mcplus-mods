@@ -6,6 +6,8 @@ import net.minecraft.item.Item;
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._common.item.ItemFoodstuff;
+import com.minecraftplus.modFoodEssentials.EventSquidDropHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -30,8 +32,11 @@ public class MCP_FoodEssentials extends MCP
 	
 	public static final Item salt = new ItemSalt().setUnlocalizedName("salt");
 	
+	public static final Item rawSquid = new ItemFoodstuff(3, 0.3F).setUnlocalizedName("raw_squid");
+	public static final Item calamari = new ItemFoodstuff(8, 0.8F).setUnlocalizedName("calamari");
+	
 	public static final Block saltOre = new BlockSaltOre().setBlockName("salt_ore");
-
+	
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
@@ -39,6 +44,9 @@ public class MCP_FoodEssentials extends MCP
 		MCP.initMain(par1Event, "1.1");
 
 		ItemRegistry.add(saltOre);
+		ItemRegistry.add(salt);
+		ItemRegistry.add(rawSquid);
+		ItemRegistry.add(calamari);
 		
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

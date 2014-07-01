@@ -2,4 +2,15 @@ v1.0.0
 
 - Adds a few essential ingredients including;
   - Salt - (Obtainable through Salt Ore)
+  
 - Updated to 1.7.2
+
+- Other things added (Need to be modularised);
+
+- Raw Squid
+  - Drops when killing squid (Drops 3 raw squid per squid)
+  - Restores 1.5 shanks
+  
+- Calamari 
+  - Made by cooking squid in a stove with a frying pan equipped (hopefully soon)
+  - Restores 4 shanks
