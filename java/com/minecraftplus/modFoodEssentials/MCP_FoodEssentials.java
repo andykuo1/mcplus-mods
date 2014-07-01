@@ -2,6 +2,7 @@ package com.minecraftplus.modFoodEssentials;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.potion.PotionHelper;
 
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
@@ -32,7 +33,7 @@ public class MCP_FoodEssentials extends MCP
 	
 	public static final Item salt = new ItemSalt().setUnlocalizedName("salt");
 	
-	public static final Item rawSquid = new ItemFoodstuff(3, 0.3F).setUnlocalizedName("raw_squid");
+	public static final Item rawSquid = new ItemFoodstuff(3, 0.3F).setUnlocalizedName("raw_squid").setPotionEffect(PotionHelper.spiderEyeEffect);
 	public static final Item calamari = new ItemFoodstuff(8, 0.8F).setUnlocalizedName("calamari");
 	
 	public static final Block saltOre = new BlockSaltOre().setBlockName("salt_ore");

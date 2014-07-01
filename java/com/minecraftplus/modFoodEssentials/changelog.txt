@@ -9,6 +9,7 @@ v1.0.0
 
 - Raw Squid
   - Drops when killing squid (Drops 3 raw squid per squid)
+  - Poisons you!
   - Restores 1.5 shanks
   
 - Calamari 
