@@ -44,7 +44,6 @@ public class MCP_FoodEssentials extends MCP
 	public static final Item rawSquid = new ItemFoodstuff(3, 0.3F).setPotionEffect(PotionHelper.spiderEyeEffect).setUnlocalizedName("raw_squid");
 	public static final Item calamari = new ItemFoodstuff(8, 0.8F).setUnlocalizedName("calamari");
 	
-	public static final Item coldBeefStew = new ItemFoodstuff(3, 1.0F).setPotionEffect(PotionHelper.spiderEyeEffect).setUnlocalizedName("cold_beef_stew");
 	public static final Item beefStew = new ItemFoodstuff(12, 1.0F).setUnlocalizedName("beef_stew");
 	
 	public static final Block saltOre = new BlockSaltOre().setBlockName("salt_ore");
