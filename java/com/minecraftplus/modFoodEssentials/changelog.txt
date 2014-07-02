@@ -25,4 +25,10 @@ v1.0.0
  	- Maybe warm up a cold stew ;)
  	- Restores 6 shanks
  	
+- Cabbage
+	- Growable (Soon)
+	- Restores 1 Shank (for now)
+	
+- Cabbage Seeds
+	- Grows cabbage
  
