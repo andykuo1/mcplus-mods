@@ -1,0 +1,4 @@
+v1.0.0*
+- Added Glowing Skull
+- Added Glowing Redstone Skull
+- Updated to 1.7.2

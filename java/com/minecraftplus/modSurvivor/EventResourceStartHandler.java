@@ -1,6 +1,7 @@
 package com.minecraftplus.modSurvivor;
 
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
