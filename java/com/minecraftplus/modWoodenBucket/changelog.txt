@@ -1,3 +1,8 @@
+v1.2.0
+- Removed Lava Wooden Bucket
+- Changed Wooden Bucket overlay texture
+- Updated to 1.7.10
+
 v1.1.1*
 - Minor reorganization to source
 

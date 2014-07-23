@@ -11,7 +11,7 @@ public class EventSweetPotatoDropHandler
 	@SubscribeEvent
 	public void onBlockBreak(BreakEvent par1Event)
 	{
-		if (!par1Event.world.isRemote && par1Event.block == Blocks.grass)
+		if (!par1Event.world.isRemote && par1Event.block == Blocks.grass && (par1Event.getPlayer() != null ? !par1Event.getPlayer().capabilities.isCreativeMode : true))
 		{
 			if (par1Event.world.rand.nextInt(64) == 0)
 			{

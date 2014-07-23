@@ -18,6 +18,7 @@ import com.minecraftplus._common.packet.Packet;
 import com.minecraftplus._common.render.RenderBlock;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -48,6 +49,11 @@ public class Registry
 	public static void addGuiHandler(MCP par1MCP, IGuiHandler parIGuiHandler)
 	{
 		NetworkRegistry.INSTANCE.registerGuiHandler(par1MCP, parIGuiHandler);
+	}
+
+	public static void addEventHandler(EventBus par1EventBus, Object par2Object)
+	{
+		par1EventBus.register(par2Object);
 	}
 
 	public static boolean addPacket(Class<? extends Packet> par1Class)

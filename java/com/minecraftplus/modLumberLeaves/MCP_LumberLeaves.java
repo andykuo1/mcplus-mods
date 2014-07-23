@@ -12,7 +12,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_LumberLeaves.MODBASE, name = "MC+ " + MCP_LumberLeaves.MODBASE, version = "1.0.0", dependencies = "required-after:MCP_Lumber")
+@Mod(modid = "MCP_" + MCP_LumberLeaves.MODBASE, name = "MC+ " + MCP_LumberLeaves.MODBASE, version = "1.0.1", dependencies = "required-after:MCP_Lumber")
 public class MCP_LumberLeaves extends MCP
 {
 	protected static final String MODBASE = "LumberLeaves";
@@ -29,7 +29,7 @@ public class MCP_LumberLeaves extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

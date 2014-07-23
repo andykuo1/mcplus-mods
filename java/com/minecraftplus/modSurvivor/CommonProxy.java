@@ -1,5 +1,6 @@
 package com.minecraftplus.modSurvivor;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -41,5 +42,9 @@ public class CommonProxy implements ICommonProxy
 			"#", "X",
 			Character.valueOf('#'), Items.flint,
 			Character.valueOf('X'), Items.stick});
+
+		par1Registry.addShapedRecipe(new ItemStack(Blocks.cobblestone, 1), new Object[] {
+			"##", "##",
+			Character.valueOf('#'), MCP_Survivor.stones});
 	}
 }

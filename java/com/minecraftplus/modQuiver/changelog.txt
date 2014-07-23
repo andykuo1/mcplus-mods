@@ -1,3 +1,6 @@
+v1.3.2
+- Updated to Minecraft 1.7.10
+
 v1.3.1*
 - Minor reorganization to source
 

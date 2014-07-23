@@ -14,6 +14,7 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._common.render.RenderBlock;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -78,15 +79,19 @@ public class MCP_Saw extends MCP
 		}
 	}
 
+	public static final RenderBlock renderBlockSaw = new RenderBlockSaw();
+
 	public static final Block saw = new BlockSaw().setBlockName("saw");
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(saw);
+		
+		Registry.addRenderBlock(renderBlockSaw);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

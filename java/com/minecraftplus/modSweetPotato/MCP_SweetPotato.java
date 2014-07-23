@@ -17,7 +17,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_SweetPotato.MODBASE, name = "MC+ " + MCP_SweetPotato.MODBASE, version = "1.0.0")
+@Mod(modid = "MCP_" + MCP_SweetPotato.MODBASE, name = "MC+ " + MCP_SweetPotato.MODBASE, version = "1.0.1")
 public class MCP_SweetPotato extends MCP
 {
 	protected static final String MODBASE = "SweetPotato";
@@ -39,11 +39,15 @@ public class MCP_SweetPotato extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(sweetPotatoes);
 		ItemRegistry.add(sweetPotato);
 		ItemRegistry.add(bakedSweetPotato);
+
+		ItemRegistry.addDict(sweetPotato, "cropSweetPotato");
+		ItemRegistry.addDict(sweetPotatoes, "cropSweetPotato");
+		ItemRegistry.addDict(bakedSweetPotato, "foodBakedSweetPotato");
 
 		MinecraftForge.EVENT_BUS.register(new EventSweetPotatoDropHandler());
 

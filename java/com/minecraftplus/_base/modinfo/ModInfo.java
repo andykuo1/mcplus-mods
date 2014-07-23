@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.minecraftplus._base.MCP;
 
@@ -35,7 +36,7 @@ public class ModInfo
 			writer.write("\n\"name\": \"" + mod.getName() + "\"" + ",");
 			writer.write("\n\"description\": \"" + par2Description + "\"" + ",");
 			writer.write("\n\"version\": \"" + mod.getVersion() + "\"" + ",");
-			writer.write("\n\"mcversion\": \"" + "1.7.2" + "\"" + ",");
+			writer.write("\n\"mcversion\": \"" + MinecraftForge.MC_VERSION + "\"" + ",");
 			writer.write("\n\"url\": \"" + url + "\"" + ",");
 			writer.write("\n\"authors\": " + "[" + "\"andykuo1\"" + "]" + ",");
 			writer.write("\n\"credits\": \"" + "andykuo1" + "\"" + ",");

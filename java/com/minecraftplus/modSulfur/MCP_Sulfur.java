@@ -35,10 +35,13 @@ public class MCP_Sulfur extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(sulfur);
 		ItemRegistry.add(sulfurOre);
+
+		ItemRegistry.addDict(sulfur, "materialSulfur");
+		ItemRegistry.addDict(sulfurOre, "oreSulfur");
 
 		Registry.addWorldGen(new WorldGenBlockSulfur());
 

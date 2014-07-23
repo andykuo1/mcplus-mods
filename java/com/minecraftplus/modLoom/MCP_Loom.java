@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Loom.MODBASE, name = "MC+ " + MCP_Loom.MODBASE, version = "1.2.2", dependencies = "required-after:MCP_Wheel")
+@Mod(modid = "MCP_" + MCP_Loom.MODBASE, name = "MC+ " + MCP_Loom.MODBASE, version = "1.2.3", dependencies = "required-after:MCP_Wheel")
 public class MCP_Loom extends MCP
 {
 	protected static final String MODBASE = "Loom";
@@ -33,7 +33,7 @@ public class MCP_Loom extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(loom);
 

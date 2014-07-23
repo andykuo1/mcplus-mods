@@ -30,7 +30,7 @@ public class MCP_Shatter extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		MinecraftForge.EVENT_BUS.register(new EventArrowSpawnEvent());
 

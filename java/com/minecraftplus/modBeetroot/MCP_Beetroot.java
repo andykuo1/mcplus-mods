@@ -17,7 +17,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Beetroot.MODBASE, name = "MC+ " + MCP_Beetroot.MODBASE, version = "1.0.1")
+@Mod(modid = "MCP_" + MCP_Beetroot.MODBASE, name = "MC+ " + MCP_Beetroot.MODBASE, version = "1.1.0")
 public class MCP_Beetroot extends MCP
 {
 	protected static final String MODBASE = "Beetroot";
@@ -40,14 +40,19 @@ public class MCP_Beetroot extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(beetroots);
 		ItemRegistry.add(beetroot);
 		ItemRegistry.add(beetrootSeeds);
 		ItemRegistry.add(beetrootSoup);
 
-		MinecraftForge.EVENT_BUS.register(new EventBeetrootDropHandler());
+		ItemRegistry.addDict(beetroot, "cropBeetroot");
+		ItemRegistry.addDict(beetroots, "cropBeetroot");
+		ItemRegistry.addDict(beetrootSeeds, "seedBeetroot");
+		ItemRegistry.addDict(beetrootSoup, "soupBeetroot");
+
+		Registry.addEventHandler(MinecraftForge.EVENT_BUS, new EventBeetrootDropHandler());
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

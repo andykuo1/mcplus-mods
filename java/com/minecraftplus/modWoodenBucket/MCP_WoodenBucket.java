@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_WoodenBucket.MODBASE, name = "MC+ " + MCP_WoodenBucket.MODBASE, version = "1.1.1")
+@Mod(modid = "MCP_" + MCP_WoodenBucket.MODBASE, name = "MC+ " + MCP_WoodenBucket.MODBASE, version = "1.2.0")
 public class MCP_WoodenBucket extends MCP
 {
 	protected static final String MODBASE = "WoodenBucket";
@@ -31,18 +31,16 @@ public class MCP_WoodenBucket extends MCP
 
 	public static final Item woodenBucketEmpty = new ItemWoodenBucketEmpty().setUnlocalizedName("wooden_bucket");
 	public static final Item woodenBucketWater = new ItemWoodenBucket(Blocks.flowing_water).setContainerItem(woodenBucketEmpty).setUnlocalizedName("wooden_water_bucket");
-	public static final Item woodenBucketLava = new ItemWoodenBucket(Blocks.flowing_lava).setContainerItem(woodenBucketEmpty).setUnlocalizedName("wooden_lava_bucket");
 	public static final Item woodenBucketMilk = new ItemWoodenBucketMilk().setContainerItem(woodenBucketEmpty).setUnlocalizedName("wooden_milk_bucket");
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(woodenBucketEmpty);
 		ItemRegistry.add(woodenBucketWater);
-		ItemRegistry.add(woodenBucketLava);
 		ItemRegistry.add(woodenBucketMilk);
 
 		MinecraftForge.EVENT_BUS.register(new EventFillCauldronHandler());

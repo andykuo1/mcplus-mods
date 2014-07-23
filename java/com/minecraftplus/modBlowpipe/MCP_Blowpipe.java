@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Blowpipe.MODBASE, name = "MC+ " + MCP_Blowpipe.MODBASE, version = "1.3.2")
+@Mod(modid = "MCP_" + MCP_Blowpipe.MODBASE, name = "MC+ " + MCP_Blowpipe.MODBASE, version = "1.4.0")
 public class MCP_Blowpipe extends MCP
 {
 	protected static final String MODBASE = "Blowpipe";
@@ -33,7 +33,7 @@ public class MCP_Blowpipe extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(blowpipe);
 

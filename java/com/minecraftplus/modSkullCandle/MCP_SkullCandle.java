@@ -38,7 +38,7 @@ public class MCP_SkullCandle extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(skullCandles);
 		ItemRegistry.add(redstoneSkullCandles);
@@ -51,11 +51,11 @@ public class MCP_SkullCandle extends MCP
 		LanguageRegistry.add("item.skull_candle.char.name", "Skull Candle");
 		LanguageRegistry.add("item.skull_candle.creeper.name", "Creeper Skull Candle");
 		
-		LanguageRegistry.add("item.redstone_skull_candle.skeleton.name", "Skeleton Redstone Skull Candle");
-		LanguageRegistry.add("item.redstone_skull_candle.wither.name", "Wither Skeleton Redstone Skull Candle");
-		LanguageRegistry.add("item.redstone_skull_candle.zombie.name", "Zombie Redstone Skull Candle");
-		LanguageRegistry.add("item.redstone_skull_candle.char.name", "Redstone Skull Candle");
-		LanguageRegistry.add("item.redstone_skull_candle.creeper.name", "Creeper Redstone Skull Candle");
+		LanguageRegistry.add("item.redstone_skull_candle.skeleton.name", "Powered Skeleton Skull Candle");
+		LanguageRegistry.add("item.redstone_skull_candle.wither.name", "Powered Wither Skeleton Skull Candle");
+		LanguageRegistry.add("item.redstone_skull_candle.zombie.name", "Powered Zombie Skull Candle");
+		LanguageRegistry.add("item.redstone_skull_candle.char.name", "Powered Skull Candle");
+		LanguageRegistry.add("item.redstone_skull_candle.creeper.name", "Powered Creeper Skull Candle");
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

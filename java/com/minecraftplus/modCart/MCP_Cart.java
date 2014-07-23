@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Cart.MODBASE, name = "MC+ " + MCP_Cart.MODBASE, version = "1.2.1", dependencies = "required-after:MCP_Wheel")
+@Mod(modid = "MCP_" + MCP_Cart.MODBASE, name = "MC+ " + MCP_Cart.MODBASE, version = "1.3.0", dependencies = "required-after:MCP_Wheel")
 public class MCP_Cart extends MCP
 {
 	protected static final String MODBASE = "Cart";
@@ -33,7 +33,7 @@ public class MCP_Cart extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(cart);
 

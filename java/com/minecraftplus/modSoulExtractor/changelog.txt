@@ -1,3 +1,6 @@
+v1.0.3
+- Updated to 1.7.10
+
 v1.0.2*
 - Bugfix: Unable to open Soul Extractor gui
 - Bugfix: Quick gui flash

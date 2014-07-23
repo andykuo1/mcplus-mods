@@ -18,7 +18,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Turnip.MODBASE, name = "MC+ " + MCP_Turnip.MODBASE, version = "1.0.0")
+@Mod(modid = "MCP_" + MCP_Turnip.MODBASE, name = "MC+ " + MCP_Turnip.MODBASE, version = "1.1.0")
 public class MCP_Turnip extends MCP
 {
 	protected static final String MODBASE = "Turnip";
@@ -35,18 +35,25 @@ public class MCP_Turnip extends MCP
 
 	public static final Item turnip = new ItemFoodstuff(2, 0.4F).setUnlocalizedName("turnip");
 	public static final Item turnipSeeds = new ItemTurnipSeeds().setUnlocalizedName("turnip_seeds");
+	public static final Item turnipSoup = new ItemFoodstuff(8, 0.6F).setUnlocalizedName("turnip_soup");
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(turnips);
 		ItemRegistry.add(turnip);
 		ItemRegistry.add(turnipSeeds);
+		ItemRegistry.add(turnipSoup);
+		
+		ItemRegistry.addDict(turnip, "cropTurnip");
+		ItemRegistry.addDict(turnips, "cropTurnip");
+		ItemRegistry.addDict(turnipSeeds, "seedTurnip");
+		ItemRegistry.addDict(turnipSoup, "soupTurnip");
 
-		MinecraftForge.addGrassSeed(new ItemStack(turnipSeeds), 6);
+		MinecraftForge.addGrassSeed(new ItemStack(turnipSeeds), 1);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

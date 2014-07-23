@@ -6,9 +6,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -16,6 +18,8 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 
 import org.lwjgl.opengl.GL11;
+
+import com.minecraftplus._base.registry.LanguageRegistry;
 
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -58,7 +62,7 @@ public class GuiBiomeName extends Gui
 		{
 			this.mc.mcProfiler.startSection("overlayMessage");
 
-			ScaledResolution res = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
+			ScaledResolution res = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 			float xPosition = (float) (res.getScaledWidth() / 2);
 			float yPosition = (float) (res.getScaledHeight() / 2) - (res.getScaledHeight() / 3F);
 
@@ -117,7 +121,7 @@ public class GuiBiomeName extends Gui
 		{
 			this.mc.mcProfiler.startSection("overlayMessage");
 
-			ScaledResolution res = new ScaledResolution(this.mc.gameSettings, this.mc.displayWidth, this.mc.displayHeight);
+			ScaledResolution res = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 			float xPosition = (float)((res.getScaledWidth() / 2) + (res.getScaledWidth() / 3.2F * this.x));
 			float yPosition = (float) (res.getScaledHeight() / 2) - (res.getScaledHeight() / 3F * this.y);
 
@@ -128,8 +132,14 @@ public class GuiBiomeName extends Gui
 			{
 				yPosition = res.getScaledHeight() - 59;
 			}
-			
-			this.changeBiome = renderStringFade(this.mc.fontRenderer, this.currentBiome.biomeName, 0xFFFFFF, xPosition, yPosition, scale, this.tickCounter, this.maxTickCounter * 2, this.maxTickCounter);
+
+			String biomeName = this.currentBiome.biomeName;
+			if (!StringUtils.isNullOrEmpty(I18n.format(biomeName)))
+			{
+				biomeName = I18n.format(biomeName);
+			}
+
+			this.changeBiome = renderStringFade(this.mc.fontRenderer, biomeName, 0xFFFFFF, xPosition, yPosition, scale, this.tickCounter, this.maxTickCounter * 2, this.maxTickCounter);
 			if (this.changeBiome)
 			{
 				this.tickCounter--;
@@ -222,5 +232,9 @@ public class GuiBiomeName extends Gui
 
 		this.prevBiome.clear();
 		this.worldName = par1 == -1 ? "The Nether" : par1 == 1 ? "The End" : MinecraftServer.getServer().worldServers[0].getWorldInfo().getWorldName();
+		if (!StringUtils.isNullOrEmpty(I18n.format("world." + LanguageRegistry.getNameUnlocal(this.worldName))) && !I18n.format("world." + LanguageRegistry.getNameUnlocal(this.worldName)).contains("world."))
+		{
+			this.worldName = I18n.format("world." + LanguageRegistry.getNameUnlocal(this.worldName));
+		}
 	}
 }

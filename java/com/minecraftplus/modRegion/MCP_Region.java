@@ -1,9 +1,11 @@
 package com.minecraftplus.modRegion;
 
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.LanguageRegistry;
 import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
@@ -14,7 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Region.MODBASE, name = "MC+ " + MCP_Region.MODBASE, version = "1.1.1")
+@Mod(modid = "MCP_" + MCP_Region.MODBASE, name = "MC+ " + MCP_Region.MODBASE, version = "1.2.0")
 public class MCP_Region extends MCP
 {
 	protected static final String MODBASE = "Region";
@@ -32,7 +34,7 @@ public class MCP_Region extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		Configuration config = new Configuration(par1Event.getSuggestedConfigurationFile());
 		config.load();
@@ -47,6 +49,19 @@ public class MCP_Region extends MCP
 		x = prop2.getInt();
 		y = prop1.getInt();
 		scale = prop3.getInt();
+
+		BiomeGenBase[] biomes = BiomeGenBase.getBiomeGenArray();
+		for(BiomeGenBase biome : biomes)
+		{
+			if (biome != null)
+			{
+				LanguageRegistry.add("biome." + LanguageRegistry.getNameUnlocal(biome.biomeName), LanguageRegistry.getNameReadable(biome.biomeName));
+			}
+		}
+
+		LanguageRegistry.add("world.the_nether", "The Nether");
+		LanguageRegistry.add("world.the_end", "The End");
+		LanguageRegistry.add("world.new_world", "New World");
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

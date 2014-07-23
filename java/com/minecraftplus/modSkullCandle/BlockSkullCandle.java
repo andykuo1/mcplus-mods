@@ -9,6 +9,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTUtil;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.world.World;
@@ -57,10 +58,12 @@ public class BlockSkullCandle extends BlockSkull
 
 				if (tileentityskull == null) return ret;
 
-				if (tileentityskull.func_145904_a() == 3 && tileentityskull.func_145907_c() != null && tileentityskull.func_145907_c().length() > 0)
+				if (tileentityskull.func_145904_a() == 3 && tileentityskull.func_152108_a() != null)
 				{
 					itemstack.setTagCompound(new NBTTagCompound());
-					itemstack.getTagCompound().setString("SkullOwner", tileentityskull.func_145907_c());
+					NBTTagCompound nbttagcompound = new NBTTagCompound();
+					NBTUtil.func_152460_a(nbttagcompound, tileentityskull.func_152108_a());
+					itemstack.getTagCompound().setTag("SkullOwner", nbttagcompound);
 				}
 
 				ret.add(itemstack);
@@ -72,11 +75,11 @@ public class BlockSkullCandle extends BlockSkull
 
 	@Override
 	public void func_149965_a(World p_149965_1_, int p_149965_2_, int p_149965_3_, int p_149965_4_, TileEntitySkull p_149965_5_) {}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
-    public String getItemIconName()
-    {
-        return null;
-    }
+	public String getItemIconName()
+	{
+		return null;
+	}
 }

@@ -9,7 +9,6 @@ import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.LanguageRegistry;
 import com.minecraftplus._base.registry.Registry;
-import com.minecraftplus._common.item.ItemBase;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -46,22 +45,24 @@ public class MCP_Workshop extends MCP
 
 	public static final Item hungerWorm = new ItemHungerWorm().setUnlocalizedName("hunger_worm");
 	public static final Item heartWorm = new ItemHeartWorm().setUnlocalizedName("heart_worm");
-	public static final Item devourer = new ItemBase(tabWorkshop).setUnlocalizedName("devourer");
 
 	public static final Block craftingConstructor = new BlockCraftingConstructor().setBlockName("crafting_constructor");
+
+	public static final Item bookLang = new ItemBookLanguage().setUnlocalizedName("book_of_language");
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		LanguageRegistry.add(tabWorkshop);
+		LanguageRegistry.add(bookLang, "Book of Language");
 
 		ItemRegistry.add(craftingConstructor);
 		ItemRegistry.add(hungerWorm);
 		ItemRegistry.add(heartWorm);
-		ItemRegistry.add(devourer);
+		ItemRegistry.addUnLocal(bookLang);
 
 		Registry.addGuiHandler(this, new GuiHandler());
 

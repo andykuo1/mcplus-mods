@@ -1,10 +1,10 @@
 package com.minecraftplus.modSurvivor;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,6 +13,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._common.item.ItemBase;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -40,6 +41,8 @@ public class MCP_Survivor extends MCP
 	public static final Item hatchet = new ItemHatchet(toolFlint).setUnlocalizedName("hatchet");
 	public static final Item dagger = new ItemDagger(toolFlint).setUnlocalizedName("dagger");
 
+	public static final Item stones = new ItemBase(CreativeTabs.tabMaterials).setUnlocalizedName("stones");
+
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
@@ -48,6 +51,7 @@ public class MCP_Survivor extends MCP
 
 		ItemRegistry.add(hatchet);
 		ItemRegistry.add(dagger);
+		ItemRegistry.add(stones);
 
 		Registry.addRepairMaterial(toolFlint, Items.flint);
 
@@ -77,20 +81,11 @@ public class MCP_Survivor extends MCP
 			IRecipe recipe = (IRecipe) obj;
 			if (recipe.getRecipeOutput() != null)
 			{
-				if (recipe.getRecipeOutput().getItem() == Item.getItemFromBlock(Blocks.crafting_table))
+				if (recipe.getRecipeOutput().getItem() == Item.getItemFromBlock(Blocks.planks))
 				{
 					CraftingManager.getInstance().getRecipeList().remove(recipe);
 				}
-				else if (recipe.getRecipeOutput().getItem() == Item.getItemFromBlock(Blocks.planks))
-				{
-					//CraftingManager.getInstance().getRecipeList().remove(recipe);
-				}
 			}
 		}
-
-		Registry.RECIPE.addShapedRecipe(new ItemStack(Item.getItemFromBlock(Blocks.crafting_table)), new Object[]{
-			"##","XX",
-			Character.valueOf('#'), Items.leather,
-			Character.valueOf('X'), Blocks.planks});
 	}
 }

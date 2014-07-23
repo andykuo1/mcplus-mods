@@ -8,6 +8,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 import com.minecraftplus._base.registry.IconRegistry;
+import com.minecraftplus._base.registry.LanguageRegistry;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

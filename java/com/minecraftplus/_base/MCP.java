@@ -12,7 +12,6 @@ import com.minecraftplus._base.handler.EventDyeRemoveHandler;
 import com.minecraftplus._base.handler.FuelHandler;
 import com.minecraftplus._base.handler.PacketHandler;
 import com.minecraftplus._base.handler.RenderBlockHandler;
-import com.minecraftplus._base.registry.LanguageRegistry;
 import com.minecraftplus._base.worldgen.WorldGenBlock;
 import com.minecraftplus._base.worldgen.WorldGenHandler;
 import com.minecraftplus._common.packet.Packet;
@@ -25,7 +24,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public abstract class MCP
 {
-	public static String VERSION = "1.1";
+	public static String VERSION = "1.2";
 
 	public abstract void preInit(FMLPreInitializationEvent par1Event);
 	public abstract void loadInit(FMLInitializationEvent par1Event);
@@ -75,7 +74,6 @@ public abstract class MCP
 	{
 		if (initEvent) return; initEvent = true;
 		furnaceRecipes.putAll(FurnaceRecipes.smelting().getSmeltingList());
-		LanguageRegistry.load("en_US");
 
 		packetHandler.postInitialize();
 	}

@@ -1,6 +1,5 @@
 package com.minecraftplus.modFirePit;
 
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
@@ -31,8 +30,20 @@ public class CommonProxy implements ICommonProxy
 	public void register(Registry.RecipeMode par1Registry)
 	{
 		par1Registry.addShapedRecipe(new ItemStack(MCP_FirePit.firePit, 1, 0), new Object[] {
-			"XX","##",
-			Character.valueOf('#'), Blocks.gravel,
+			"XX","X#",
+			Character.valueOf('#'), Items.flint,
+			Character.valueOf('X'), Items.stick});
+		par1Registry.addShapedRecipe(new ItemStack(MCP_FirePit.firePit, 1, 0), new Object[] {
+			"XX","X#",
+			Character.valueOf('#'), Items.flint,
+			Character.valueOf('X'), Items.stick});
+		par1Registry.addShapedRecipe(new ItemStack(MCP_FirePit.firePit, 1, 0), new Object[] {
+			"X#","XX",
+			Character.valueOf('#'), Items.flint,
+			Character.valueOf('X'), Items.stick});
+		par1Registry.addShapedRecipe(new ItemStack(MCP_FirePit.firePit, 1, 0), new Object[] {
+			"#X","XX",
+			Character.valueOf('#'), Items.flint,
 			Character.valueOf('X'), Items.stick});
 	}
 }

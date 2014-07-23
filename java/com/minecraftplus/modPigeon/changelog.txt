@@ -5,4 +5,4 @@ v1.0.0
 - Implemented ability to fly for Pigeon
 - Implemented ability to be tamed with melon seeds
 - Major reorganization to source
-- Updated to 1.7.2
+- Updated to 1.7.10

@@ -1,3 +1,6 @@
+v1.0.1
+- Updated to 1.7.10
+
 v1.0.0*
 - Added Sweet Potato
 - Added Baked Sweet Potato

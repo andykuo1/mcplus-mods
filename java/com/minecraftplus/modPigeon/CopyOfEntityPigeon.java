@@ -152,7 +152,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 		if (this.getIsBirdPerched())
 		{
 			if (this.isTamed()) return;
-			
+
 			if (this.worldObj.isAirBlock((int) this.posX, (int) this.posY + 1, (int) this.posZ))
 			{
 				EntityPlayer player = this.worldObj.getClosestPlayerToEntity(this, 4.0D);
@@ -160,7 +160,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 				boolean flag = player != null;
 				if (flag)
 				{
-					if (this.isTamed() && player.getCommandSenderName().equals(this.getOwnerName()))
+					if (this.isTamed() && player.getCommandSenderName().equals(this.getOwner().getCommandSenderName()))
 					{
 						flag = false;
 					}
@@ -184,7 +184,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 		else
 		{
 			System.out.println(this.isTamed());
-			
+
 			if (this.targetPosition != null && (!this.worldObj.isAirBlock(this.targetPosition.posX, this.targetPosition.posY, this.targetPosition.posZ) || this.targetPosition.posY < 1))
 			{
 				this.targetPosition = null;
@@ -400,7 +400,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 	{
 		return Items.melon_seeds;
 	}
-	
+
 	@Override
 	public boolean isTamingItem(ItemStack par1ItemStack)
 	{
@@ -458,7 +458,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 
 		if (this.isTamed())
 		{
-			baby.setOwner(this.getOwnerName());
+			baby.func_152115_b(this.getOwner().getUniqueID().toString());
 			baby.setTamed(true);
 		}
 
@@ -474,7 +474,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 
 		if (par2)
 		{
-			this.setOwner(par1EntityPlayer.getCommandSenderName());
+			this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
 			this.setPathToEntity((PathEntity)null);
 			this.worldObj.setEntityState(this, (byte)7);
 		}
@@ -487,7 +487,7 @@ public class CopyOfEntityPigeon extends EntityTameable implements IEntity.Tameab
 	@Override
 	public boolean isOwner(EntityPlayer par1EntityPlayer)
 	{
-		return par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwnerName());
+		return par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwner().getCommandSenderName());
 	}
 
 	@Override

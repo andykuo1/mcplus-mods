@@ -34,7 +34,7 @@ public class MCP_Whetstone extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(whetstone);
 
@@ -58,6 +58,6 @@ public class MCP_Whetstone extends MCP
 	@Override
 	public void postInit(FMLPostInitializationEvent par1Event)
 	{
-
+		
 	}
 }

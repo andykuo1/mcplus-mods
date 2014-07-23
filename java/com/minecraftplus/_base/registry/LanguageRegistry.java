@@ -1,8 +1,18 @@
 package com.minecraftplus._base.registry;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -12,9 +22,40 @@ public class LanguageRegistry
 {
 	private static HashMap<String, String> stringMap = new HashMap<String, String>();
 
-	public static void load(String par1LangPack)
+	public static void createLangFile(String par1LangPack)
 	{
-		cpw.mods.fml.common.registry.LanguageRegistry.instance().injectLanguage(par1LangPack, stringMap);
+		if (stringMap == null) return;
+
+		File dir = new File(Minecraft.getMinecraft().mcDataDir, "mod_workshop");
+		dir.mkdir();
+		File file = new File(dir, par1LangPack + ".lang");
+
+		try
+		{
+			if (file.exists())
+			{
+				file.delete();
+			}
+
+			file.createNewFile();
+			Writer writer = new BufferedWriter(new FileWriter(file));
+			List list = new ArrayList(stringMap.keySet());
+			Collections.sort(list);
+			Iterator iter = list.iterator();
+
+			while(iter.hasNext())
+			{
+				Object obj = iter.next();
+				writer.write(obj.toString() + "=" + stringMap.get(obj) + "\n");
+			}
+
+			writer.close();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+
 		stringMap.clear();
 		stringMap = null;
 	}
@@ -76,27 +117,48 @@ public class LanguageRegistry
 		return parString;
 	}
 
-	public static String getNameReadable(String parString)
+	public static String getNameReadable(String par1String)
 	{
-		parString = getNameTrim(parString);
+		par1String = getNameTrim(par1String);
 
 		boolean toUpperCase = true;
-		for(int i = 0; i < parString.length(); i++)
+		for(int i = 0; i < par1String.length(); i++)
 		{
-			char c = parString.charAt(i);
+			char c = par1String.charAt(i);
+			
+			if (Character.isUpperCase(c) && (i > 0 && par1String.charAt(i - 1) != ' '))
+			{
+				par1String = par1String.substring(0, i) + " " + par1String.substring(i);
+				toUpperCase = false;
+			}
+			
 			if (toUpperCase)
 			{
-				parString = parString.substring(0, i) + Character.toUpperCase(c) + parString.substring(i + 1);
+				par1String = par1String.substring(0, i) + Character.toUpperCase(c) + par1String.substring(i + 1);
 				toUpperCase = false;
 			}
 
 			if (c == '_')
 			{
-				parString = parString.substring(0, i) + " " + parString.substring(i + 1);
+				par1String = par1String.substring(0, i) + " " + par1String.substring(i + 1);
 				toUpperCase = true;
 			}
 		}
 
-		return parString;
+		return par1String;
+	}
+
+	public static String getNameUnlocal(String par1String)
+	{
+		for(int i = 1; i < par1String.length() - 1; i++)
+		{
+			if (Character.isUpperCase(par1String.charAt(i)) && par1String.charAt(i - 1) != ' ')
+			{
+				par1String = par1String.substring(0, i) + " " + par1String.substring(i);
+				i++;
+			}
+		}
+		
+		return par1String.replaceAll(" ", "_").toLowerCase();
 	}
 }

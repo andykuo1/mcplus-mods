@@ -46,12 +46,14 @@ public abstract class BlockClayWallSlab extends BlockDirectional
 		}
 
 		this.setLightOpacity(0);
-		this.setBlockTextureName("hardened_clay_stained");
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerBlockIcons(IIconRegister par1IIconRegister) {}
+	public void registerBlockIcons(IIconRegister par1IIconRegister)
+	{
+		this.blockIcon = Blocks.stained_hardened_clay.getIcon(0, 0);
+	}
 
 	@SideOnly(Side.CLIENT)
 	@Override

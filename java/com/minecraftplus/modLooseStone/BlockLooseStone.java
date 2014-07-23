@@ -7,27 +7,39 @@ import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
 import net.minecraft.block.BlockWall;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
+import com.minecraftplus._base.registry.IconRegistry;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class BlockLooseStone extends BlockFalling
 {
 	public BlockLooseStone()
 	{
 		this.setTickRandomly(false);
-		this.setBlockTextureName("stone");
 		this.setHardness(1.5F);
 		this.setResistance(6.0F);
 		this.setStepSound(soundTypePiston);
 	}
 
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerBlockIcons(IIconRegister par1IIconRegister)
+	{
+		this.blockIcon = IconRegistry.register(par1IIconRegister, this);
+	}
+
 	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return Item.getItemFromBlock(Blocks.stone);
+		return Item.getItemFromBlock(Blocks.cobblestone);
 	}
 
 	@Override
@@ -59,18 +71,45 @@ public class BlockLooseStone extends BlockFalling
 			par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
 		}
 	}
+	
+	@Override
+	public void onFallenUpon(World par1World, int par2, int par3, int par4, Entity par5Entity, float par6)
+	{
+		if (!this.isSupported(par1World, par2, par3, par4))
+		{
+			par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
+		}
+	}
+
+	private void callNeighborToLoose(World par1World, int par2, int par3, int par4)
+	{
+		int radius = par1World.rand.nextInt(4) + 1;
+		for(int i = -radius; i <= radius; i++)
+		{
+			for(int j = -radius; j <= radius; j++)
+			{
+				for(int k = -radius; k <= radius; k++)
+				{
+					if (par1World.getBlock(par2 + i, par3 + j, par4 + k) == Blocks.stone)
+					{
+						par1World.setBlock(par2 + i, par3 + j, par4 + k, this);
+						par1World.scheduleBlockUpdate(par2 + i, par3 + j, par4 + k, this, this.tickRate(par1World));
+					}
+				}
+			}
+		}
+	}
 
 	private boolean isSupported(World par1World, int par2, int par3, int par4)
 	{
-		for(int i = -1; i <=1 ; i++)
+		for(int i = -1; i <= 1; i++)
 		{
 			for(int j = -1; j <= 1; j++)
 			{
 				if (this.isSupportBlock(par1World.getBlock(par2 + i, par3 - 1, par4 + j))) return true;
 			}
 		}
-		
-		if (this.isSupportBlock(par1World.getBlock(par2, par3 - 1, par4))) return true;
+
 		if (this.isSupportBlock(par1World.getBlock(par2 - 1, par3, par4))) return true;
 		if (this.isSupportBlock(par1World.getBlock(par2 + 1, par3, par4))) return true;
 		if (this.isSupportBlock(par1World.getBlock(par2, par3, par4 - 1))) return true;

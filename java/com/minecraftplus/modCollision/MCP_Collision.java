@@ -1,8 +1,10 @@
 package com.minecraftplus.modCollision;
 
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.LanguageRegistry;
 import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
@@ -26,13 +28,17 @@ public class MCP_Collision extends MCP
 
 	//TODO: Nothing yet. . .
 
+	public static final DamageSource crashMinecart = new DamageSourceMinecart();
+
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		MinecraftForge.EVENT_BUS.register(new EventMinecartCollisionHandler());
+
+		LanguageRegistry.add("death.attack.minecart", "%1$s was hit by a speeding Minecart");
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

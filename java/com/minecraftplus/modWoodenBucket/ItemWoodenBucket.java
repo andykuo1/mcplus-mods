@@ -4,13 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,7 +24,6 @@ public class ItemWoodenBucket extends Item
 {
 	/** field for checking if the bucket has been filled. */
 	private Block containedLiquid;
-	private int tickCounter;
 
 	public ItemWoodenBucket(Block par1Block)
 	{
@@ -41,24 +38,6 @@ public class ItemWoodenBucket extends Item
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
 		this.itemIcon = IconRegistry.register(par1IIconRegister, this);
-	}
-
-	@Override
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5)
-	{
-		EntityPlayer player = (EntityPlayer)par3Entity;
-		if (tickCounter++ > 60 && !player.capabilities.isCreativeMode && this.doesContainLava())
-		{
-			player.attackEntityFrom(DamageSource.onFire, 1F);
-
-			this.damageItem(par1ItemStack, player);
-			this.damageItem(par1ItemStack, player);
-			this.damageItem(par1ItemStack, player);
-
-			tickCounter = 0;
-		}
-
-		super.onUpdate(par1ItemStack, par2World, par3Entity, par4, par5);
 	}
 
 	@Override
@@ -227,11 +206,6 @@ public class ItemWoodenBucket extends Item
 		itemstack.setItemDamage(par1ItemStack.getItemDamage());
 		itemstack.setStackDisplayName(par1ItemStack.getDisplayName());
 		return itemstack;
-	}
-
-	public boolean doesContainLava()
-	{
-		return this.containedLiquid == Blocks.flowing_lava;
 	}
 
 	@Override

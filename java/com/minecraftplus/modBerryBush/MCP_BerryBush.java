@@ -2,8 +2,6 @@ package com.minecraftplus.modBerryBush;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.MinecraftForge;
 
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
@@ -19,7 +17,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_BerryBush.MODBASE, name = "MC+ " + MCP_BerryBush.MODBASE, version = "1.0.0")
+@Mod(modid = "MCP_" + MCP_BerryBush.MODBASE, name = "MC+ " + MCP_BerryBush.MODBASE, version = "1.1.0")
 public class MCP_BerryBush extends MCP
 {
 	protected static final String MODBASE = "BerryBush";
@@ -47,7 +45,7 @@ public class MCP_BerryBush extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(raspberry);
 		ItemRegistry.add(blueberry);
@@ -58,6 +56,11 @@ public class MCP_BerryBush extends MCP
 		ItemRegistry.add(blueberryBush);
 		ItemRegistry.add(blackberryBush);
 		ItemRegistry.add(cranberryBush);
+		
+		ItemRegistry.addDict(raspberry, "cropRaspberry");
+		ItemRegistry.addDict(raspberry, "cropBlueberry");
+		ItemRegistry.addDict(raspberry, "cropBlackberry");
+		ItemRegistry.addDict(raspberry, "cropCranberry");
 
 		Registry.addRenderBlock(renderBerryBush);
 		Registry.addWorldGen(new WorldGenBlockBerryBush(blueberryBush));

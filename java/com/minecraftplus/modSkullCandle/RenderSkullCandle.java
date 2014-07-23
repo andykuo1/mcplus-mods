@@ -1,5 +1,7 @@
 package com.minecraftplus.modSkullCandle;
 
+import java.util.Map;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -17,6 +19,10 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.minecraft.MinecraftProfileTexture;
+import com.mojang.authlib.minecraft.MinecraftProfileTexture.Type;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -72,7 +78,7 @@ public class RenderSkullCandle extends TileEntitySpecialRenderer
 
 		RenderHelper.enableStandardItemLighting();
 
-		this.func_147530_a((float)par2, (float)par3, (float)par4, par1TileEntity.getBlockMetadata() & 7, (float)(par1TileEntity.func_145906_b() * 360) / 16.0F, par1TileEntity.func_145904_a(), par1TileEntity.func_145907_c());
+		this.func_152674_a((float)par2, (float)par3, (float)par4, par1TileEntity.getBlockMetadata() & 7, (float)(par1TileEntity.func_145906_b() * 360) / 16.0F, par1TileEntity.func_145904_a(), par1TileEntity.func_152108_a());
 	}
 
 	public void func_147497_a(TileEntityRendererDispatcher p_147497_1_)
@@ -81,74 +87,79 @@ public class RenderSkullCandle extends TileEntitySpecialRenderer
 		field_147536_b = this;
 	}
 
-	public void func_147530_a(float p_147530_1_, float p_147530_2_, float p_147530_3_, int p_147530_4_, float p_147530_5_, int p_147530_6_, String p_147530_7_)
-	{
-		ModelSkeletonHead modelskeletonhead = this.field_147533_g;
+	public void func_152674_a(float p_152674_1_, float p_152674_2_, float p_152674_3_, int p_152674_4_, float p_152674_5_, int p_152674_6_, GameProfile p_152674_7_)
+    {
+        ModelSkeletonHead modelskeletonhead = this.field_147533_g;
 
-		switch (p_147530_6_)
-		{
-		case 0:
-		default:
-			this.bindTexture(field_147537_c);
-			break;
-		case 1:
-			this.bindTexture(field_147534_d);
-			break;
-		case 2:
-			this.bindTexture(field_147535_e);
-			modelskeletonhead = this.field_147538_h;
-			break;
-		case 3:
-			ResourceLocation resourcelocation = AbstractClientPlayer.locationStevePng;
+        switch (p_152674_6_)
+        {
+            case 0:
+            default:
+                this.bindTexture(field_147537_c);
+                break;
+            case 1:
+                this.bindTexture(field_147534_d);
+                break;
+            case 2:
+                this.bindTexture(field_147535_e);
+                modelskeletonhead = this.field_147538_h;
+                break;
+            case 3:
+                ResourceLocation resourcelocation = AbstractClientPlayer.locationStevePng;
 
-			if (p_147530_7_ != null && p_147530_7_.length() > 0)
-			{
-				resourcelocation = AbstractClientPlayer.getLocationSkull(p_147530_7_);
-				AbstractClientPlayer.getDownloadImageSkin(resourcelocation, p_147530_7_);
-			}
+                if (p_152674_7_ != null)
+                {
+                    Minecraft minecraft = Minecraft.getMinecraft();
+                    Map map = minecraft.func_152342_ad().func_152788_a(p_152674_7_);
 
-			this.bindTexture(resourcelocation);
-			break;
-		case 4:
-			this.bindTexture(field_147532_f);
-		}
+                    if (map.containsKey(Type.SKIN))
+                    {
+                        resourcelocation = minecraft.func_152342_ad().func_152792_a((MinecraftProfileTexture)map.get(Type.SKIN), Type.SKIN);
+                    }
+                }
 
-		GL11.glPushMatrix();
-		GL11.glDisable(GL11.GL_CULL_FACE);
+                this.bindTexture(resourcelocation);
+                break;
+            case 4:
+                this.bindTexture(field_147532_f);
+        }
 
-		if (p_147530_4_ != 1)
-		{
-			switch (p_147530_4_)
-			{
-			case 2:
-				GL11.glTranslatef(p_147530_1_ + 0.5F, p_147530_2_ + 0.25F, p_147530_3_ + 0.74F);
-				break;
-			case 3:
-				GL11.glTranslatef(p_147530_1_ + 0.5F, p_147530_2_ + 0.25F, p_147530_3_ + 0.26F);
-				p_147530_5_ = 180.0F;
-				break;
-			case 4:
-				GL11.glTranslatef(p_147530_1_ + 0.74F, p_147530_2_ + 0.25F, p_147530_3_ + 0.5F);
-				p_147530_5_ = 270.0F;
-				break;
-			case 5:
-			default:
-				GL11.glTranslatef(p_147530_1_ + 0.26F, p_147530_2_ + 0.25F, p_147530_3_ + 0.5F);
-				p_147530_5_ = 90.0F;
-			}
-		}
-		else
-		{
-			GL11.glTranslatef(p_147530_1_ + 0.5F, p_147530_2_, p_147530_3_ + 0.5F);
-		}
+        GL11.glPushMatrix();
+        GL11.glDisable(GL11.GL_CULL_FACE);
 
-		float f4 = 0.0625F;
-		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-		GL11.glScalef(-1.0F, -1.0F, 1.0F);
-		GL11.glEnable(GL11.GL_ALPHA_TEST);
-		modelskeletonhead.render((Entity)null, 0.0F, 0.0F, 0.0F, p_147530_5_, 0.0F, f4);
-		GL11.glPopMatrix();
-	}
+        if (p_152674_4_ != 1)
+        {
+            switch (p_152674_4_)
+            {
+                case 2:
+                    GL11.glTranslatef(p_152674_1_ + 0.5F, p_152674_2_ + 0.25F, p_152674_3_ + 0.74F);
+                    break;
+                case 3:
+                    GL11.glTranslatef(p_152674_1_ + 0.5F, p_152674_2_ + 0.25F, p_152674_3_ + 0.26F);
+                    p_152674_5_ = 180.0F;
+                    break;
+                case 4:
+                    GL11.glTranslatef(p_152674_1_ + 0.74F, p_152674_2_ + 0.25F, p_152674_3_ + 0.5F);
+                    p_152674_5_ = 270.0F;
+                    break;
+                case 5:
+                default:
+                    GL11.glTranslatef(p_152674_1_ + 0.26F, p_152674_2_ + 0.25F, p_152674_3_ + 0.5F);
+                    p_152674_5_ = 90.0F;
+            }
+        }
+        else
+        {
+            GL11.glTranslatef(p_152674_1_ + 0.5F, p_152674_2_, p_152674_3_ + 0.5F);
+        }
+
+        float f4 = 0.0625F;
+        GL11.glEnable(GL12.GL_RESCALE_NORMAL);
+        GL11.glScalef(-1.0F, -1.0F, 1.0F);
+        GL11.glEnable(GL11.GL_ALPHA_TEST);
+        modelskeletonhead.render((Entity)null, 0.0F, 0.0F, 0.0F, p_152674_5_, 0.0F, f4);
+        GL11.glPopMatrix();
+    }
 
 	@Override
 	public void renderTileEntityAt(TileEntity par1TileEntity, double par2, double par3, double par4, float par5)

@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_BattleHearts.MODBASE, name = "MC+ " + MCP_BattleHearts.MODBASE, version = "1.0.2")
+@Mod(modid = "MCP_" + MCP_BattleHearts.MODBASE, name = "MC+ " + MCP_BattleHearts.MODBASE, version = "1.1.0")
 public class MCP_BattleHearts extends MCP
 {
 	protected static final String MODBASE = "BattleHearts";
@@ -31,13 +31,13 @@ public class MCP_BattleHearts extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		Registry.addPacket(PacketMaxHealth.class);
 
 		Object obj = new EventMaxHealthHandler();
-		MinecraftForge.EVENT_BUS.register(obj);
-		FMLCommonHandler.instance().bus().register(obj);
+		Registry.addEventHandler(MinecraftForge.EVENT_BUS, obj);
+		Registry.addEventHandler(FMLCommonHandler.instance().bus(), obj);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

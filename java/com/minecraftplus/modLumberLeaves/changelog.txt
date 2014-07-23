@@ -1,3 +1,6 @@
+v1.0.1
+- Updated to 1.7.10
+
 v1.0.0*
 - Implemented ability to chop a whole tree plus leaves down with an axe
 - Updated to 1.7.2

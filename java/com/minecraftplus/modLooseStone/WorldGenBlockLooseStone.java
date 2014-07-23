@@ -19,14 +19,14 @@ public class WorldGenBlockLooseStone extends WorldGenBlock implements IWorldGenS
 	@Override
 	public void generateSurface(World par1World, Random par2Random, int par3, int par4)
 	{
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 14; i++)
 		{
 			int randPosX = par3 + par2Random.nextInt(16);
-			int randPosY = par2Random.nextInt(60);
+			int randPosY = par2Random.nextInt(60) + 2;
 			int randPosZ = par4 + par2Random.nextInt(16);
 
 			new WorldGenMinable(this.block, 24).generate(par1World, par2Random, randPosX, randPosY, randPosZ);
-			new WorldGenMinable(Blocks.air, 16).generate(par1World, par2Random, randPosX, randPosY, randPosZ);
+			new WorldGenMinable(Blocks.air, 16).generate(par1World, par2Random, randPosX, randPosY - 2, randPosZ);
 		}
 	}
 }

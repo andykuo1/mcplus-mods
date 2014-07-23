@@ -296,14 +296,6 @@ public class TileEntityFirePit extends TileEntity implements ISidedInventory
 	{
 		if (this.firePitItemStacks[0] == null && ((BlockFirePit) this.worldObj.getBlock(this.xCoord, this.yCoord, this.zCoord)).isActive())
 		{
-			if (!this.worldObj.isRemote)
-			{
-				if (this.worldObj.rand.nextInt(6) == 0)
-				{
-					return false;
-				}
-			}
-
 			return true;
 		}
 

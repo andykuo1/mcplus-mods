@@ -421,7 +421,7 @@ public class EntityTurtle extends EntityTameable implements IDyeable.Entity, IEn
 		if (par2)
 		{
 			this.setTameSkin(1);
-			this.setOwner(par1EntityPlayer.getCommandSenderName());
+			this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
 			this.setPathToEntity((PathEntity)null);
 			this.worldObj.setEntityState(this, (byte)7);
 		}
@@ -519,7 +519,7 @@ public class EntityTurtle extends EntityTameable implements IDyeable.Entity, IEn
 	@Override
 	public boolean isOwner(EntityPlayer par1EntityPlayer)
 	{
-		return par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwnerName());
+		return par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwner().getCommandSenderName());
 	}
 
 	@Override
@@ -559,7 +559,7 @@ public class EntityTurtle extends EntityTameable implements IDyeable.Entity, IEn
 
 		if (this.isTamed())
 		{
-			baby.setOwner(this.getOwnerName());
+			baby.func_152115_b(this.getOwner().getUniqueID().toString());
 			baby.setTamed(true);
 			baby.setTameSkin(this.getTameSkin());
 		}

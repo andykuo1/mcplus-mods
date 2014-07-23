@@ -15,7 +15,5 @@ public class ClientProxy extends CommonProxy
 	public void register(Registry.RenderMode par1Registry)
 	{
 		this.register(Registry.CUSTOM_ENTITY);
-		
-		FMLCommonHandler.instance().bus().register(new EventScreenshotHandler());
 	}
 }

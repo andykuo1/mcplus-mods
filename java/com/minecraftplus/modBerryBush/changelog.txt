@@ -1,3 +1,7 @@
+v1.1.0
+- Added to Ore Dictionary
+- Updated to 1.7.10
+
 v1.0.0*
 - Added Raspberry
 - Added Blueberry

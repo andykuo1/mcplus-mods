@@ -35,7 +35,7 @@ public class MCP_Decay extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		LanguageRegistry.add("tile.torch_off.name", "Torch");
 		

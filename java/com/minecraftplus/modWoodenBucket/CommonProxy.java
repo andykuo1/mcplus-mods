@@ -31,7 +31,6 @@ public class CommonProxy implements ICommonProxy
 	public void register(Registry.RecipeMode par1Registry)
 	{
 		par1Registry.addFuel(MCP_WoodenBucket.woodenBucketEmpty, 200);
-		par1Registry.addFuel(MCP_WoodenBucket.woodenBucketLava, 20000);
 
 		par1Registry.addShapedRecipe(new ItemStack(MCP_WoodenBucket.woodenBucketEmpty, 1), new Object[] {
 			"# #", " X ",

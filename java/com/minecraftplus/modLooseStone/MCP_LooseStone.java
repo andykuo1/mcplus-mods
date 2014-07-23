@@ -27,13 +27,13 @@ public class MCP_LooseStone extends MCP
 
 	//TODO: Nothing yet. . .
 
-	public static final Block looseStone = new BlockLooseStone().setBlockName("loose_smooth_stone");
+	public static final Block looseStone = new BlockLooseStone().setBlockName("loose_stone");
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(looseStone);
 

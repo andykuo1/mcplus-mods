@@ -38,7 +38,7 @@ public class EntityUtil
 		{
 			ItemStack itemstack = par2EntityPlayer.inventory.getCurrentItem();
 
-			if (par2EntityPlayer.getCommandSenderName().equalsIgnoreCase(par1Entity.getOwnerName()) && !par1Entity.worldObj.isRemote && !par1Entity.isBreedingItem(itemstack) && !par1Entity.isTamingItem(itemstack))
+			if (par2EntityPlayer.getCommandSenderName().equalsIgnoreCase(par1Entity.getOwner().getCommandSenderName()) && !par1Entity.worldObj.isRemote && !par1Entity.isBreedingItem(itemstack) && !par1Entity.isTamingItem(itemstack))
 			{
 				par1Entity.setSittingAI(!par1Entity.isSitting());
 				par1Entity.setJumping(false);

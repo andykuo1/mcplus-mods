@@ -13,7 +13,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Vines.MODBASE, name = "MC+ " + MCP_Vines.MODBASE, version = "1.0.0")
+@Mod(modid = "MCP_" + MCP_Vines.MODBASE, name = "MC+ " + MCP_Vines.MODBASE, version = "1.0.1")
 public class MCP_Vines extends MCP
 {
 	protected static final String MODBASE = "Vines";
@@ -30,7 +30,7 @@ public class MCP_Vines extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		MinecraftForge.EVENT_BUS.register(new EventGrowVinesHandler());
 

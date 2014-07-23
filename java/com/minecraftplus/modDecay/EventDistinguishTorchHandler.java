@@ -12,11 +12,11 @@ public class EventDistinguishTorchHandler
 	@SubscribeEvent
 	public void onPlayerInteractWithBlock(PlayerInteractEvent par1Event)
 	{
-		if (par1Event.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)
+		/*if (par1Event.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)
 		{
 			if (par1Event.entityPlayer.getCurrentEquippedItem() != null && par1Event.entityPlayer.getCurrentEquippedItem().getItem() == Item.getItemFromBlock(Blocks.torch))
 			{
-				if (!par1Event.entity.worldObj.isRemote && par1Event.entity.worldObj.rand.nextInt(8) == 0)
+				if (!par1Event.entity.worldObj.isRemote)
 				{
 					Block block = MCP_Decay.torchLit;
 					Item.getItemFromBlock(block).onItemUse(new ItemStack(block), par1Event.entityPlayer, par1Event.entity.worldObj, par1Event.x, par1Event.y, par1Event.z, par1Event.face, 0F, 0F, 0F);
@@ -26,6 +26,6 @@ public class EventDistinguishTorchHandler
 					}
 				}
 			}
-		}
+		}*/
 	}
 }

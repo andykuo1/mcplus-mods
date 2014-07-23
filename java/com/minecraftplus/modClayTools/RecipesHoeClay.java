@@ -150,6 +150,6 @@ public class RecipesHoeClay implements IRecipe
 	@Override
 	public ItemStack getRecipeOutput()
 	{
-		return null;
+		return new ItemStack(MCP_ClayTools.hoeClay);
 	}
 }

@@ -12,7 +12,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
-@Mod(modid = "MCP_" + MCP_Turtle.MODBASE, name = "MC+ " + MCP_Turtle.MODBASE, version = "1.2.2")
+@Mod(modid = "MCP_" + MCP_Turtle.MODBASE, name = "MC+ " + MCP_Turtle.MODBASE, version = "1.2.3")
 public class MCP_Turtle extends MCP
 {
 	protected static final String MODBASE = "Turtle";
@@ -29,7 +29,7 @@ public class MCP_Turtle extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		Registry.addGuiHandler(this, new GuiHandler());
 		

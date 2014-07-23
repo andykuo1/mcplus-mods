@@ -295,7 +295,7 @@ public class EntityPullable extends EntityLivingBase
 	private static EntityLiving getFirstLeashedEntity(EntityPlayer par1EntityPlayer, World par2World, int par3, int par4, int par5)
 	{
 		double d0 = 7D;
-		List list = par2World.getEntitiesWithinAABB(EntityLiving.class, AxisAlignedBB.getAABBPool().getAABB((double)par3 - d0, (double)par4 - d0, (double)par5 - d0, (double)par3 + d0, (double)par4 + d0, (double)par5 + d0));
+		List list = par2World.getEntitiesWithinAABB(EntityLiving.class, AxisAlignedBB.getBoundingBox((double)par3 - d0, (double)par4 - d0, (double)par5 - d0, (double)par3 + d0, (double)par4 + d0, (double)par5 + d0));
 
 		if (list != null)
 		{

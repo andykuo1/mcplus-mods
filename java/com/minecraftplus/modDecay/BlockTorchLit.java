@@ -31,12 +31,6 @@ public class BlockTorchLit extends BlockTorch
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
 	{
-		if (par5EntityPlayer.getCurrentEquippedItem() == null)
-		{
-			par1World.scheduleBlockUpdate(par2, par3, par4, this, this.tickRate(par1World));
-			return true;
-		}
-
 		return super.onBlockActivated(par1World, par2, par3, par4, par5EntityPlayer, par6, par7, par8, par9);
 	}
 
@@ -44,7 +38,13 @@ public class BlockTorchLit extends BlockTorch
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
 		super.updateTick(par1World, par2, par3, par4, par5Random);
-		if (!par1World.isRemote && (par1World.rand.nextInt(4) == 0 || (par1World.isRaining() && par1World.canBlockSeeTheSky(par2, par3, par4))))
+		
+		if (par1World.getBlockMetadata(par2, par3, par4) == 0)
+        {
+            this.onBlockAdded(par1World, par2, par3, par4);
+        }
+		
+		if (!par1World.isRemote && (par1World.rand.nextInt(24) == 0 || (par1World.isRaining() && par1World.canBlockSeeTheSky(par2, par3, par4))))
 		{
 			int metadata = par1World.getBlockMetadata(par2, par3, par4);
 			par1World.setBlock(par2, par3, par4, MCP_Decay.torchUnlit);
@@ -55,6 +55,6 @@ public class BlockTorchLit extends BlockTorch
 	@Override
 	public ItemStack getPickBlock(MovingObjectPosition par1MovingObjectPosition, World par2World, int par3, int par4, int par5)
 	{
-		return new ItemStack(Blocks.torch, 1);
+		return super.getPickBlock(par1MovingObjectPosition, par2World, par3, par4, par5);//new ItemStack(Blocks.torch, 1);
 	}
 }

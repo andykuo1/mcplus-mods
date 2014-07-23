@@ -33,15 +33,15 @@ public class EntityArrowShatter extends EntityArrow
 	public void onUpdate()
 	{
 		float scale = 20F;
-		Vec3 vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
-		Vec3 vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX * scale, this.posY + this.motionY * scale, this.posZ + this.motionZ * scale);
+		Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
+		Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX * scale, this.posY + this.motionY * scale, this.posZ + this.motionZ * scale);
 		MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
-		vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
-		vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX * scale, this.posY + this.motionY * scale, this.posZ + this.motionZ * scale);
+		vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
+		vec3 = Vec3.createVectorHelper(this.posX + this.motionX * scale, this.posY + this.motionY * scale, this.posZ + this.motionZ * scale);
 
 		if (movingobjectposition != null)
 		{
-			vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
+			vec3 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
 		}
 		else
 		{

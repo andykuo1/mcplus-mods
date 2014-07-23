@@ -28,7 +28,7 @@ public class MCP_Base extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.1");
+		MCP.initMain(par1Event, "1.2");
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

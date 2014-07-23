@@ -137,7 +137,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 	protected void updateAITasks()
 	{
 		super.updateAITasks();
-		
+
 		if (this.isTamed())
 		{
 			return;
@@ -146,7 +146,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 		if (this.getIsBirdPerched())
 		{
 			if (this.isTamed()) return;
-			
+
 			if (this.worldObj.isAirBlock((int) this.posX, (int) this.posY + 1, (int) this.posZ))
 			{
 				EntityPlayer player = this.worldObj.getClosestPlayerToEntity(this, 4.0D);
@@ -154,7 +154,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 				boolean flag = player != null;
 				if (flag)
 				{
-					if (this.isTamed() && player.getCommandSenderName().equals(this.getOwnerName()))
+					if (this.isTamed() && player.getCommandSenderName().equals(this.getOwner().getCommandSenderName()))
 					{
 						flag = false;
 					}
@@ -227,7 +227,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 			}
 		}
 	}
-	
+
 	@Override
 	protected boolean canTriggerWalking()
 	{
@@ -288,7 +288,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 	{
 		return Items.melon_seeds;
 	}
-	
+
 	@Override
 	public boolean isTamingItem(ItemStack par1ItemStack)
 	{
@@ -346,7 +346,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 
 		if (this.isTamed())
 		{
-			baby.setOwner(this.getOwnerName());
+			baby.func_152115_b(this.getOwner().getUniqueID().toString());
 			baby.setTamed(true);
 		}
 
@@ -362,7 +362,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 
 		if (par2)
 		{
-			this.setOwner(par1EntityPlayer.getCommandSenderName());
+			this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
 			this.setPathToEntity((PathEntity)null);
 			this.worldObj.setEntityState(this, (byte)7);
 		}
@@ -375,7 +375,7 @@ public class EntityPigeon extends EntityTameable implements IEntity.Tameable
 	@Override
 	public boolean isOwner(EntityPlayer par1EntityPlayer)
 	{
-		return par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwnerName());
+		return par1EntityPlayer.getCommandSenderName().equalsIgnoreCase(this.getOwner().getCommandSenderName());
 	}
 
 	@Override

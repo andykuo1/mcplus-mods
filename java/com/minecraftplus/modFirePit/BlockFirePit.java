@@ -157,16 +157,24 @@ public class BlockFirePit extends BlockContainer
 						{
 							this.igniteFirePit(tileentityfirepit, par5EntityPlayer);
 						}
+						else if (this.rand.nextInt(4) == 0)
+						{
+							par1World.playSoundEffect((double)par2 + 0.5D, (double)par3 + 0.5D, (double)par4 + 0.5D, "fire.ignite", 1.0F, par1World.rand.nextFloat() * 0.4F + 0.8F);
+						}
 					}
-					else if (par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.flint_and_steel)
+					else if (par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.blaze_rod)
 					{
 						this.igniteFirePit(tileentityfirepit, par5EntityPlayer);
 					}
-					else if (par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.blaze_rod)
+					else if (par5EntityPlayer.getCurrentEquippedItem().getItem() == Items.flint_and_steel)
 					{
 						if (tileentityfirepit != null && this.rand.nextInt(14) == 0)
 						{
 							this.igniteFirePit(tileentityfirepit, par5EntityPlayer);
+						}
+						else if (this.rand.nextInt(4) == 0)
+						{
+							par1World.playSoundEffect((double)par2 + 0.5D, (double)par3 + 0.5D, (double)par4 + 0.5D, "fire.ignite", 1.0F, par1World.rand.nextFloat() * 0.4F + 0.8F);
 						}
 					}
 				}

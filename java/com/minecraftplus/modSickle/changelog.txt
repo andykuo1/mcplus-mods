@@ -1,0 +1,3 @@
+v1.0.0
+- Added Sickle
+- Updated to 1.7.10

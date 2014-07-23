@@ -1,4 +1,4 @@
 v1.0.0
 - Added Loose Smooth Stone
 - Added Loose Smooth Stone to world gen
-- Updated to 1.7.2
+- Updated to 1.7.10

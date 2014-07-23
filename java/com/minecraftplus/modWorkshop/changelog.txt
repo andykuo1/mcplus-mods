@@ -1,3 +1,6 @@
 v1.0.0
 - Added Crafting Constructor
-- Updated to 1.7.2
+- Added Hunger Worm
+- Added Heart Worm
+- Added Book of Language
+- Updated to 1.7.10

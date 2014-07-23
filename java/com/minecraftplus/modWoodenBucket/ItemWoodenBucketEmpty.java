@@ -3,6 +3,7 @@ package com.minecraftplus.modWoodenBucket;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,7 +31,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemWoodenBucketEmpty extends ItemArmor
 {
-	private static final ResourceLocation res_Bucket = new ResourceLocation("minecraftplus:textures/gui/bucketblur.png");
+	private static final ResourceLocation bucketBlurTexPath = new ResourceLocation("minecraftplus:textures/gui/bucketblur.png");
 
 	public ItemWoodenBucketEmpty()
 	{
@@ -53,13 +54,6 @@ public class ItemWoodenBucketEmpty extends ItemArmor
 		return "minecraftplus:textures/armors/" + this.getUnlocalizedName() + ".layer_1.png";
 	}
 
-	@Override
-	public void onArmorTick(World par1World, EntityPlayer par2EntityPlayer, ItemStack par3ItemStack)
-	{
-		par2EntityPlayer.motionX *= 0.9;
-		par2EntityPlayer.motionZ *= 0.9;
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHelmetOverlay(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, ScaledResolution par3ScaledResolution, float par4, boolean par5, int par6, int par7)
@@ -72,10 +66,10 @@ public class ItemWoodenBucketEmpty extends ItemArmor
 	{
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		GL11.glDepthMask(false);
-		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+		GL11.glColor4f(0.0F, 0.0F, 0.0F, 1F);
 		GL11.glDisable(GL11.GL_ALPHA_TEST);
-		Minecraft.getMinecraft().getTextureManager().bindTexture(res_Bucket);
+		Minecraft.getMinecraft().getTextureManager().bindTexture(bucketBlurTexPath);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
 		tessellator.addVertexWithUV(0.0D, (double)par2, -90.0D, 0.0D, 1.0D);
@@ -170,12 +164,6 @@ public class ItemWoodenBucketEmpty extends ItemArmor
 				{
 					par2World.setBlockToAir(i, j, k);
 					return this.func_150910_a(par1ItemStack, par3EntityPlayer, MCP_WoodenBucket.woodenBucketWater);
-				}
-
-				if (material == Material.lava && l == 0)
-				{
-					par2World.setBlockToAir(i, j, k);
-					return this.func_150910_a(par1ItemStack, par3EntityPlayer, MCP_WoodenBucket.woodenBucketLava);
 				}
 			}
 
