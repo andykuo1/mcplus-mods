@@ -1,4 +1,7 @@
-v1.0.1
+v1.0.2
+- Bugfix: Casting Error!
+
+v1.0.1*
 - Updated to 1.7.10
 
 v1.0.0*

@@ -1,4 +1,7 @@
-v1.4.0
+v1.4.1
+- Bugfix: RenderSeeds not rendering
+
+v1.4.0*
 - Updated to Mincraft 1.7.10
 
 v1.3.2*

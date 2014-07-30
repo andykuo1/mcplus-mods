@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_SkullCandle.MODBASE, name = "MC+ " + MCP_SkullCandle.MODBASE, version = "1.0.0")
+@Mod(modid = "MCP_" + MCP_SkullCandle.MODBASE, name = "MC+ " + MCP_SkullCandle.MODBASE, version = "1.0.2")
 public class MCP_SkullCandle extends MCP
 {
 	protected static final String MODBASE = "SkullCandle";

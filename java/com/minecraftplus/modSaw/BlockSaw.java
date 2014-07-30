@@ -32,7 +32,7 @@ public class BlockSaw extends Block
 
 	protected BlockSaw()
 	{
-		super(Material.piston);
+		super(Material.wood);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
 		this.setHardness(2.0F);
 		this.setStepSound(soundTypeWood);

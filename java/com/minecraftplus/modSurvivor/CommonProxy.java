@@ -42,9 +42,5 @@ public class CommonProxy implements ICommonProxy
 			"#", "X",
 			Character.valueOf('#'), Items.flint,
 			Character.valueOf('X'), Items.stick});
-
-		par1Registry.addShapedRecipe(new ItemStack(Blocks.cobblestone, 1), new Object[] {
-			"##", "##",
-			Character.valueOf('#'), MCP_Survivor.stones});
 	}
 }

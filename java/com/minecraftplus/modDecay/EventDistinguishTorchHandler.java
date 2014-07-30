@@ -12,7 +12,7 @@ public class EventDistinguishTorchHandler
 	@SubscribeEvent
 	public void onPlayerInteractWithBlock(PlayerInteractEvent par1Event)
 	{
-		/*if (par1Event.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)
+		if (par1Event.action == PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK)
 		{
 			if (par1Event.entityPlayer.getCurrentEquippedItem() != null && par1Event.entityPlayer.getCurrentEquippedItem().getItem() == Item.getItemFromBlock(Blocks.torch))
 			{
@@ -26,6 +26,6 @@ public class EventDistinguishTorchHandler
 					}
 				}
 			}
-		}*/
+		}
 	}
 }

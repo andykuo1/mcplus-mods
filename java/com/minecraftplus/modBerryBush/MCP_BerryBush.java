@@ -57,10 +57,15 @@ public class MCP_BerryBush extends MCP
 		ItemRegistry.add(blackberryBush);
 		ItemRegistry.add(cranberryBush);
 		
-		ItemRegistry.addDict(raspberry, "cropRaspberry");
-		ItemRegistry.addDict(raspberry, "cropBlueberry");
-		ItemRegistry.addDict(raspberry, "cropBlackberry");
-		ItemRegistry.addDict(raspberry, "cropCranberry");
+		ItemRegistry.addDict(raspberryBush, "cropRaspberry");
+		ItemRegistry.addDict(blueberryBush, "cropBlueberry");
+		ItemRegistry.addDict(blackberryBush, "cropBlackberry");
+		ItemRegistry.addDict(cranberryBush, "cropCranberry");
+		
+		ItemRegistry.addDict(raspberry, "fruitRaspberry");
+		ItemRegistry.addDict(blueberry, "fruitBlueberry");
+		ItemRegistry.addDict(blackberry, "fruitBlackberry");
+		ItemRegistry.addDict(cranberry, "fruitCranberry");
 
 		Registry.addRenderBlock(renderBerryBush);
 		Registry.addWorldGen(new WorldGenBlockBerryBush(blueberryBush));

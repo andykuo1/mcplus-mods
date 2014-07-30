@@ -41,19 +41,18 @@ public class MCP_Survivor extends MCP
 	public static final Item hatchet = new ItemHatchet(toolFlint).setUnlocalizedName("hatchet");
 	public static final Item dagger = new ItemDagger(toolFlint).setUnlocalizedName("dagger");
 
-	public static final Item stones = new ItemBase(CreativeTabs.tabMaterials).setUnlocalizedName("stones");
-
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.0");
+		MCP.initMain(par1Event, "1.2");
 
 		ItemRegistry.add(hatchet);
 		ItemRegistry.add(dagger);
-		ItemRegistry.add(stones);
 
 		Registry.addRepairMaterial(toolFlint, Items.flint);
+
+		Registry.addEventHandler(MinecraftForge.EVENT_BUS, new EventResourceStartHandler());
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
@@ -65,9 +64,6 @@ public class MCP_Survivor extends MCP
 	public void loadInit(FMLInitializationEvent par1Event)
 	{
 		MCP.initEvent(par1Event);
-
-		MinecraftForge.EVENT_BUS.register(new EventResourceStartHandler());
-
 		proxy.register(Registry.RECIPE);
 	}
 

@@ -1,7 +1,6 @@
 package com.minecraftplus._base.registry;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -80,19 +79,34 @@ public class ItemRegistry
 
 	public static Item addDict(Item par1Item, String par2String)
 	{
-		OreDictionary.registerOre(par2String, par1Item);
+		OreDictionary.registerOre(formatToList(par2String), par1Item);
 		return par1Item;
 	}
 
 	public static Block addDict(Block par1Block, String par2String)
 	{
-		OreDictionary.registerOre(par2String, par1Block);
+		OreDictionary.registerOre(formatToList(par2String), par1Block);
 		return par1Block;
 	}
 
 	public static ItemStack addDict(ItemStack par1ItemStack, String par2String)
 	{
-		OreDictionary.registerOre(par2String, par1ItemStack);
+		OreDictionary.registerOre(formatToList(par2String), par1ItemStack);
 		return par1ItemStack;
+	}
+
+	public static String formatToList(String par1String)
+	{
+		if (par1String.toLowerCase().startsWith("seed"))
+		{
+			par1String = "listAllseed";
+		}
+
+		if (par1String.toLowerCase().startsWith("fruit"))
+		{
+			par1String = "listAllfruit";
+		}
+
+		return par1String;
 	}
 }

@@ -1,11 +1,12 @@
-package com.minecraftplus.modFirePit;
+package com.minecraftplus.modBamboo;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import com.minecraftplus._base.ICommonProxy;
 import com.minecraftplus._base.registry.Registry;
-import com.minecraftplus.modHandDigging.MCP_HandDigging;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy implements ICommonProxy
 {
@@ -24,15 +25,15 @@ public class CommonProxy implements ICommonProxy
 	@Override
 	public void register(Registry.EntityMode par1Registry)
 	{
-		par1Registry.addTileEntity(TileEntityFirePit.class, "fire_pit");
+
 	}
 
 	@Override
 	public void register(Registry.RecipeMode par1Registry)
 	{
-		par1Registry.addShapedRecipe(new ItemStack(MCP_FirePit.firePit, 1, 0), new Object[] {
-			"##","XX",
-			Character.valueOf('#'), Items.stick,
-			Character.valueOf('X'), MCP_HandDigging.rock});
+		GameRegistry.addShapedRecipe(new ItemStack(MCP_Bamboo.bamboo, 1), new Object[] {
+			"###", "###", "###",
+			Character.valueOf('#'), Items.reeds});
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.reeds, 9), MCP_Bamboo.bamboo);
 	}
 }

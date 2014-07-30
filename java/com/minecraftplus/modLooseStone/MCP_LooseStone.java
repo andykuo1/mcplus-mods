@@ -49,7 +49,6 @@ public class MCP_LooseStone extends MCP
 	public void loadInit(FMLInitializationEvent par1Event)
 	{
 		MCP.initEvent(par1Event);
-
 		proxy.register(Registry.RECIPE);
 	}
 

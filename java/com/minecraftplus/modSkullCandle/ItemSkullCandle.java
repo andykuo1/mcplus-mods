@@ -135,7 +135,7 @@ public class ItemSkullCandle extends ItemSkull
 					}
 
 					((TileEntitySkullCandle)tileentity).func_145903_a(i1);
-					((BlockRedstoneSkullCandle)MCP_SkullCandle.skullCandles).func_149965_a(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, (TileEntitySkullCandle)tileentity);
+					((BlockSkullCandle)MCP_SkullCandle.skullCandles).func_149965_a(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, (TileEntitySkullCandle)tileentity);
 				}
 
 				--p_77648_1_.stackSize;

@@ -6,7 +6,6 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 public class FMLLoadingPlugin implements IFMLLoadingPlugin
 {
-
 	@Override
 	public String[] getASMTransformerClass()
 	{

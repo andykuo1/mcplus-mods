@@ -100,10 +100,7 @@ public class ItemBlowpipe extends ItemBow
 				parEntityPlayer.inventory.consumeInventoryItem(projectile);
 			}
 
-			if (!parWorld.isRemote)
-			{
-				parWorld.spawnEntityInWorld(entityseeds);
-			}
+			parWorld.spawnEntityInWorld(entityseeds);
 		}
 	}
 
@@ -133,11 +130,12 @@ public class ItemBlowpipe extends ItemBow
 
 	private boolean hasProjectileItem(EntityPlayer parEntityPlayer)
 	{
-		return this.getProjectileItem(parEntityPlayer) != null;
+		return this.getProjectileItem(parEntityPlayer) != null || parEntityPlayer.capabilities.isCreativeMode;
 	}
 
 	private Item getProjectileItem(EntityPlayer parEntityPlayer)
 	{
+		if (parEntityPlayer.capabilities.isCreativeMode) return this.PROJECTILES[0];
 		for(Item item : this.PROJECTILES)
 		{
 			if (parEntityPlayer.inventory.hasItem(item))

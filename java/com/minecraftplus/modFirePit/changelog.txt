@@ -1,4 +1,8 @@
-v1.0.2
+v1.0.3
+- Requires MC+ HandDigging
+- Changed crafting recipe for Fire Pit
+
+v1.0.2*
 - Updated to Minecraft 1.7.10
 
 v1.0.1*
