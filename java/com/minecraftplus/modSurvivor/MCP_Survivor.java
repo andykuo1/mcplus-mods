@@ -52,8 +52,6 @@ public class MCP_Survivor extends MCP
 
 		Registry.addRepairMaterial(toolFlint, Items.flint);
 
-		Registry.addEventHandler(MinecraftForge.EVENT_BUS, new EventResourceStartHandler());
-
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);
 		proxy.register(Registry.CUSTOM_ENTITY);

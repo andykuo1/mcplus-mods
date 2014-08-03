@@ -38,7 +38,6 @@ public class MCP_FoodEssentials extends MCP
 	public static final Item cabbage = new ItemFoodstuff(2, 0.4F).setUnlocalizedName("cabbage");
 	public static final Block cabbages = new BlockCabbage().setBlockName("cabbage_top");
 	public static final Block cabbagesBase = new BlockCabbageBase().setBlockName("cabbage_bottom");
-	public static final RenderBlock renderCabbagePlant = new RenderBlockCabbagePlant();
 
 	
 	public static final Item rawSquid = new ItemFoodstuff(3, 0.3F).setPotionEffect(PotionHelper.spiderEyeEffect).setUnlocalizedName("raw_squid");
@@ -60,9 +59,6 @@ public class MCP_FoodEssentials extends MCP
 		ItemRegistry.add(calamari);
 		ItemRegistry.add(cabbage);
 		ItemRegistry.add(cabbageSeeds);
-		
-		
-		Registry.addRenderBlock(renderCabbagePlant);
 		
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

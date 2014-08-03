@@ -17,7 +17,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_BerryBush.MODBASE, name = "MC+ " + MCP_BerryBush.MODBASE, version = "1.1.0")
+@Mod(modid = "MCP_" + MCP_BerryBush.MODBASE, name = "MC+ " + MCP_BerryBush.MODBASE, version = "1.1.1")
 public class MCP_BerryBush extends MCP
 {
 	protected static final String MODBASE = "BerryBush";
@@ -29,8 +29,6 @@ public class MCP_BerryBush extends MCP
 	public static CommonProxy proxy;
 
 	//TODO: Nothing yet. . .
-
-	public static final RenderBlock renderBerryBush = new RenderBlockBerryBush();
 
 	public static final Item raspberry = new ItemFoodstuff(2, 0.1F).setUnlocalizedName("raspberry");
 	public static final Item blueberry = new ItemFoodstuff(2, 0.1F).setUnlocalizedName("blueberry");
@@ -45,7 +43,7 @@ public class MCP_BerryBush extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
+		MCP.initMain(par1Event, "1.3");
 
 		ItemRegistry.add(raspberry);
 		ItemRegistry.add(blueberry);
@@ -67,7 +65,6 @@ public class MCP_BerryBush extends MCP
 		ItemRegistry.addDict(blackberry, "fruitBlackberry");
 		ItemRegistry.addDict(cranberry, "fruitCranberry");
 
-		Registry.addRenderBlock(renderBerryBush);
 		Registry.addWorldGen(new WorldGenBlockBerryBush(blueberryBush));
 		Registry.addWorldGen(new WorldGenBlockBerryBush(raspberryBush));
 		Registry.addWorldGen(new WorldGenBlockBerryBush(blackberryBush));

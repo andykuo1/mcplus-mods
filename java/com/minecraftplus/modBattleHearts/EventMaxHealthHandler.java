@@ -28,13 +28,17 @@ public class EventMaxHealthHandler
 
 			if (player.isPlayerFullyAsleep())
 			{
+				int level = player.experienceLevel;
 				int amount = getMaxHealthByExp(player);
 				setMaxHealthData(player, amount);
 				setMaxHealth(player);
 
-				MCP.packetHandler.sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
+				if (player instanceof EntityPlayerMP)
+				{
+					MCP.packetHandler.sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
+				}
 
-				if (player.equals(Minecraft.getMinecraft().thePlayer))
+				if (level != player.experienceLevel && player.equals(Minecraft.getMinecraft().thePlayer))
 				{
 					float f = player.experienceLevel > 30 ? 1.0F : (float)player.experienceLevel / 30.0F;
 					player.worldObj.playSoundAtEntity(player, "random.levelup", f * 0.4F, 0.4F);

@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_BattleHearts.MODBASE, name = "MC+ " + MCP_BattleHearts.MODBASE, version = "1.1.0")
+@Mod(modid = "MCP_" + MCP_BattleHearts.MODBASE, name = "MC+ " + MCP_BattleHearts.MODBASE, version = "1.1.1")
 public class MCP_BattleHearts extends MCP
 {
 	protected static final String MODBASE = "BattleHearts";

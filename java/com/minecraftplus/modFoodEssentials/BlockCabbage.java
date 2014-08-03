@@ -57,7 +57,7 @@ public class BlockCabbage extends BlockCrops
 	@Override
 	public int getRenderType()
 	{
-		return MCP_FoodEssentials.renderCabbagePlant.getRenderID();
+		return ClientProxy.renderCabbagePlant.getRenderID();
 	}
 
 	@Override

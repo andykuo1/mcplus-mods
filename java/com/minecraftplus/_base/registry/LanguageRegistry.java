@@ -100,9 +100,9 @@ public class LanguageRegistry
 		add(par1Class, getNameReadable(((String) EntityList.classToStringMapping.get(par1Class))));
 	}
 
-	public static void add(CreativeTabs par1CreativeTabs)
+	public static void add(CreativeTabs par1CreativeTabs, String par2String)
 	{
-		add("itemGroup." + par1CreativeTabs.getTabLabel(), getNameReadable(par1CreativeTabs.getTabLabel()));
+		add("itemGroup." + par2String, getNameReadable(par2String));
 	}
 
 	public static String getNameTrim(String parString)
@@ -125,13 +125,13 @@ public class LanguageRegistry
 		for(int i = 0; i < par1String.length(); i++)
 		{
 			char c = par1String.charAt(i);
-			
+
 			if (Character.isUpperCase(c) && (i > 0 && par1String.charAt(i - 1) != ' '))
 			{
 				par1String = par1String.substring(0, i) + " " + par1String.substring(i);
 				toUpperCase = false;
 			}
-			
+
 			if (toUpperCase)
 			{
 				par1String = par1String.substring(0, i) + Character.toUpperCase(c) + par1String.substring(i + 1);
@@ -158,7 +158,7 @@ public class LanguageRegistry
 				i++;
 			}
 		}
-		
+
 		return par1String.replaceAll(" ", "_").toLowerCase();
 	}
 }

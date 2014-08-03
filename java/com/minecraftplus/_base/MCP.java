@@ -11,20 +11,20 @@ import net.minecraftforge.common.MinecraftForge;
 import com.minecraftplus._base.handler.EventDyeRemoveHandler;
 import com.minecraftplus._base.handler.FuelHandler;
 import com.minecraftplus._base.handler.PacketHandler;
-import com.minecraftplus._base.handler.RenderBlockHandler;
 import com.minecraftplus._base.worldgen.WorldGenBlock;
 import com.minecraftplus._base.worldgen.WorldGenHandler;
 import com.minecraftplus._common.packet.Packet;
-import com.minecraftplus._common.render.RenderBlock;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public abstract class MCP
 {
-	public static String VERSION = "1.2";
+	public static String VERSION = "1.3";
 
 	public abstract void preInit(FMLPreInitializationEvent par1Event);
 	public abstract void loadInit(FMLInitializationEvent par1Event);
@@ -37,7 +37,6 @@ public abstract class MCP
 	public static PacketHandler packetHandler = new PacketHandler("minecraftplus");
 	public static FuelHandler fuelHandler = new FuelHandler();
 	public static WorldGenHandler worldGenHandler = new WorldGenHandler();
-	public static RenderBlockHandler renderBlockHandler = new RenderBlockHandler();
 
 	private static final Map<ItemStack, ItemStack> furnaceRecipes = new HashMap<ItemStack, ItemStack>();
 
@@ -78,6 +77,7 @@ public abstract class MCP
 		packetHandler.postInitialize();
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static void initClient()
 	{
 		if (initClient) return; initClient = true;
@@ -108,11 +108,6 @@ public abstract class MCP
 		if (!initMain) return false;
 		packetHandler.registerPacket(par1Class);
 		return true;
-	}
-
-	public static boolean registerRenderBlock(RenderBlock par1RenderBlock)
-	{
-		return renderBlockHandler.add(par1RenderBlock);
 	}
 
 	public static Map<ItemStack, ItemStack> getFurnaceRecipes()

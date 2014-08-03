@@ -61,11 +61,6 @@ public class Registry
 		return MCP.registerPacket(par1Class);
 	}
 
-	public static boolean addRenderBlock(RenderBlock par1RenderBlock)
-	{
-		return MCP.registerRenderBlock(par1RenderBlock);
-	}
-
 	public static class RenderMode
 	{
 		public void addEntityRender(Class<? extends Entity> par1Class, Render par2Render)

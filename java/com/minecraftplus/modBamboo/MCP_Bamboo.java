@@ -17,7 +17,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = "MCP_" + MCP_Bamboo.MODBASE, name = "MC+ " + MCP_Bamboo.MODBASE, version = "1.0.0")
 public class MCP_Bamboo extends MCP
 {
-	protected static final String MODBASE = "Base";
+	protected static final String MODBASE = "Bamboo";
 
 	@Instance("MCP_" + MCP_Bamboo.MODBASE)
 	public static MCP_Bamboo INSTANCE;

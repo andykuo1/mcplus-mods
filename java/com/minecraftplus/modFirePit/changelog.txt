@@ -1,5 +1,5 @@
-v1.0.3
-- Requires MC+ HandDigging
+v1.0.3*
+- Soft-dependency for MC+ HandDigging to change recipe
 - Changed crafting recipe for Fire Pit
 
 v1.0.2*

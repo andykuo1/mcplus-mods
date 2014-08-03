@@ -56,7 +56,7 @@ public class MCP_Workshop extends MCP
 	{
 		MCP.initMain(par1Event, "1.2");
 
-		LanguageRegistry.add(tabWorkshop);
+		LanguageRegistry.add(tabWorkshop, "workshop");
 		LanguageRegistry.add(bookLang, "Book of Language");
 
 		ItemRegistry.add(craftingConstructor);

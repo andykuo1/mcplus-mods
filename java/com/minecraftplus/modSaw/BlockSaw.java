@@ -41,7 +41,7 @@ public class BlockSaw extends Block
 	@Override
 	public int getRenderType()
 	{
-		return MCP_Saw.renderBlockSaw.getRenderID();
+		return ClientProxy.renderBlockSaw.getRenderID();
 	}
 
 	@SideOnly(Side.CLIENT)

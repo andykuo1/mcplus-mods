@@ -24,7 +24,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Saw.MODBASE, name = "MC+ " + MCP_Saw.MODBASE, version = "1.0.0")
+@Mod(modid = "MCP_" + MCP_Saw.MODBASE, name = "MC+ " + MCP_Saw.MODBASE, version = "1.0.1")
 public class MCP_Saw extends MCP
 {
 	protected static final String MODBASE = "Saw";
@@ -79,19 +79,15 @@ public class MCP_Saw extends MCP
 		}
 	}
 
-	public static final RenderBlock renderBlockSaw = new RenderBlockSaw();
-
 	public static final Block saw = new BlockSaw().setBlockName("saw");
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
+		MCP.initMain(par1Event, "1.3");
 
 		ItemRegistry.add(saw);
-		
-		Registry.addRenderBlock(renderBlockSaw);
 
 		proxy.register(Registry.RENDER);
 		proxy.register(Registry.ENTITY);

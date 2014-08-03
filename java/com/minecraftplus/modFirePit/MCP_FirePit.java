@@ -18,7 +18,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_FirePit.MODBASE, name = "MC+ " + MCP_FirePit.MODBASE, version = "1.0.3", dependencies = "required-after:MCP_HandDigging")
+@Mod(modid = "MCP_" + MCP_FirePit.MODBASE, name = "MC+ " + MCP_FirePit.MODBASE, version = "1.0.3")
 public class MCP_FirePit extends MCP
 {
 	protected static final String MODBASE = "FirePit";

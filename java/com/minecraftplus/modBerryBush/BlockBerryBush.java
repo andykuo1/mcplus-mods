@@ -44,7 +44,7 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 	@Override
 	public int getRenderType()
 	{
-		return MCP_BerryBush.renderBerryBush.getRenderID();
+		return ClientProxy.renderBerryBush.getRenderID();
 	}
 
 	@SideOnly(Side.CLIENT)

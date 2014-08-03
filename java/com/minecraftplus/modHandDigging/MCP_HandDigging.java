@@ -42,6 +42,19 @@ public class MCP_HandDigging extends MCP
 		ItemRegistry.add(rock);
 		ItemRegistry.add(dirtBall);
 
+		try
+		{
+			if (Class.forName("com.minecraftplus.modFirePit.MCP_FirePit") != null)
+			{
+				CommonProxy.FIRE_PIT_RECIPE = true;
+				com.minecraftplus.modFirePit.CommonProxy.CUSTOM_RECIPE = true;
+			}
+		}
+		catch (ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+
 		Registry.addEventHandler(MinecraftForge.EVENT_BUS, new EventHandDiggingHandler());
 
 		proxy.register(Registry.RENDER);
