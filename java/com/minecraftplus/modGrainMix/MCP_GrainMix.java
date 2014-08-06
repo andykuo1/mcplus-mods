@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_GrainMix.MODBASE, name = "MC+ " + MCP_GrainMix.MODBASE, version = "1.2.0")
+@Mod(modid = "MCP_" + MCP_GrainMix.MODBASE, name = "MC+ " + MCP_GrainMix.MODBASE, version = "1.2.1")
 public class MCP_GrainMix extends MCP
 {
 	protected static final String MODBASE = "GrainMix";

@@ -16,7 +16,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Gems.MODBASE, name = "MC+ " + MCP_Gems.MODBASE, version = "1.2.0")
+@Mod(modid = "MCP_" + MCP_Gems.MODBASE, name = "MC+ " + MCP_Gems.MODBASE, version = "1.2.1")
 public class MCP_Gems extends MCP
 {
 	protected static final String MODBASE = "Gems";
@@ -46,7 +46,7 @@ public class MCP_Gems extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
+		MCP.initMain(par1Event, "1.3");
 
 		LanguageRegistry.add("tile.block_of_ruby.name", "Block of Ruby");
 		LanguageRegistry.add("tile.block_of_sapphire.name", "Block of Sapphire");

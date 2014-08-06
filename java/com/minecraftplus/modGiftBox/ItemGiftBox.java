@@ -121,6 +121,6 @@ public class ItemGiftBox extends Item implements IDyeable.Item
 
 	private int getDefaultColor(ItemStack par1ItemStack)
 	{
-		return (0xFFFFFF ^ this.getColor(par1ItemStack)) * 0x111111 + 0x666666;
+		return MCP_GiftBox.getColorWithGoldenRatio(this.getColor(par1ItemStack), 0.8F, 0.8F);
 	}
 }

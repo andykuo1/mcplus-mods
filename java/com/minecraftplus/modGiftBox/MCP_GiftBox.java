@@ -1,5 +1,7 @@
 package com.minecraftplus.modGiftBox;
 
+import java.awt.Color;
+
 import net.minecraft.item.Item;
 
 import com.minecraftplus._base.MCP;
@@ -55,6 +57,15 @@ public class MCP_GiftBox extends MCP
 	@Override
 	public void postInit(FMLPostInitializationEvent par1Event)
 	{
+		
+	}
 
+	public static int getColorWithGoldenRatio(int parHexColor, float parSaturation, float parBrightness)
+	{
+		float goldenRatioConj = 0.618033988749895F;
+		float hue = 1F - ((float) parHexColor / 0xFFFFFF) + 0.6F;
+		hue += goldenRatioConj;
+		hue %= 1;
+		return Color.HSBtoRGB(hue, parSaturation, parBrightness);
 	}
 }

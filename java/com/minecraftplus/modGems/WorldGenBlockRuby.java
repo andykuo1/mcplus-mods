@@ -23,7 +23,7 @@ public class WorldGenBlockRuby extends WorldGenBlock implements IWorldGenSurface
 			int randPosY = par2Random.nextInt(70);
 			int randPosZ = par4 + par2Random.nextInt(16);
 
-			new WorldGenMinable(this.block, 2).generate(par1World, par2Random, randPosX, randPosY, randPosZ);
+			new WorldGenMinable(this.block, 6).generate(par1World, par2Random, randPosX, randPosY, randPosZ);
 		}
 	}
 }

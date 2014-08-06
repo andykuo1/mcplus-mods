@@ -1,4 +1,7 @@
-v1.2.0
+v1.2.1
+- Implemented mod compatibility with all ItemSeeds
+
+v1.2.0*
 - Added to Ore Dictionary
 - Updated to Minecraft 1.7.10
 

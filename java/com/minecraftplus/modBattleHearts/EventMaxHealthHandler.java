@@ -105,21 +105,4 @@ public class EventMaxHealthHandler
 	{
 		par1EntityPlayer.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(par2);
 	}
-
-	/*public void setMaxDamage(EntityPlayer parEntityPlayer, float parAmount)
-	{
-		parEntityPlayer.getEntityData().setFloat("maxDamage", parAmount);
-	}
-
-	public void addMaxDamage(EntityPlayer parEntityPlayer, float parAmount)
-	{
-		float max = parEntityPlayer.getEntityData().getFloat("maxDamage");
-		this.setMaxDamage(parEntityPlayer, max + parAmount);
-	}
-
-	@SubscribeEvent
-	public void onPlayerAttack(AttackEntityEvent parEvent)
-	{
-		parEvent.target.attackEntityFrom(DamageSource.causePlayerDamage(parEvent.entityPlayer), parEvent.entityPlayer.getEntityData().getFloat("maxDamage"));
-	}*/
 }

@@ -1,20 +1,23 @@
 package com.minecraftplus.modSaw;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.Registry;
-import com.minecraftplus._common.render.RenderBlock;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -24,7 +27,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Saw.MODBASE, name = "MC+ " + MCP_Saw.MODBASE, version = "1.0.1")
+@Mod(modid = "MCP_" + MCP_Saw.MODBASE, name = "MC+ " + MCP_Saw.MODBASE, version = "1.0.2")
 public class MCP_Saw extends MCP
 {
 	protected static final String MODBASE = "Saw";
@@ -35,49 +38,7 @@ public class MCP_Saw extends MCP
 	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
 	public static CommonProxy proxy;
 
-	//TODO: Nothing yet. . .
-
 	public static final Map<WoodPlank, ItemStack> woodPlanks = new HashMap<WoodPlank, ItemStack>();
-
-	public static class WoodPlank
-	{
-		private final Block block;
-		private final int metadata;
-
-		public WoodPlank(Block par1Block, int par2)
-		{
-			this.block = par1Block;
-			this.metadata = par2;
-		}
-
-		public Block getBlock()
-		{
-			return this.block;
-		}
-
-		public int getBlockMetadata()
-		{
-			return this.metadata;
-		}
-
-		@Override
-		public int hashCode()
-		{
-			return block.hashCode();
-		}
-
-		@Override
-		public boolean equals(Object par1Object)
-		{
-			if (par1Object instanceof WoodPlank)
-			{
-				WoodPlank woodplank = (WoodPlank) par1Object;
-				return this.block == woodplank.block && this.metadata == woodplank.metadata;
-			}
-
-			return false;
-		}
-	}
 
 	public static final Block saw = new BlockSaw().setBlockName("saw");
 
@@ -138,6 +99,25 @@ public class MCP_Saw extends MCP
 					}
 				}
 			}
+		}
+
+		List<IRecipe> trashBin = new ArrayList<IRecipe>();
+
+		for(Object obj : objects)
+		{
+			IRecipe recipe = (IRecipe) obj;
+			if (recipe.getRecipeOutput() != null)
+			{
+				if (recipe.getRecipeOutput().getItem() == Item.getItemFromBlock(Blocks.planks))
+				{
+					trashBin.add(recipe);
+				}
+			}
+		}
+
+		for(IRecipe recipe : trashBin)
+		{
+			CraftingManager.getInstance().getRecipeList().remove(recipe);
 		}
 	}
 }

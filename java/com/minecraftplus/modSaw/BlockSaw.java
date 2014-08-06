@@ -20,7 +20,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import com.minecraftplus._base.registry.IconRegistry;
-import com.minecraftplus.modSaw.MCP_Saw.WoodPlank;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

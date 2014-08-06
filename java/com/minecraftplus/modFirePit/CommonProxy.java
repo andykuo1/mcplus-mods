@@ -32,6 +32,7 @@ public class CommonProxy implements ICommonProxy
 	@Override
 	public void register(Registry.RecipeMode par1Registry)
 	{
+		par1Registry.addShapelessRecipe(new ItemStack(Items.stick, 2), Blocks.sapling);
 		if (!CUSTOM_RECIPE)
 		{
 			par1Registry.addShapedRecipe(new ItemStack(MCP_FirePit.firePit, 1, 0), new Object[] {
