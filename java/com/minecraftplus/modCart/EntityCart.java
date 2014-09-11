@@ -61,7 +61,6 @@ public class EntityCart extends EntityPullable
 		{
 			if (this.worldObj.isAirBlock((int) this.posX, (int) this.posY - 1, (int) this.posZ))
 			{
-				System.out.println("ONGROUD");
 				this.dropCargo();
 			}
 		}

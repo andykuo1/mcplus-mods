@@ -8,7 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.PacketRegistry;
 import com.minecraftplus._common.container.ContainerWithPlayerInventory;
 
 import cpw.mods.fml.relauncher.Side;
@@ -153,6 +153,6 @@ public class ContainerSoulExtractor extends ContainerWithPlayerInventory
 
 	public void sendAbsorbSoulPacket(EntityPlayer par1EntityPlayer, int par2)
 	{
-		MCP.packetHandler.sendToServer(new PacketAbsorbSoul(par1EntityPlayer, par2));
+		PacketRegistry.getPacketHandler().sendToServer(new PacketAbsorbSoul(par1EntityPlayer, par2));
 	}
 }

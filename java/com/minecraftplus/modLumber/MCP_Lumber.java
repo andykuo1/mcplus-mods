@@ -3,7 +3,7 @@ package com.minecraftplus.modLumber;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.minecraftplus._base.MCP;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.MCPMod;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -13,39 +13,31 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Lumber.MODBASE, name = "MC+ " + MCP_Lumber.MODBASE, version = "1.0.2")
-public class MCP_Lumber extends MCP
+@Mod(modid = MCP.D + MCP_Lumber.MODBASE, name = MCP.PRE + MCP_Lumber.MODBASE, version = "1.0.2", dependencies = MCP.DEPENDENCY)
+public class MCP_Lumber implements MCPMod
 {
 	protected static final String MODBASE = "Lumber";
 
 	@Instance("MCP_" + MCP_Lumber.MODBASE)
 	public static MCP_Lumber INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-
 		MinecraftForge.EVENT_BUS.register(new EventTreeBreakHandler());
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

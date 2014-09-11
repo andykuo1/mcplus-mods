@@ -4,10 +4,11 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.WorldGenRegistry;
 import com.minecraftplus._common.item.ItemFoodstuff;
-import com.minecraftplus._common.render.RenderBlock;
+import com.minecraftplus.modBeetroot.MCP_Beetroot;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -17,8 +18,8 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_BerryBush.MODBASE, name = "MC+ " + MCP_BerryBush.MODBASE, version = "1.1.1")
-public class MCP_BerryBush extends MCP
+@Mod(modid = MCP.D + MCP_BerryBush.MODBASE, name = MCP.PRE + MCP_BerryBush.MODBASE, version = "1.1.2", dependencies = MCP.DEPENDENCY)
+public class MCP_BerryBush implements MCPMod
 {
 	protected static final String MODBASE = "BerryBush";
 
@@ -27,8 +28,6 @@ public class MCP_BerryBush extends MCP
 
 	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	public static final Item raspberry = new ItemFoodstuff(2, 0.1F).setUnlocalizedName("raspberry");
 	public static final Item blueberry = new ItemFoodstuff(2, 0.1F).setUnlocalizedName("blueberry");
@@ -43,8 +42,6 @@ public class MCP_BerryBush extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.3");
-
 		ItemRegistry.add(raspberry);
 		ItemRegistry.add(blueberry);
 		ItemRegistry.add(blackberry);
@@ -54,34 +51,30 @@ public class MCP_BerryBush extends MCP
 		ItemRegistry.add(blueberryBush);
 		ItemRegistry.add(blackberryBush);
 		ItemRegistry.add(cranberryBush);
-		
+
 		ItemRegistry.addDict(raspberryBush, "cropRaspberry");
 		ItemRegistry.addDict(blueberryBush, "cropBlueberry");
 		ItemRegistry.addDict(blackberryBush, "cropBlackberry");
 		ItemRegistry.addDict(cranberryBush, "cropCranberry");
-		
+
 		ItemRegistry.addDict(raspberry, "fruitRaspberry");
 		ItemRegistry.addDict(blueberry, "fruitBlueberry");
 		ItemRegistry.addDict(blackberry, "fruitBlackberry");
 		ItemRegistry.addDict(cranberry, "fruitCranberry");
 
-		Registry.addWorldGen(new WorldGenBlockBerryBush(blueberryBush));
-		Registry.addWorldGen(new WorldGenBlockBerryBush(raspberryBush));
-		Registry.addWorldGen(new WorldGenBlockBerryBush(blackberryBush));
-		Registry.addWorldGen(new WorldGenBlockBerryBush(cranberryBush));
+		WorldGenRegistry.add(new WorldGenBlockBerryBush(blueberryBush));
+		WorldGenRegistry.add(new WorldGenBlockBerryBush(raspberryBush));
+		WorldGenRegistry.add(new WorldGenBlockBerryBush(blackberryBush));
+		WorldGenRegistry.add(new WorldGenBlockBerryBush(cranberryBush));
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

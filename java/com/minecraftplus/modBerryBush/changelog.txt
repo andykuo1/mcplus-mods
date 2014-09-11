@@ -1,4 +1,7 @@
-v1.1.1
+v1.1.2
+- Bugfix: Server crash on startup
+
+v1.1.1*
 - Bugfix: Crashed server with NoClassDef
 
 v1.1.0*

@@ -2,11 +2,12 @@ package com.minecraftplus.modRegion;
 
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.LanguageRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._common.config.GuiConfigHandler;
+import com.minecraftplus._common.config.IConfigMod;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -16,42 +17,26 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Region.MODBASE, name = "MC+ " + MCP_Region.MODBASE, version = "1.2.0")
-public class MCP_Region extends MCP
+@Mod(modid = MCP.D + MCP_Region.MODBASE, name = MCP.PRE + MCP_Region.MODBASE, version = "1.2.0", dependencies = MCP.DEPENDENCY, guiFactory = MCP.A + MCP_Region.MODBASE + ".GuiFactory")
+public class MCP_Region implements MCPMod, IConfigMod
 {
 	protected static final String MODBASE = "Region";
 
-	@Instance("MCP_" + MCP_Region.MODBASE)
+	@Instance(MCP.D + MCP_Region.MODBASE)
 	public static MCP_Region INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
 
-	//TODO: Nothing yet. . .
+	public static GuiConfigHandler configHandler;
 	public static int x, y, scale;
 
 	@EventHandler
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-
-		Configuration config = new Configuration(par1Event.getSuggestedConfigurationFile());
-		config.load();
-		Property prop3 = config.get("Position", "scaleFactor", 55);
-		prop3.comment = "Percent Scale (Does not exceed 100%)";
-		Property prop2 = config.get("Position", "posX", 0);
-		prop2.comment = "1 = Right\n0 = Center\n-1 = Left";
-		Property prop1 = config.get("Position", "posY", 1);
-		prop1.comment = "1 = Top\n0 = Center\n-1 = Bottom";
-		config.save();
-
-		x = prop2.getInt();
-		y = prop1.getInt();
-		scale = prop3.getInt();
-
 		BiomeGenBase[] biomes = BiomeGenBase.getBiomeGenArray();
-		for(BiomeGenBase biome : biomes)
+		for (BiomeGenBase biome : biomes)
 		{
 			if (biome != null)
 			{
@@ -63,18 +48,16 @@ public class MCP_Region extends MCP
 		LanguageRegistry.add("world.the_end", "The End");
 		LanguageRegistry.add("world.new_world", "New World");
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		configHandler = new GuiConfigHandler(new Configuration(par1Event.getSuggestedConfigurationFile()), this, MCP.D + MODBASE);
+
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler
@@ -82,5 +65,13 @@ public class MCP_Region extends MCP
 	public void postInit(FMLPostInitializationEvent par1Event)
 	{
 
+	}
+
+	@Override
+	public void config(Configuration par1Configuration)
+	{
+		x = par1Configuration.getInt("Position X", Configuration.CATEGORY_GENERAL, 0, -1, 1, "");
+		y = par1Configuration.getInt("Position Y", Configuration.CATEGORY_GENERAL, 0, -1, 1, "");
+		scale = par1Configuration.getInt("Text Scale", Configuration.CATEGORY_GENERAL, 55, 1, 100, "");
 	}
 }

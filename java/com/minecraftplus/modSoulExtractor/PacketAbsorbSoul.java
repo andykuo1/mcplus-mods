@@ -21,26 +21,26 @@ public class PacketAbsorbSoul extends Packet
 	}
 
 	@Override
-	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
+	public void encode(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 		buffer.writeInt(this.windowID);
 	}
 
 	@Override
-	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
+	public void decode(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 		int i = buffer.readInt();
 		this.windowID = i;
 	}
 
 	@Override
-	public void handleClientSide(EntityPlayer player)
+	public void onClientSide(EntityPlayer player)
 	{
 		
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player)
+	public void onServerSide(EntityPlayer player)
 	{
 		((EntityPlayerMP) player).func_143004_u();
 

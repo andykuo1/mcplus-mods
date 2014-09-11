@@ -9,31 +9,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 
-import com.minecraftplus._base.ICommonProxy;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.IProxy;
+import com.minecraftplus._base.registry.ModRegistry;
 
-public class CommonProxy implements ICommonProxy
+public class CommonProxy implements IProxy
 {
 	@Override
-	public void register(Registry.RenderMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.CustomEntityMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.EntityMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.RecipeMode par1Registry)
+	public void register()
 	{
 		List<ItemSeeds> seedList = new ArrayList<ItemSeeds>();
 		Iterator iter = Item.itemRegistry.getKeys().iterator();
@@ -52,7 +34,7 @@ public class CommonProxy implements ICommonProxy
 			{
 				for(ItemSeeds seed3 : seedList)
 				{
-					par1Registry.addShapelessRecipe(new ItemStack(MCP_GrainMix.grainMix), new Object[] {seed1, seed2, seed3, Items.bowl});
+					ModRegistry.addShapelessRecipe(new ItemStack(MCP_GrainMix.grainMix), new Object[] {seed1, seed2, seed3, Items.bowl});
 				}
 			}
 		}

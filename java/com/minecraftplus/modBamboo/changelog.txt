@@ -1,3 +1,4 @@
 v1.0.0
 - Added Bamboo
+- Major reorganization to source
 - Updated to 1.7.10

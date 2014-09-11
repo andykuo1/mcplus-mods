@@ -6,11 +6,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import com.minecraftplus.modCart.EntityCart;
-import com.minecraftplus.modCart.ModelBlock;
 
 public class CargoJukeBox extends Cargo
 {
@@ -19,8 +17,6 @@ public class CargoJukeBox extends Cargo
 	public CargoJukeBox(EntityCart par1EntityCart)
 	{
 		super(par1EntityCart);
-		this.model = new ModelBlock();
-		this.modelTexture = new ResourceLocation("minecraftplus:textures/blocks/cargo.jukebox.png");
 	}
 
 	public int getCargoID()

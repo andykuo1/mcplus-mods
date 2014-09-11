@@ -19,9 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CargoFurnace extends Cargo implements ISidedInventory
 {
 	private boolean isActive = false;
-	private static ResourceLocation idleModelTexture = new ResourceLocation("minecraftplus:textures/blocks/cargo.furnace.idle.png");
-	private static ResourceLocation burningModelTexture = new ResourceLocation("minecraftplus:textures/blocks/cargo.furnace.burning.png");
-
 
 	private static final int[] slots_top = new int[] {0};
 	private static final int[] slots_bottom = new int[] {2, 1};
@@ -47,8 +44,6 @@ public class CargoFurnace extends Cargo implements ISidedInventory
 	public CargoFurnace(EntityCart par1EntityCart)
 	{
 		super(par1EntityCart);
-		this.model = new ModelBlock();
-		this.modelTexture = this.idleModelTexture;
 	}
 
 	public int getCargoID()
@@ -390,14 +385,6 @@ public class CargoFurnace extends Cargo implements ISidedInventory
 	private void setActive(boolean par1)
 	{
 		this.isActive = par1;
-		if (par1)
-		{
-			this.modelTexture = this.burningModelTexture;
-		}
-		else
-		{
-			this.modelTexture = this.idleModelTexture;
-		}
 	}
 
 	@Override

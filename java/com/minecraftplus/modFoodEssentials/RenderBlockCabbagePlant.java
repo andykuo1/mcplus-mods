@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
 
-import com.minecraftplus._common.render.RenderBlock;
+import com.minecraftplus._client.RenderBlock;
 
 public class RenderBlockCabbagePlant extends RenderBlock
 {

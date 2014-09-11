@@ -23,27 +23,27 @@ public class PacketLockOpen extends Packet
 	}
 
 	@Override
-	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
+	public void encode(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 		buffer.writeInt(this.windowID);
 		buffer.writeInt(this.action);
 	}
 
 	@Override
-	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
+	public void decode(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 		this.windowID = buffer.readInt();
 		this.action = buffer.readInt();
 	}
 
 	@Override
-	public void handleClientSide(EntityPlayer player)
+	public void onClientSide(EntityPlayer player)
 	{
 
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player)
+	public void onServerSide(EntityPlayer player)
 	{
 		((EntityPlayerMP) player).func_143004_u();
 

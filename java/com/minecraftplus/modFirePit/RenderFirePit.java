@@ -14,7 +14,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.minecraftplus._common.render.RenderItemStatic;
+import com.minecraftplus._client.RenderItemStatic;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

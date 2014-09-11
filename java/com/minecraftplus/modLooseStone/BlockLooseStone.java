@@ -33,7 +33,7 @@ public class BlockLooseStone extends BlockFalling
 	@Override
 	public void registerBlockIcons(IIconRegister par1IIconRegister)
 	{
-		this.blockIcon = IconRegistry.register(par1IIconRegister, this);
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this);
 	}
 
 	@Override

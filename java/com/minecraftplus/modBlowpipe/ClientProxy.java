@@ -1,9 +1,7 @@
 package com.minecraftplus.modBlowpipe;
 
-import com.minecraftplus._base.MCP;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.RenderRegistry;
 
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -11,11 +9,9 @@ public class ClientProxy extends CommonProxy
 {
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void register(Registry.RenderMode par1Registry)
+	public void register()
 	{
-		MCP.initClient();
-		this.register(Registry.CUSTOM_ENTITY);
-		
-		par1Registry.addEntityRender(EntitySeeds.class, new RenderSeeds());
+		super.register();
+		RenderRegistry.addEntityRender(EntitySeeds.class, new RenderSeeds());
 	}
 }

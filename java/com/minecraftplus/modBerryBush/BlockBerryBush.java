@@ -41,6 +41,7 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 		this.berry = par1Item;
 	}
 
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderType()
 	{
@@ -101,11 +102,11 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 
 		for (int i = 0; i < this.itemIcons.length; ++i)
 		{
-			this.itemIcons[i] = IconRegistry.register(par1IIconRegister, this, "_stage_" + i);
+			this.itemIcons[i] = IconRegistry.add(par1IIconRegister, this, "_stage_" + i);
 		}
 
-		this.blockIcon = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName());
-		this.itemBaseIcon = IconRegistry.register(par1IIconRegister, "tile.berry_bush");
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName());
+		this.itemBaseIcon = IconRegistry.add(par1IIconRegister, "tile.berry_bush");
 	}
 
 	@Override

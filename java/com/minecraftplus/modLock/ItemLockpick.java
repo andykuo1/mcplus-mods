@@ -20,6 +20,6 @@ public class ItemLockpick extends Item
 	@Override
 	public void registerIcons(IIconRegister parIIconRegister)
 	{
-		this.itemIcon = IconRegistry.register(parIIconRegister, this);
+		this.itemIcon = IconRegistry.add(parIIconRegister, this);
 	}
 }

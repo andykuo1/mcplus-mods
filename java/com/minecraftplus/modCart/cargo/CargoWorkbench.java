@@ -1,20 +1,16 @@
 package com.minecraftplus.modCart.cargo;
 
-import com.minecraftplus.modCart.EntityCart;
-import com.minecraftplus.modCart.ModelBlock;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
+
+import com.minecraftplus.modCart.EntityCart;
 
 public class CargoWorkbench extends Cargo
 {
 	public CargoWorkbench(EntityCart par1EntityCart)
 	{
 		super(par1EntityCart);
-		this.model = new ModelBlock();
-		this.modelTexture = new ResourceLocation("minecraftplus:textures/blocks/cargo.workbench.png");
 	}
 
 	public int getCargoID()

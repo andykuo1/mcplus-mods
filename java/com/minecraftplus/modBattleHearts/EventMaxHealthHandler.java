@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
-import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.PacketRegistry;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerChangedDimensionEvent;
@@ -35,7 +35,7 @@ public class EventMaxHealthHandler
 
 				if (player instanceof EntityPlayerMP)
 				{
-					MCP.packetHandler.sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
+					PacketRegistry.getPacketHandler().sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
 				}
 
 				if (level != player.experienceLevel && player.equals(Minecraft.getMinecraft().thePlayer))
@@ -58,7 +58,7 @@ public class EventMaxHealthHandler
 		EntityPlayer player = (EntityPlayer) par1Event.entity;
 		if (!par1Event.world.isRemote)
 		{
-			MCP.packetHandler.sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
+			PacketRegistry.getPacketHandler().sendTo(new PacketMaxHealth(player), (EntityPlayerMP) player);
 		}
 		setMaxHealth((EntityPlayer) player);
 	}
@@ -66,7 +66,7 @@ public class EventMaxHealthHandler
 	@SubscribeEvent
 	public void onPlayerChangedDimension(PlayerChangedDimensionEvent par1Event)
 	{
-		MCP.packetHandler.sendTo(new PacketMaxHealth(par1Event.player), (EntityPlayerMP)par1Event.player);
+		PacketRegistry.getPacketHandler().sendTo(new PacketMaxHealth(par1Event.player), (EntityPlayerMP)par1Event.player);
 	}
 
 	@SubscribeEvent

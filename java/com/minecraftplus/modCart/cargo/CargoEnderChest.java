@@ -23,21 +23,11 @@ public class CargoEnderChest extends Cargo
 	public CargoEnderChest(EntityCart par1EntityCart)
 	{
 		super(par1EntityCart);
-		this.model = new ModelChest();
-		this.modelTexture = new ResourceLocation("textures/entity/chest/ender.png");
 	}
 
 	public int getCargoID()
 	{
 		return 4;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void renderModel()
-	{
-		Minecraft.getMinecraft().renderEngine.bindTexture(this.getRenderTexture());
-		GL11.glTranslatef(0.06F, 0.4F, 0.06F);
-		((ModelChest) this.getRenderModel()).renderAll();
 	}
 
 	public void onUpdate()

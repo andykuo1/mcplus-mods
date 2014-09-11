@@ -4,9 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.LanguageRegistry;
-import com.minecraftplus._base.registry.Registry;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -16,18 +16,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_ClayWallSlab.MODBASE, name = "MC+ " + MCP_ClayWallSlab.MODBASE, version = "1.0.2")
-public class MCP_ClayWallSlab extends MCP
+@Mod(modid = MCP.D + MCP_ClayWallSlab.MODBASE, name = MCP.PRE + MCP_ClayWallSlab.MODBASE, version = "1.0.2", dependencies = MCP.DEPENDENCY)
+public class MCP_ClayWallSlab implements MCPMod
 {
 	protected static final String MODBASE = "ClayWallSlab";
 
-	@Instance("MCP_" + MCP_ClayWallSlab.MODBASE)
+	@Instance(MCP.D + MCP_ClayWallSlab.MODBASE)
 	public static MCP_ClayWallSlab INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	public static final Block clayWallHalfSlabNS = new BlockClayWallSlabNS(false, Material.rock).setBlockName("claywall_slab_NS");
 	public static final Block clayWallDoubleSlabNS = new BlockClayWallSlabNS(true, Material.rock).setBlockName("claywall_slab_NS");
@@ -46,8 +44,6 @@ public class MCP_ClayWallSlab extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-		
 		LanguageRegistry.add("tile.claywall_slab_NS.name", "Clay Wall Slab");
 		LanguageRegistry.add("tile.claywall_slab_NS1.silver.name", "Light Gray Clay Wall Slab");
 		LanguageRegistry.add("tile.claywall_slab_NS1.cyan.name", "Cyan Clay Wall Slab");
@@ -65,7 +61,7 @@ public class MCP_ClayWallSlab extends MCP
 		LanguageRegistry.add("tile.claywall_slab_NS2.lime.name", "Lime Clay Wall Slab");
 		LanguageRegistry.add("tile.claywall_slab_NS2.pink.name", "Pink Clay Wall Slab");
 		LanguageRegistry.add("tile.claywall_slab_NS2.gray.name", "Gray Clay Wall Slab");
-		
+
 		ItemRegistry.addUnLocal(clayWallHalfSlabNS, ItemClayWallSlab.class, "claywall_slab_NS");
 		ItemRegistry.addUnLocal(clayWallDoubleSlabNS, ItemClayWallSlab.class, "claywall_slab_double_NS");
 		ItemRegistry.addUnLocal(clayWallHalfSlabNS1, ItemClayWallSlab.class, "claywall_slab_NS1");
@@ -79,18 +75,14 @@ public class MCP_ClayWallSlab extends MCP
 		ItemRegistry.addUnLocal(clayWallHalfSlabWE2, ItemClayWallSlab.class, "claywall_slab_WE2");
 		ItemRegistry.addUnLocal(clayWallDoubleSlabWE2, ItemClayWallSlab.class, "claywall_slab_double_WE2");
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

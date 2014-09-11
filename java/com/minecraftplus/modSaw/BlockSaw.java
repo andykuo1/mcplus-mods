@@ -53,11 +53,11 @@ public class BlockSaw extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IIconRegister)
 	{
-		this.blockIcon = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName() + ".side");
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".side");
 
 		this.blockIcons = new IIcon[2];
-		this.blockIcons[0] = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName() + ".bottom");
-		this.blockIcons[1] = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName() + ".top");
+		this.blockIcons[0] = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".bottom");
+		this.blockIcons[1] = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".top");
 	}
 
 	public void onBlockAdded(World par1World, int par2, int par3, int par4)

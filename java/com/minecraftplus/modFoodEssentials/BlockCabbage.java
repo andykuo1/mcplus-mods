@@ -31,7 +31,7 @@ public class BlockCabbage extends BlockCrops
 
 		for (int i = 0; i < this.itemIcons.length; ++i)
 		{
-			this.itemIcons[i] = IconRegistry.register(par1IIconRegister, this, "_stage_" + i);
+			this.itemIcons[i] = IconRegistry.add(par1IIconRegister, this, "_stage_" + i);
 		}
 	}
 

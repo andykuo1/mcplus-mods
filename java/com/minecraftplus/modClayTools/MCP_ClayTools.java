@@ -6,8 +6,9 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.ModRegistry;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -17,18 +18,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_ClayTools.MODBASE, name = "MC+ " + MCP_ClayTools.MODBASE, version = "1.1.2")
-public class MCP_ClayTools extends MCP
+@Mod(modid = MCP.D + MCP_ClayTools.MODBASE, name = MCP.PRE + MCP_ClayTools.MODBASE, version = "1.1.2", dependencies = MCP.DEPENDENCY)
+public class MCP_ClayTools implements MCPMod
 {
 	protected static final String MODBASE = "ClayTools";
 
-	@Instance("MCP_" + MCP_ClayTools.MODBASE)
+	@Instance(MCP.D + MCP_ClayTools.MODBASE)
 	public static MCP_ClayTools INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	//NAME, BLOCKLEVEL, DURABILITY, SPEED, DAMAGE, ENCHANTABLITY
 	public static ToolMaterial toolClay = EnumHelper.addToolMaterial("CLAY", 1, 104, 4.5F, 1.2F, 4);
@@ -42,28 +41,22 @@ public class MCP_ClayTools extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-
 		ItemRegistry.add(swordClay);
 		ItemRegistry.add(shovelClay);
 		ItemRegistry.add(pickaxeClay);
 		ItemRegistry.add(axeClay);
 		ItemRegistry.add(hoeClay);
 
-		Registry.addRepairMaterial(toolClay, Items.clay_ball);
+		ModRegistry.addRepairMaterial(toolClay, Items.clay_ball);
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

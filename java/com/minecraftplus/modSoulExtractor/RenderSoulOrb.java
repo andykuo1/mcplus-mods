@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.minecraftplus._common.render.RenderItemStatic;
+import com.minecraftplus._client.RenderItemStatic;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

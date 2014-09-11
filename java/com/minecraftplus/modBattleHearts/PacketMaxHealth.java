@@ -20,21 +20,21 @@ public class PacketMaxHealth extends Packet
 	}
 
 	@Override
-	public void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
+	public void encode(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 		buffer.writeInt(EventMaxHealthHandler.getMaxHealthData(this.entityplayer));
 		buffer.writeFloat(this.entityplayer.getHealth());
 	}
 
 	@Override
-	public void decodeInto(ChannelHandlerContext ctx, ByteBuf buffer)
+	public void decode(ChannelHandlerContext ctx, ByteBuf buffer)
 	{
 		this.maxHealth = buffer.readInt();
 		this.health = buffer.readInt();
 	}
 
 	@Override
-	public void handleClientSide(EntityPlayer player)
+	public void onClientSide(EntityPlayer player)
 	{
 		EventMaxHealthHandler.setMaxHealthData(player, this.maxHealth);
 		EventMaxHealthHandler.setMaxHealth(player);
@@ -42,5 +42,5 @@ public class PacketMaxHealth extends Packet
 	}
 
 	@Override
-	public void handleServerSide(EntityPlayer player) {}
+	public void onServerSide(EntityPlayer player) {}
 }

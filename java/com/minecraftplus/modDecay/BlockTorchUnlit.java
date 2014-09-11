@@ -26,7 +26,7 @@ public class BlockTorchUnlit extends net.minecraft.block.BlockTorch
 	@Override
 	public void registerBlockIcons(IIconRegister par1IIconRegister)
 	{
-		this.blockIcon = IconRegistry.register(par1IIconRegister, this);
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this);
 	}
 
 	@Override

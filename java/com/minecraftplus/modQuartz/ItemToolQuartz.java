@@ -33,7 +33,7 @@ public abstract class ItemToolQuartz extends ItemTool
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
-		this.itemIcon = IconRegistry.register(par1IIconRegister, this);
+		this.itemIcon = IconRegistry.add(par1IIconRegister, this);
 	}
 
 	@Override

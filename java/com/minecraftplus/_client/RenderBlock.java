@@ -1,4 +1,4 @@
-package com.minecraftplus._common.render;
+package com.minecraftplus._client;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;

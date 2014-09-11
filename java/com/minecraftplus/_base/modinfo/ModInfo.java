@@ -9,7 +9,7 @@ import java.io.Writer;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.common.MinecraftForge;
 
-import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModContainer;
@@ -19,7 +19,7 @@ public class ModInfo
 	private static final String logo = "";
 	private static final String url = "http://www.minecraftforum.net/topic/1806521-172-mc-mods-satchels-turtles-quivers-and-more/";
 	
-	public static void createModInfo(MCP par1MCP, String par2Description)
+	public static void createModInfo(MCPMod par1MCP, String par2Description)
 	{
 		ModContainer mod = FMLCommonHandler.instance().findContainerFor(par1MCP);
 		File dir = new File(Minecraft.getMinecraft().mcDataDir, "mod_workshop/" + mod.getName());

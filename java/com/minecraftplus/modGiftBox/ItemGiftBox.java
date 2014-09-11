@@ -33,8 +33,8 @@ public class ItemGiftBox extends Item implements IDyeable.Item
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
-		this.itemIcon = IconRegistry.register(par1IIconRegister, this);
-		this.itemIcon1 = IconRegistry.register(par1IIconRegister, this, ".overlay");
+		this.itemIcon = IconRegistry.add(par1IIconRegister, this);
+		this.itemIcon1 = IconRegistry.add(par1IIconRegister, this, ".overlay");
 	}
 
 	@SideOnly(Side.CLIENT)

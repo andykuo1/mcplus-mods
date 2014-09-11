@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 import org.lwjgl.opengl.GL11;
 
-import com.minecraftplus._common.render.RenderItemStatic;
+import com.minecraftplus._client.RenderItemStatic;
 
 public class RenderDayCounter extends RenderItemStatic
 {

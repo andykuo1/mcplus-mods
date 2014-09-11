@@ -1,3 +1,6 @@
+v1.2.1
+- Added Config Menu
+
 v1.2.0*
 - Added compatibility for translation
 - Updated to Minecraft 1.7.10

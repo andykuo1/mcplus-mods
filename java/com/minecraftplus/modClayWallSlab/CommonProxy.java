@@ -1,31 +1,13 @@
 package com.minecraftplus.modClayWallSlab;
 
-import com.minecraftplus._base.ICommonProxy;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.IProxy;
+import com.minecraftplus._base.registry.ModRegistry;
 
-public class CommonProxy implements ICommonProxy
+public class CommonProxy implements IProxy
 {
 	@Override
-	public void register(Registry.RenderMode par1Registry)
+	public void register()
 	{
-
-	}
-
-	@Override
-	public void register(Registry.CustomEntityMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.EntityMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.RecipeMode par1Registry)
-	{
-		par1Registry.addRecipe(new RecipesClayWall());
+		ModRegistry.addRecipe(new RecipesClayWall());
 	}
 }

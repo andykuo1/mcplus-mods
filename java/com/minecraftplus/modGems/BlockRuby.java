@@ -28,6 +28,6 @@ public class BlockRuby extends BlockCompressed
 	@Override
 	public void registerBlockIcons(IIconRegister par1IIconRegister)
 	{
-		this.blockIcon = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName());
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName());
 	}
 }

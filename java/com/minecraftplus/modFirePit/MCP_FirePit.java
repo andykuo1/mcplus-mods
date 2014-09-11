@@ -7,8 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.ModRegistry;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -18,18 +19,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_FirePit.MODBASE, name = "MC+ " + MCP_FirePit.MODBASE, version = "1.0.3")
-public class MCP_FirePit extends MCP
+@Mod(modid = MCP.D + MCP_FirePit.MODBASE, name = MCP.PRE + MCP_FirePit.MODBASE, version = "1.0.3", dependencies = MCP.DEPENDENCY)
+public class MCP_FirePit implements MCPMod
 {
 	protected static final String MODBASE = "FirePit";
 
-	@Instance("MCP_" + MCP_FirePit.MODBASE)
+	@Instance(MCP.D + MCP_FirePit.MODBASE)
 	public static MCP_FirePit INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	public static final Block firePit = new BlockFirePit(false).setBlockName("fire_pit");
 	public static final Block firePitLit = new BlockFirePit(true).setBlockName("fire_pit_lit");
@@ -38,25 +37,19 @@ public class MCP_FirePit extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-
 		ItemRegistry.add(firePit);
 		ItemRegistry.addUnLocal(firePitLit);
 
-		Registry.addGuiHandler(this, new GuiHandler());
+		ModRegistry.addGuiHandler(this, new GuiHandler());
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

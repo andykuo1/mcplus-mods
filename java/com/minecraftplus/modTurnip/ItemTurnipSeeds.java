@@ -20,6 +20,6 @@ public class ItemTurnipSeeds extends ItemSeeds
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
-		this.itemIcon = IconRegistry.register(par1IIconRegister, this);
+		this.itemIcon = IconRegistry.add(par1IIconRegister, this);
 	}
 }

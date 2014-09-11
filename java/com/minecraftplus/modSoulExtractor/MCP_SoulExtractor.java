@@ -4,8 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.ModRegistry;
+import com.minecraftplus._base.registry.PacketRegistry;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -15,18 +17,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_SoulExtractor.MODBASE, name = "MC+ " + MCP_SoulExtractor.MODBASE, version = "1.0.3")
-public class MCP_SoulExtractor extends MCP
+@Mod(modid = MCP.D + MCP_SoulExtractor.MODBASE, name = MCP.PRE + MCP_SoulExtractor.MODBASE, version = "1.0.3", dependencies = MCP.DEPENDENCY)
+public class MCP_SoulExtractor implements MCPMod
 {
 	protected static final String MODBASE = "SoulExtractor";
 
-	@Instance("MCP_" + MCP_SoulExtractor.MODBASE)
+	@Instance(MCP.D + MCP_SoulExtractor.MODBASE)
 	public static MCP_SoulExtractor INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	public static final Block soulExtractor = new BlockSoulExtractor().setBlockName("soul_extractor");
 
@@ -34,26 +34,20 @@ public class MCP_SoulExtractor extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-
 		ItemRegistry.add(soulExtractor);
 		Items.experience_bottle.setMaxStackSize(1);
 
-		Registry.addPacket(PacketAbsorbSoul.class);
-		Registry.addGuiHandler(this, new GuiHandler());
+		PacketRegistry.add(PacketAbsorbSoul.class);
+		ModRegistry.addGuiHandler(this, new GuiHandler());
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

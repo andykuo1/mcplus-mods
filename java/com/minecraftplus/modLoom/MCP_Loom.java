@@ -3,8 +3,9 @@ package com.minecraftplus.modLoom;
 import net.minecraft.block.Block;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.ModRegistry;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -14,18 +15,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Loom.MODBASE, name = "MC+ " + MCP_Loom.MODBASE, version = "1.2.3", dependencies = "required-after:MCP_Wheel")
-public class MCP_Loom extends MCP
+@Mod(modid = MCP.D + MCP_Loom.MODBASE, name = MCP.PRE + MCP_Loom.MODBASE, version = "1.2.3", dependencies = "required-after:MCP_Wheel")
+public class MCP_Loom implements MCPMod
 {
 	protected static final String MODBASE = "Loom";
 
-	@Instance("MCP_" + MCP_Loom.MODBASE)
+	@Instance(MCP.D + MCP_Loom.MODBASE)
 	public static MCP_Loom INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	public static final Block loom = new BlockLoom().setBlockName("wooden_loom");
 
@@ -33,24 +32,18 @@ public class MCP_Loom extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.2");
-
 		ItemRegistry.add(loom);
 
-		Registry.addGuiHandler(this, new GuiHandler());
+		ModRegistry.addGuiHandler(this, new GuiHandler());
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

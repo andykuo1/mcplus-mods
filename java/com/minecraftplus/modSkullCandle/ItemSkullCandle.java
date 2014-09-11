@@ -23,7 +23,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ItemSkullCandle extends ItemSkull
 {
 	private static final String[] skullTypes = new String[] {"skeleton", "wither", "zombie", "char", "creeper"};
-	private IIcon[] itemIcons;
+	private IIcon[] itemTorchIcons;
+	private IIcon[] itemGlowingIcons;
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -34,18 +35,20 @@ public class ItemSkullCandle extends ItemSkull
 			par1 = 0;
 		}
 
-		return this.itemIcons[par1];
+		return MCP_SkullCandle.isTorchVariant ? this.itemTorchIcons[par1] : this.itemGlowingIcons[par1];
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister)
 	{
-		this.itemIcons = new IIcon[field_94587_a.length];
+		this.itemTorchIcons = new IIcon[field_94587_a.length];
+		this.itemGlowingIcons = new IIcon[field_94587_a.length];
 
-		for (int i = 0; i < itemIcons.length; ++i)
+		for (int i = 0; i < itemTorchIcons.length; ++i)
 		{
-			this.itemIcons[i] = IconRegistry.register(par1IIconRegister, this, "." + this.skullTypes[i]);
+			this.itemTorchIcons[i] = IconRegistry.add(par1IIconRegister, this, "." + this.skullTypes[i]);
+			this.itemGlowingIcons[i] = IconRegistry.add(par1IIconRegister, this, "." + "glowing" + "." + this.skullTypes[i]);
 		}
 	}
 

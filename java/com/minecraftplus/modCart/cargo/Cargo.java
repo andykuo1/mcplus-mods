@@ -22,34 +22,12 @@ public abstract class Cargo
 
 	protected EntityCart theCart;
 
-	protected ModelBase model;
-	protected ResourceLocation modelTexture;
-
 	public Cargo(EntityCart par1EntityCart)
 	{
 		this.theCart = par1EntityCart;
 	}
 
 	public abstract int getCargoID();
-
-	@SideOnly(Side.CLIENT)
-	public ModelBase getRenderModel()
-	{
-		return this.model;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public ResourceLocation getRenderTexture()
-	{
-		return this.modelTexture;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void renderModel()
-	{
-		Minecraft.getMinecraft().renderEngine.bindTexture(this.getRenderTexture());
-		this.getRenderModel().render(this.theCart, 0, 0, 0, 0, 0, 0);
-	}
 
 	public void initCargo() {}
 

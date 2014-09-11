@@ -15,7 +15,7 @@ import net.minecraft.world.IBlockAccess;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.minecraftplus._common.render.RenderBlock;
+import com.minecraftplus._client.RenderBlock;
 
 public class RenderBlockSaw extends RenderBlock
 {

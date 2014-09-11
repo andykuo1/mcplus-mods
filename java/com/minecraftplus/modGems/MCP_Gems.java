@@ -4,9 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.MCPMod;
 import com.minecraftplus._base.registry.ItemRegistry;
 import com.minecraftplus._base.registry.LanguageRegistry;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.registry.WorldGenRegistry;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -16,18 +17,16 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "MCP_" + MCP_Gems.MODBASE, name = "MC+ " + MCP_Gems.MODBASE, version = "1.2.1")
-public class MCP_Gems extends MCP
+@Mod(modid = MCP.D + MCP_Gems.MODBASE, name = MCP.PRE + MCP_Gems.MODBASE, version = "1.2.1", dependencies = MCP.DEPENDENCY)
+public class MCP_Gems implements MCPMod
 {
 	protected static final String MODBASE = "Gems";
 
-	@Instance("MCP_" + MCP_Gems.MODBASE)
+	@Instance(MCP.D + MCP_Gems.MODBASE)
 	public static MCP_Gems INSTANCE;
 
-	@SidedProxy(clientSide = "com.minecraftplus.mod" + MODBASE + ".ClientProxy", serverSide = "com.minecraftplus.mod" + MODBASE + ".CommonProxy")
+	@SidedProxy(clientSide = MCP.A + MODBASE + MCP.B, serverSide = MCP.A + MODBASE + MCP.C)
 	public static CommonProxy proxy;
-
-	//TODO: Nothing yet. . .
 
 	public static final Item ruby = new ItemRuby().setUnlocalizedName("ruby");
 	public static final Block rubyOre = new BlockOreRuby().setBlockName("ruby_ore");
@@ -46,8 +45,6 @@ public class MCP_Gems extends MCP
 	@Override
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
-		MCP.initMain(par1Event, "1.3");
-
 		LanguageRegistry.add("tile.block_of_ruby.name", "Block of Ruby");
 		LanguageRegistry.add("tile.block_of_sapphire.name", "Block of Sapphire");
 		LanguageRegistry.add("tile.block_of_amethyst.name", "Block of Amethyst");
@@ -67,27 +64,23 @@ public class MCP_Gems extends MCP
 		ItemRegistry.addDict(ruby, "gemRuby");
 		ItemRegistry.addDict(sapphire, "gemSapphire");
 		ItemRegistry.addDict(amethyst, "gemAmethyst");
-		
+
 		ItemRegistry.addDict(rubyOre, "oreRuby");
 		ItemRegistry.addDict(sapphireOre, "oreSapphire");
 		ItemRegistry.addDict(amethystOre, "oreAmethyst");
 
-		Registry.addWorldGen(new WorldGenBlockRuby());
-		Registry.addWorldGen(new WorldGenBlockSapphire());
-		Registry.addWorldGen(new WorldGenBlockAmethyst());
+		WorldGenRegistry.add(new WorldGenBlockRuby());
+		WorldGenRegistry.add(new WorldGenBlockSapphire());
+		WorldGenRegistry.add(new WorldGenBlockAmethyst());
 
-		proxy.register(Registry.RENDER);
-		proxy.register(Registry.ENTITY);
-		proxy.register(Registry.CUSTOM_ENTITY);
+		proxy.register();
 	}
 
 	@EventHandler
 	@Override
-	public void loadInit(FMLInitializationEvent par1Event)
+	public void mainInit(FMLInitializationEvent par1Event)
 	{
-		MCP.initEvent(par1Event);
 
-		proxy.register(Registry.RECIPE);
 	}
 
 	@EventHandler

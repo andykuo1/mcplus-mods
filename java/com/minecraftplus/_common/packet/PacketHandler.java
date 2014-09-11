@@ -1,4 +1,4 @@
-package com.minecraftplus._base.handler;
+package com.minecraftplus._common.packet;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -17,9 +17,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-
-import com.minecraftplus._common.packet.Packet;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
@@ -39,7 +36,7 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Packet>
 	private String modChannel;
 	private EnumMap<Side, FMLEmbeddedChannel> channels;
 	private LinkedList<Class<? extends Packet>> packets = new LinkedList<Class<? extends Packet>>();
-	private boolean isPostInitialised = false;
+	private boolean hasPostInit = false;
 
 	public PacketHandler(String par1Channel)
 	{
@@ -67,7 +64,7 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Packet>
 			return false;
 		}
 
-		if (this.isPostInitialised)
+		if (this.hasPostInit)
 		{
 			// You should log here!!
 			return false;
@@ -83,13 +80,14 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Packet>
 	{
 		ByteBuf buffer = Unpooled.buffer();
 		Class<? extends Packet> msgClass = msg.getClass();
-		if (!this.packets.contains(msg.getClass())) {
+		if (!this.packets.contains(msg.getClass()))
+		{
 			throw new NullPointerException("No Packet Registered for: " + msg.getClass().getCanonicalName());
 		}
 
 		byte discriminator = (byte) this.packets.indexOf(msgClass);
 		buffer.writeByte(discriminator);
-		msg.encodeInto(ctx, buffer);
+		msg.encode(ctx, buffer);
 		FMLProxyPacket proxyPacket = new FMLProxyPacket(buffer.copy(), ctx.channel().attr(NetworkRegistry.FML_CHANNEL).get());
 		out.add(proxyPacket);
 	}
@@ -107,23 +105,23 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Packet>
 		}
 
 		Packet pkt = packetClass.newInstance();
-		pkt.decodeInto(ctx, payload.slice());
+		pkt.decode(ctx, payload.slice());
 
 		EntityPlayer player;
 		switch (FMLCommonHandler.instance().getEffectiveSide())
 		{
-		case CLIENT:
-			player = this.getClientPlayer();
-			pkt.handleClientSide(player);
-			break;
+			case CLIENT:
+				player = this.getClientPlayer();
+				pkt.onClientSide(player);
+				break;
 
-		case SERVER:
-			INetHandler netHandler = ctx.channel().attr(NetworkRegistry.NET_HANDLER).get();
-			player = ((NetHandlerPlayServer) netHandler).playerEntity;
-			pkt.handleServerSide(player);
-			break;
+			case SERVER:
+				INetHandler netHandler = ctx.channel().attr(NetworkRegistry.NET_HANDLER).get();
+				player = ((NetHandlerPlayServer) netHandler).playerEntity;
+				pkt.onServerSide(player);
+				break;
 
-		default:
+			default:
 		}
 
 		out.add(pkt);
@@ -139,14 +137,14 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Packet>
 	// Ensures that packet discriminators are common between server and client by using logical sorting
 	public void postInitialize()
 	{
-		if (this.isPostInitialised)
+		if (this.hasPostInit)
 		{
 			return;
 		}
 
-		this.isPostInitialised = true;
+		this.hasPostInit = true;
 		Collections.sort(this.packets, new Comparator<Class<? extends Packet>>()
-				{
+		{
 			@Override
 			public int compare(Class<? extends Packet> parClass1, Class<? extends Packet> parClass2)
 			{
@@ -157,7 +155,7 @@ public class PacketHandler extends MessageToMessageCodec<FMLProxyPacket, Packet>
 				}
 				return com;
 			}
-				});
+		});
 	}
 
 	@SideOnly(Side.CLIENT)

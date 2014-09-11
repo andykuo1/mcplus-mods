@@ -1,41 +1,23 @@
 package com.minecraftplus.modClayTools;
 
-import com.minecraftplus._base.ICommonProxy;
-import com.minecraftplus._base.registry.Registry;
+import com.minecraftplus._base.IProxy;
+import com.minecraftplus._base.registry.ModRegistry;
 import com.minecraftplus._common.dye.RecipesDyeable;
 
-public class CommonProxy implements ICommonProxy
+public class CommonProxy implements IProxy
 {
 	@Override
-	public void register(Registry.RenderMode par1Registry)
+	public void register()
 	{
-
-	}
-
-	@Override
-	public void register(Registry.CustomEntityMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.EntityMode par1Registry)
-	{
-
-	}
-
-	@Override
-	public void register(Registry.RecipeMode par1Registry)
-	{
-		par1Registry.addRecipe(new RecipesSwordClay());
-		par1Registry.addRecipe(new RecipesDyeable(MCP_ClayTools.swordClay));
-		par1Registry.addRecipe(new RecipesSpadeClay());
-		par1Registry.addRecipe(new RecipesDyeable(MCP_ClayTools.shovelClay));
-		par1Registry.addRecipe(new RecipesPickaxeClay());
-		par1Registry.addRecipe(new RecipesDyeable(MCP_ClayTools.pickaxeClay));
-		par1Registry.addRecipe(new RecipesAxeClay());
-		par1Registry.addRecipe(new RecipesDyeable(MCP_ClayTools.axeClay));
-		par1Registry.addRecipe(new RecipesHoeClay());
-		par1Registry.addRecipe(new RecipesDyeable(MCP_ClayTools.hoeClay));
+		ModRegistry.addRecipe(new RecipesSwordClay());
+		ModRegistry.addRecipe(new RecipesDyeable(MCP_ClayTools.swordClay));
+		ModRegistry.addRecipe(new RecipesSpadeClay());
+		ModRegistry.addRecipe(new RecipesDyeable(MCP_ClayTools.shovelClay));
+		ModRegistry.addRecipe(new RecipesPickaxeClay());
+		ModRegistry.addRecipe(new RecipesDyeable(MCP_ClayTools.pickaxeClay));
+		ModRegistry.addRecipe(new RecipesAxeClay());
+		ModRegistry.addRecipe(new RecipesDyeable(MCP_ClayTools.axeClay));
+		ModRegistry.addRecipe(new RecipesHoeClay());
+		ModRegistry.addRecipe(new RecipesDyeable(MCP_ClayTools.hoeClay));
 	}
 }

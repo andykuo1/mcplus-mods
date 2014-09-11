@@ -3,7 +3,7 @@ package com.minecraftplus.modLock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 
-import com.minecraftplus._base.MCP;
+import com.minecraftplus._base.registry.PacketRegistry;
 
 public class ContainerLock extends Container
 {
@@ -23,6 +23,6 @@ public class ContainerLock extends Container
 
 	public static void sendLockOpenPacket(EntityPlayer par1EntityPlayer, int par2, int par3)
 	{
-		MCP.packetHandler.sendToServer(new PacketLockOpen(par1EntityPlayer, par2, par3));
+		PacketRegistry.getPacketHandler().sendToServer(new PacketLockOpen(par1EntityPlayer, par2, par3));
 	}
 }

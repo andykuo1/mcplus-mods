@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.minecraftplus._common.render.RenderItemStatic;
+import com.minecraftplus._client.RenderItemStatic;
 import com.minecraftplus.modWheel.MCP_Wheel;
 
 import cpw.mods.fml.relauncher.Side;
@@ -17,12 +17,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderCart extends RenderItemStatic
 {
+	private RenderCargo renderCargo;
 	private ModelCart modelCart;
 	private static final ResourceLocation res_Cart = new ResourceLocation("minecraftplus:textures/entities/model.wooden_cart.png");
 
 	public RenderCart()
 	{
 		super(MCP_Wheel.wheel, 1, 16);
+		this.renderCargo = new RenderCargo();
 		this.modelCart = new ModelCart();
 	}
 
@@ -46,7 +48,7 @@ public class RenderCart extends RenderItemStatic
 			GL11.glRotatef(-90, 0F, 1F, 0F);
 			GL11.glTranslatef(-0.5625F, -1.2F, -0.5625F);
 			GL11.glScalef(1F, 1F, 1F);
-			cart.getCargo().renderModel();
+			this.renderCargo.render(cart.getCargo());
 		}
 
 		GL11.glEnable(GL11.GL_CULL_FACE);

@@ -1,9 +1,7 @@
 package com.minecraftplus.modSaw;
 
-import com.minecraftplus._base.MCP;
-import com.minecraftplus._base.MCPClient;
-import com.minecraftplus._base.registry.Registry;
-import com.minecraftplus._common.render.RenderBlock;
+import com.minecraftplus._base.registry.RenderRegistry;
+import com.minecraftplus._client.RenderBlock;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,11 +12,9 @@ public class ClientProxy extends CommonProxy
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void register(Registry.RenderMode par1Registry)
+	public void register()
 	{
-		MCP.initClient();
-		this.register(Registry.CUSTOM_ENTITY);
-
-		MCPClient.registerRenderBlock(renderBlockSaw);
+		super.register();
+		RenderRegistry.addBlockRender(renderBlockSaw);
 	}
 }

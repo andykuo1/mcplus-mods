@@ -38,9 +38,9 @@ public class BlockFossil extends Block
 	@Override
 	public void registerBlockIcons(IIconRegister par1IIconRegister)
 	{
-		this.blockIcon = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName() + ".top");
-		this.sideIcon = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName() + ".side");
-		this.bottomIcon = IconRegistry.register(par1IIconRegister, this.getUnlocalizedName() + ".bottom");
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".top");
+		this.sideIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".side");
+		this.bottomIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".bottom");
 	}
 
 

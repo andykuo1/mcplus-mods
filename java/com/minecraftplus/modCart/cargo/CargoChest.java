@@ -27,17 +27,7 @@ public class CargoChest extends Cargo implements IInvBasic
 	public CargoChest(EntityCart par1EntityCart)
 	{
 		super(par1EntityCart);
-		this.model = new ModelChest();
-		this.modelTexture = new ResourceLocation("textures/entity/chest/normal.png");
 		this.initCargo();
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void renderModel()
-	{
-		Minecraft.getMinecraft().renderEngine.bindTexture(this.getRenderTexture());
-		GL11.glTranslatef(0.06F, 0.4F, 0.06F);
-		((ModelChest) this.getRenderModel()).renderAll();
 	}
 
 	public void initCargo()
