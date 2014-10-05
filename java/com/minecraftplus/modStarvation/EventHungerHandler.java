@@ -12,7 +12,7 @@ public class EventHungerHandler
 	@SubscribeEvent
 	public void onLivingEntityUpdate(LivingEvent.LivingUpdateEvent par1Event)
 	{
-		if (par1Event.entity instanceof EntityPlayer)
+		if (par1Event.entity instanceof EntityPlayer && !((EntityPlayer) par1Event.entity).capabilities.isCreativeMode)
 		{
 			EntityPlayer player = (EntityPlayer) par1Event.entity;
 
@@ -38,7 +38,7 @@ public class EventHungerHandler
 	@SubscribeEvent
 	public void onLivingUpdate(LivingUpdateEvent par1Event)
 	{
-		if (par1Event.entity instanceof EntityPlayer && par1Event.entity.ticksExisted % 80 == 0)
+		if (par1Event.entity instanceof EntityPlayer && !((EntityPlayer) par1Event.entity).capabilities.isCreativeMode && par1Event.entity.ticksExisted % 80 == 0)
 		{
 			((EntityPlayer) par1Event.entity).getFoodStats().addExhaustion(1F);
 		}

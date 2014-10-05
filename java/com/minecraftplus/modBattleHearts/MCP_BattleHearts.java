@@ -1,9 +1,12 @@
 package com.minecraftplus.modBattleHearts;
 
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.minecraftplus._base.MCP;
 import com.minecraftplus._base.MCPMod;
+import com.minecraftplus._base.registry.CommandRegistry;
+import com.minecraftplus._base.registry.LanguageRegistry;
 import com.minecraftplus._base.registry.ModRegistry;
 import com.minecraftplus._base.registry.PacketRegistry;
 
@@ -16,7 +19,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = MCP.D + MCP_BattleHearts.MODBASE, name = MCP.PRE + MCP_BattleHearts.MODBASE, version = "1.0.0", dependencies = MCP.DEPENDENCY)
+@Mod(modid = MCP.D + MCP_BattleHearts.MODBASE, name = MCP.PRE + MCP_BattleHearts.MODBASE, version = "1.1.2", dependencies = MCP.DEPENDENCY)
 public class MCP_BattleHearts implements MCPMod
 {
 	protected static final String MODBASE = "BattleHearts";
@@ -32,6 +35,9 @@ public class MCP_BattleHearts implements MCPMod
 	public void preInit(FMLPreInitializationEvent par1Event)
 	{
 		PacketRegistry.add(PacketMaxHealth.class);
+
+		CommandRegistry.add(new CommandMaxHealth());
+		LanguageRegistry.add("commands.setmaxhealth.usage", "/setmaxhealth <player> [health]");
 
 		Object obj = new EventMaxHealthHandler();
 		ModRegistry.addEventHandler(MinecraftForge.EVENT_BUS, obj);

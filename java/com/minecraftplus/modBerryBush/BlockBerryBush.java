@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.ColorizerGrass;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -25,8 +24,8 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 	private Item berry;
 
 	@SideOnly(Side.CLIENT)
-	private IIcon[] itemIcons;
-	private IIcon itemBaseIcon;
+	private IIcon itemBerryIcon;
+	private IIcon itemBushIcon;
 
 	public BlockBerryBush(Item par1Item)
 	{
@@ -76,37 +75,23 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 	{
 		if (par1 == -1)
 		{
-			return this.itemBaseIcon;
+			return this.itemBushIcon;
+		}
+		else if (par1 != 0)
+		{
+			return this.itemBerryIcon;
 		}
 
-		if (par1 < 7)
-		{
-			if (par1 == 6)
-			{
-				par1 = 5;
-			}
-
-			return this.itemIcons[par1 >> 1];
-		}
-		else
-		{
-			return this.itemIcons[3];
-		}
+		return null;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister par1IIconRegister)
 	{
-		this.itemIcons = new IIcon[4];
-
-		for (int i = 0; i < this.itemIcons.length; ++i)
-		{
-			this.itemIcons[i] = IconRegistry.add(par1IIconRegister, this, "_stage_" + i);
-		}
-
-		this.blockIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName());
-		this.itemBaseIcon = IconRegistry.add(par1IIconRegister, "tile.berry_bush");
+		this.blockIcon = IconRegistry.add(par1IIconRegister, this);
+		this.itemBerryIcon = IconRegistry.add(par1IIconRegister, this.getUnlocalizedName() + ".overlay");
+		this.itemBushIcon = IconRegistry.add(par1IIconRegister, "tile.berry_bush");
 	}
 
 	@Override
@@ -117,13 +102,9 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 		{
 			int l = par1World.getBlockMetadata(par2, par3, par4);
 
-			if (l < 7)
+			if (l == 0 && par5Random.nextInt(18) == 0)
 			{
-				if (par5Random.nextInt(26 + 1) == 0)
-				{
-					++l;
-					par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-				}
+				par1World.setBlockMetadataWithNotify(par2, par3, par4, 1, 2);
 			}
 		}
 	}
@@ -131,19 +112,19 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3)
 	{
-		return par1 > 1 ? this.berry : null;
+		return par1 != 0 ? this.berry : null;
 	}
 
 	@Override
 	public int quantityDropped(int par1, int par2, Random par3Random)
 	{
-		return par3Random.nextInt((par1 / 2) + par2 + 1) + par1 > 3 ? 1 : 0;
+		return par1 > 0 ? 1 + par3Random.nextInt(2) : 0;
 	}
 
 	@Override
 	public boolean func_149851_a(World par1World, int par2, int par3, int par4, boolean par5)
 	{
-		return par1World.getBlockMetadata(par2, par3, par4) != 7;
+		return par1World.getBlockMetadata(par2, par3, par4) == 0;
 	}
 
 	@Override
@@ -155,13 +136,8 @@ public class BlockBerryBush extends BlockBush implements IGrowable, IShearable
 	@Override
 	public void func_149853_b(World par1World, Random par2Random, int par3, int par4, int par5)
 	{
-		int l = par1World.getBlockMetadata(par3, par4, par5) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 5);
-
-		if (l > 7)
-		{
-			l = 7;
-		}
-
+		int l = par1World.getBlockMetadata(par3, par4, par5) + (par2Random.nextBoolean() ? 1 : 0);
+		if (l > 1) {l = 1;}
 		par1World.setBlockMetadataWithNotify(par3, par4, par5, l, 2);
 	}
 

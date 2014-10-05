@@ -22,7 +22,7 @@ public class EventTreeBreakHandler
 	@SubscribeEvent
 	public void onBlockEvent(BlockEvent parEvent)
 	{
-		if (parEvent.block instanceof BlockLog)
+		if (!parEvent.world.isRemote && parEvent.block instanceof BlockLog)
 		{
 			Block block = parEvent.block;
 			World world = parEvent.world;
@@ -33,7 +33,7 @@ public class EventTreeBreakHandler
 				return;
 			}
 
-			if (player.getEquipmentInSlot(0) != null && this.isAxeTool(player.getEquipmentInSlot(0)) && !player.isSneaking())
+			if (player.getEquipmentInSlot(0) != null && this.isAxeTool(player.getEquipmentInSlot(0)))
 			{
 				int x = parEvent.x;
 				int y = parEvent.y;

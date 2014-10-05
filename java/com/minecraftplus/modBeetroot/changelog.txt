@@ -1,4 +1,7 @@
-v1.1.0
+v1.1.1
+- Major reorganization to source
+
+v1.1.0*
 - Added to Ore Dictionary
 - Updated to 1.7.10
 

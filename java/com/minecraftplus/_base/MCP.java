@@ -1,20 +1,23 @@
 package com.minecraftplus._base;
 
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ServerCommandManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.minecraftplus._base.handler.EventDyeRemoveHandler;
+import com.minecraftplus._base.registry.CommandRegistry;
 import com.minecraftplus._base.registry.FuelRegistry;
 import com.minecraftplus._base.registry.PacketRegistry;
 import com.minecraftplus._base.registry.WorldGenRegistry;
-import com.minecraftplus.modBase.CommonProxy;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = MCP.D + MCP.MODBASE, name = MCP.PRE + MCP.MODBASE, version = MCP.VERSION)
@@ -64,5 +67,15 @@ public class MCP implements MCPMod
 	public void postInit(FMLPostInitializationEvent par1Event)
 	{
 
+	}
+
+	@EventHandler
+	public void onServerStart(FMLServerStartingEvent par1Event)
+	{
+		ServerCommandManager commandManager = (ServerCommandManager) MinecraftServer.getServer().getCommandManager();
+		for(ICommand command : CommandRegistry.getCommandList())
+		{
+			commandManager.registerCommand(command);
+		}
 	}
 }

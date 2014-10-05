@@ -1,5 +1,8 @@
 v1.1.2
 - Bugfix: Server crash on startup
+- Increased growth rate
+- Changed berry bush texture
+- Changed growth stages to only one stage
 
 v1.1.1*
 - Bugfix: Crashed server with NoClassDef

@@ -37,7 +37,7 @@ public class PacketMaxHealth extends Packet
 	public void onClientSide(EntityPlayer player)
 	{
 		EventMaxHealthHandler.setMaxHealthData(player, this.maxHealth);
-		EventMaxHealthHandler.setMaxHealth(player);
+		EventMaxHealthHandler.updateMaxHealthFromData(player);
 		player.setHealth(this.health);
 	}
 

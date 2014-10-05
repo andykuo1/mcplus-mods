@@ -42,10 +42,14 @@ public class RenderBlockBerryBush extends RenderBlock
 		d2 += ((double)((float)(i1 >> 20 & 15L) / 15.0F) - 1.0D) * 0.2D;
 		d0 += ((double)((float)(i1 >> 24 & 15L) / 15.0F) - 0.5D) * 0.5D;
 
-		IIcon iicon = ((BlockBerryBush) par5Block).getIcon(this.blockAccess.getBlockMetadata(par2, par3, par4));
 		this.drawCrossedSquares(((BlockBerryBush) par5Block).getIcon(-1), d1, d2, d0, 1.325F);
-		this.drawCrossedSquares(iicon, d1 + 0.06D, d2, d0, 1.325F);
-		this.drawCrossedSquares(iicon, d1 - 0.06D, d2, d0, 1.325F);
+
+		if (this.blockAccess.getBlockMetadata(par2, par3, par4) != 0)
+		{
+			IIcon iicon = ((BlockBerryBush) par5Block).getIcon(this.blockAccess.getBlockMetadata(par2, par3, par4));
+			this.drawCrossedSquares(iicon, d1 + 0.06D, d2, d0, 1.325F);
+			this.drawCrossedSquares(iicon, d1 - 0.06D, d2, d0, 1.325F);
+		}
 		return true;
 	}
 }
