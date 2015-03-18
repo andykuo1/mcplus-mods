@@ -1,3 +1,0 @@
-v1.0.0
-- Bugfix: Hunger depletes while in creative mode
-- Updated to 1.7.10

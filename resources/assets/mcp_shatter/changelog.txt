@@ -1,0 +1,5 @@
+#mc+shatter
+
+v1.0.0*
+- Updated to MC+ API v1.5
+- Updated to 1.7.10

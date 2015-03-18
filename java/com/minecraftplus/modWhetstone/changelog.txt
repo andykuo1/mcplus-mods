@@ -1,4 +1,0 @@
-v1.0.0
-- Added Whetstone
-- Implemented ability to sharpen tools when crafted with Whetstone
-- Updated to 1.7.10

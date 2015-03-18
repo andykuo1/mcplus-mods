@@ -1,0 +1,11 @@
+v1.0.2*
+- Changed placing orientation to respect face
+- Removed crafting recipes for Planks
+- Updated to MC+ API v1.5
+
+v1.0.1*
+- Bugfix: Crashed server with NoClassDef
+
+v1.0.0*
+- Added Saw
+- Updated to 1.7.10

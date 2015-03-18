@@ -1,0 +1,29 @@
+#mc+region
+
+v1.2.1
+- Added Config Menu
+
+v1.2.0*
+- Added compatibility for translation
+- Updated to Minecraft 1.7.10
+
+v1.1.1*
+- Minor reorganization to source
+
+v1.1.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.2*
+- Bugfix: Display text reset at each player login
+
+v1.0.1*
+- Added HUD to display world name
+- Added config for general text properties
+- Increased delay between world and biome names
+- Changed default text placement
+
+v1.0.0*
+- Added HUD to display biome name
+- Added config for text position
+- Updated to 1.6.4

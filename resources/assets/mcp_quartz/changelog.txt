@@ -1,0 +1,44 @@
+#mc+quartz
+
+v1.3.3*
+- Updated to MC+ API v1.5
+
+v1.3.2*
+- Updated to Minecraft 1.7.10
+
+v1.3.1*
+- Minor reorganization to source
+
+v1.3.0*
+- Bugfix: Insane random speed from Quartz Armor
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.2.0*
+- Major reorganization to source
+- Updated to 1.6.4
+
+v1.1.0*
+- Bugfix: Quartz Shovel texture off-centered
+- Added Quartz Helmet
+- Added Quartz Chestplate
+- Added Quartz Leggings
+- Added Quartz Boots
+- Implemented water damage
+- Implemented fire resistance
+- Implemented ability to repair at anvils with Nether Quartz
+- Adjusted durability (Iron)
+- Adjusted speed (Stone)
+
+v1.0.2*
+- Bugfix: CTD with Quartz Hoe crafting recipe
+- Updated to 1.6.2
+
+v1.0.0*
+- Added Quartz Sword
+- Added Quartz Shovel
+- Added Quartz Pickaxe
+- Added Quartz Axe
+- Added Quartz Hoe
+- Added crafting recipes for Quartz Tools
+- Updated to 1.6.1

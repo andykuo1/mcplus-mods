@@ -1,0 +1,7 @@
+#mc+bamboo
+
+v1.0.0*
+- Added Bamboo block
+- Added crafting recipe for Bamboo
+- Updated to MC+ API v1.5
+- Updated to 1.7.10

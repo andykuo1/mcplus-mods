@@ -1,0 +1,10 @@
+#mc+sickle
+
+v1.0.1*
+- Increased Sickle durability
+- Updated to MC+ API v1.5
+
+v1.0.0*
+- Added Sickle
+- Implemented ability to farm 3x3 area using Sickle
+- Updated to 1.7.10

@@ -1,0 +1,68 @@
+#mc+turtle
+
+v1.2.4*
+- Updated to MC+ API v1.5
+
+v1.2.3*
+- Bugfix: CTD when owner not online
+- Bugfix: CTD on access chest
+- Major reorganization to source
+- Updated 1.7.10
+
+v1.2.2*
+- Minor reorganization to source
+
+v1.2.1*
+- Bugfix: Dropped chest on death
+- Bugfix: Will not follow owner
+- Implemented ability to put a chest on Turtle, in order to have inventory
+
+v1.2.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.1.7*
+- Bugfix: Calling RenderEnderDragon
+- Implemented ability to spawn Turtle baby with spawn egg
+- Limited move speed
+- Minor reorganization to source
+
+v1.1.6*
+- Bugfix: TooManyItems: Wrong spawner name
+- Major reorganization to source
+- Updated to 1.6.4
+
+v1.1.0*
+- Bugfix: Panic running speed leak
+- Bugfix: Inventory slot leak
+- Bugfix: Invisible inventory slots
+- Implemented health regeneration over time
+- Implemented ability to dye Turtle collar
+- Implemented automatic pickup by Turtles if fed
+- Implemented Turtle to look at player once hungry
+- Implemented ability to control Turtle direction while swimming
+- Adjusted swim speed
+- Adjusted float speed
+- Changed step sound
+- Changed hit sound
+- Limited chance of taming
+- Limited breeding to only tamed Turtle
+- Major reorganization to source
+
+v1.0.5*
+- Bugfix: Turtle hungry state leak
+- Implemented health display in inventory
+- Changed inventory size to 18
+- Changed inventory GUI
+
+v1.0.3*
+- Removed Turtle sound
+- Implemented Turtle inventory
+
+v1.0.2*
+- Bugfix: Custom naming does not save properly
+- Updated to 1.6.2
+
+v1.0.0*
+- Added Turtle
+- Updated to 1.6.1

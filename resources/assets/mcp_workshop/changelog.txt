@@ -1,0 +1,9 @@
+#mc+workshop
+
+v1.0.0
+- Added Crafting Constructor
+- Added Hunger Worm
+- Added Heart Worm
+- Added Book of Language
+- Updated to MC+ API v1.5
+- Updated to 1.7.10

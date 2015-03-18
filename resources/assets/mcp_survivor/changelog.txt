@@ -1,0 +1,3 @@
+v1.0.0
+- Implemented ability for cows, chickens, pigs, and sheep to flee when near players
+- Updated to 1.7.10

@@ -1,0 +1,15 @@
+#mc+turnip
+
+v1.1.1*
+- Bugfix: Won't get destroyed if stepped on
+- Updated to MC+ API v1.5
+
+v1.1.0*
+- Added Turnip Soup
+- Updated to 1.7.10
+
+v1.0.0*
+- Added Turnip
+- Added Turnip Seeds
+- Implemented drop from tall grass
+- Updated to 1.7.2

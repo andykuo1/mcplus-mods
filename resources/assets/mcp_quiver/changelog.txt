@@ -1,0 +1,56 @@
+#mc+quiver
+
+v1.3.3*
+- Updated to MC+ API v1.5
+
+v1.3.2*
+- Updated to Minecraft 1.7.10
+
+v1.3.1*
+- Minor reorganization to source
+
+v1.3.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.2.2*
+- Implemented ability to erase color with Cauldron
+- Minor reorganization to source
+
+v1.2.1*
+- Changed recipe for inventory expansion
+- Increased inventory slots expanded in expand recipe
+
+v1.2.0*
+- Implemented ability to expand inventory
+- Changed default inventory size to 1
+- Major reorganization
+- Updated to 1.6.4
+
+v1.1.1*
+- Changed crafting recipe for Quiver
+- Removed bag-ception
+- Implemented enchantments to Quiver
+- Implemented ability to equip Quiver on leggings
+- Implemented anvil renaming to affect inventory
+- Increased item generation chance
+
+v1.1.0*
+- Removed ability to shift-click items other than Arrows
+- Implemented item generation in dungeon chests, etc.
+- Implemented ability to dye Quiver
+- Implemented animation for using Quiver
+- Implemented sound for using Quiver
+- Limited default inventory size to 5
+
+v1.0.2*
+- Bugfix: CTD when unequipping Quivers
+
+v1.0.1*
+- Major reorganization
+- Updated to 1.6.2
+
+v1.0.0*
+- Added Quiver
+- Added crafting recipe for Quiver
+- Updated to 1.6.1

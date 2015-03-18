@@ -1,0 +1,39 @@
+#mc+claytools
+
+v1.1.3*
+- Updated to MC+ API v1.5
+
+v1.1.2*
+- Minor reorganization to source
+- Updated to Minecraft 1.7.10
+
+v1.1.1*
+- Minor reorganization to source
+
+v1.1.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.3*
+- Bugfix: Color is always tinted green
+- Adjusted durability (Stone)
+- Adjusted speed (Stone)
+- Changed crafting recipe to use Stained Clay
+- Updated to 1.6.4
+
+v1.0.1*
+- Removed ability for Clay Sword to break blocks in creative mode
+- Adjusted durability (Stone / 2)
+- Adjusted speed (Wood / Stone)
+- Minor reorganization
+
+v1.0.0*
+- Bugfix: Clay Shovel texture off-centered
+- Added Clay Sword
+- Added Clay Shovel
+- Added Clay Pickaxe
+- Added Clay Axe
+- Added Clay Hoe
+- Added crafting recipes for Clay Tools
+- Implemented ability to dye Clay Tools
+- Updated to 1.6.2

@@ -1,0 +1,20 @@
+#mc+lumber
+
+v1.1.0*
+- Implemented ability to replace tall grass to plant
+- Implemented ability for Saplings to plant themselves automatically
+- Added config file
+- Updated to MC+ API v1.5
+
+v1.0.2*
+- Bugfix: Client unresponsive Item drops
+- Config: Can implement ability to chop a whole tree plus leaves down with an axe
+- Updated to Minecraft 1.7.10
+
+v1.0.1*
+- Minor reorganization to source
+
+v1.0.0*
+- Implemented ability to chop a whole tree down with an axe
+- Implemented ability to use any axe
+- Updated to 1.7.2

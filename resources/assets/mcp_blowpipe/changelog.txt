@@ -1,0 +1,43 @@
+v1.4.1*
+- Bugfix: RenderSeeds not rendering
+- Updated to MC+ API v1.5
+
+v1.4.0*
+- Updated to Mincraft 1.7.10
+
+v1.3.2*
+- Added stun effect when hit by Seeds
+
+v1.3.1*
+- Added fuel recipe for all ItemSeeds
+
+v1.3.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.2.1*
+- Removed achievements
+
+v1.2.0*
+- Adjusted fuel time for Wheat Seeds, Pumpkin Seeds, and Melon Seeds
+- Updated to 1.6.4
+        
+v1.1.0*
+- Added fuel recipe for Wheat Seeds, Pumpkin Seeds, and Melon Seeds
+- Adjusted EntitySeeds speed
+- Adjusted EntitySeeds damage
+- Implemented spawn in dungeon, village, etc.
+- Major reorganization to source
+
+v1.0.2*
+- Updated to 1.6.2
+
+v1.0.1*
+- Updated to 1.6.1
+
+v1.0.0*
+- Added Wooden Blowpipe
+- Added crafting recipe for Wooden Blowpipe
+- Added fuel recipe for Wooden Blowpipe
+- Implemented achievement "Got Seeds?"
+- Updated to 1.5.2

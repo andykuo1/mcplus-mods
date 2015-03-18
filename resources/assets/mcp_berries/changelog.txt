@@ -1,0 +1,29 @@
+#mc+berries
+
+v1.2.0*
+- Bugfix: Server crash on startup
+- Increased growth rate
+- Decreased spawn rate
+- Changed berry bush texture
+- Changed growth stages to only one stage
+- Major reorganization to code
+- Updated to MC+ API v1.5
+
+v1.1.1*
+- Bugfix: Crashed server with NoClassDef
+
+v1.1.0*
+- Added to Ore Dictionary
+- Updated to 1.7.10
+
+v1.0.0*
+- Added Raspberry
+- Added Blueberry
+- Added Cranberry
+- Added Blackberry
+- Added Raspberry Bush
+- Added Blueberry Bush
+- Added Cranberry Bush
+- Added Blackberry Bush
+- Added Berry Bushes to world generation
+- Updated to 1.7.2

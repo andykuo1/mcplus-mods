@@ -1,0 +1,15 @@
+#mc+sweetpotato
+
+v1.0.2*
+- Bugfix: Won't be destroyed if stepped on
+- Updated to MC+ API v1.5
+
+v1.0.1*
+- Updated to 1.7.10
+
+v1.0.0*
+- Added Sweet Potato
+- Added Baked Sweet Potato
+- Added smelting recipe for Sweet Potato
+- Added Sweet Potato to Grass Block drops
+- Updated to 1.7.2

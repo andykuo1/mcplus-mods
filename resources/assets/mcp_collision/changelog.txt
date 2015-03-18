@@ -1,0 +1,7 @@
+v1.0.1*
+- Updated to MC+ API v1.5
+
+v1.0.0*
+- Added ability to die from minecarts
+- Added custom death message
+- Updated to 1.7.10

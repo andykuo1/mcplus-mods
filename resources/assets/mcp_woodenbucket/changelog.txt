@@ -1,0 +1,35 @@
+#mc+woodenbucket
+
+v1.2.1*
+- Updated to MC+ API v1.5
+
+v1.2.0*
+- Removed Lava Wooden Bucket
+- Changed Wooden Bucket overlay texture
+- Updated to 1.7.10
+
+v1.1.1*
+- Minor reorganization to source
+
+v1.1.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.2*
+- Bugfix: Unrecognizable crafting recipe
+- Bugfix: Custom name lost when crafted
+- Implemented ability to repair at anvils with Wooden Bowls
+- Updated to 1.6.4
+
+v1.0.0*
+- Bugfix: Unbreakable Wooden Bucket bug
+- Added Wooden Bucket
+- Added Wooden Water Bucket
+- Added Wooden Lava Bucket
+- Added Wooden Milk Bucket
+- Added crafting recipes
+- Added crafting recipes for Wooden Milk Bucket for Cake
+- Implemented slowed motion for wearing Wooden Bucket
+- Implemented GUI overlay for wearing Wooden Bucket
+- Implemented damage from Wooden Lava Bucket
+- Updated to 1.6.2

@@ -1,0 +1,34 @@
+#mc+gems
+
+v1.2.1*
+- Increased world gen chance
+- Updated to MC+ API v1.5
+
+v1.2.0*
+- Added to Ore Dictionary
+- Updated to Minecraft 1.7.10
+
+v1.1.1*
+- Added crafting recipes for Amethyst
+- Added crafting recipes from Block to Item
+- Changed localization for gems
+
+v1.1.0*
+- Added Sapphire Ore
+- Added Sapphire
+- Added Block of Sapphire
+- Added World Generation for Sapphire Ore
+- Added Amethyst Ore
+- Added Amethyst
+- Added Block of Amethyst
+- Added World Generation for Amethyst Ore
+
+v1.0.1
+- Adjusted world generation
+
+v1.0.0*
+- Added Ruby
+- Added Ruby Ore
+- Added Block of Ruby
+- Added world generation for Ruby Ore
+- Updated to 1.7.2

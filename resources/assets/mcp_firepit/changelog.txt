@@ -1,0 +1,32 @@
+v1.0.4*
+- Major reorganization to code
+- Updated to MC+ API v1.5
+
+v1.0.3*
+- Soft-dependency for MC+ HandDigging to change recipe
+- Changed crafting recipe for Fire Pit
+
+v1.0.2*
+- Updated to Minecraft 1.7.10
+
+v1.0.1*
+- Added experience for cooking food
+- Added light to Fire Pit
+- Added burning if stepped on
+- Added ignition step, must constantly hit to ignite either using stick, blaze rod, or flint and steal
+- Changed crafting recipe for Fire Pit
+- Removed Ash
+- Removed smelting recipe for all foods to Ash
+- Increased FirePit render size
+- Increased cook time for Fire Pit
+- Implemented ability to burn nothing, just for the light; but will distinguish
+- Minor reorganization to source
+
+v1.0.0*
+- Added Fire Pit
+- Added Ash
+- Added smelting recipe for all Foods to Ash
+- Added fire pit cooking recipe for all Foods
+- Added fire pit cooking recipe for Wood Logs
+- Implemented custom model for Fire Pit
+- Updated to 1.7.2

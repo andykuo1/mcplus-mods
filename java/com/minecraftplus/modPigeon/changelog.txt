@@ -1,8 +1,0 @@
-v1.0.0
-- Bugfix: Did not display hurt animation
-- Bugfix: Render distance too short
-- Added Pigeon
-- Implemented ability to fly for Pigeon
-- Implemented ability to be tamed with melon seeds
-- Major reorganization to source
-- Updated to 1.7.10

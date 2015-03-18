@@ -1,6 +1,0 @@
-v1.0.0
-- Adds Silver Ore
-- Adds silver nuggets
-- Adds silver ingots
-- Adds Silver Blocks
-- Updated to 1.7.2

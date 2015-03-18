@@ -1,4 +1,0 @@
-v1.0.0
-- Added Torch - Off variant
-- Implemented ability for Torches to distinguish
-- Updated to 1.7.10

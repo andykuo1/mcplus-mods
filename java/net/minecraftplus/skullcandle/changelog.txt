@@ -1,0 +1,13 @@
+v1.0.2
+- Bugfix: Casting Error!
+- Added Config Menu
+- Added Skull Candle (Glowing)
+- Added Redstone Skull Candle (Glowing)
+
+v1.0.1*
+- Updated to 1.7.10
+
+v1.0.0*
+- Added Skull Candle
+- Added Redstone Skull Candle
+- Updated to 1.7.2

@@ -1,0 +1,9 @@
+v1.1.0*
+- Increased Loose Smooth Stone hardness
+- Major reorganization to code
+- Updated to MC+ API v1.5
+
+v1.0.0*
+- Added Loose Smooth Stone
+- Added Loose Smooth Stone to world gen
+- Updated to 1.7.10

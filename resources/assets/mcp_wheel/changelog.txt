@@ -1,0 +1,23 @@
+#mc+wheel
+
+v1.1.3*
+- Major reorganization to source
+- Updated to MC+ API v1.5
+
+v1.1.2*
+- Updated to 1.7.10
+
+v1.1.1*
+- Minor reorganization to source
+
+v1.1.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.1*
+- Changed crafting recipe
+
+v1.0.0*
+- Added Wooden Wheel
+- Added crafting recipe for Wooden Wheel
+- Updated to 1.6.4

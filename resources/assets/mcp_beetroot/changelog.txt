@@ -1,0 +1,24 @@
+#mc+beetroot
+
+v1.2.0*
+- Removed drop from creative mode
+- Bugfix: Won't be destroyed if stepped on
+- Updated to MC+ API v1.5
+
+v1.1.1*
+- Major reorganization to source
+
+v1.1.0*
+- Added to Ore Dictionary
+- Updated to 1.7.10
+
+v1.0.1*
+- Bugfix: Beetroot Seeds drop in Creative Mode
+
+v1.0.0*
+- Added Beetroot
+- Added Beetroot Seeds
+- Added Beetroot Soup
+- Added crafting recipe for Beetroot Soup
+- Implemented ability to find Beetroot Seeds by tilling Dirt or Grass
+- Updated to 1.7.2

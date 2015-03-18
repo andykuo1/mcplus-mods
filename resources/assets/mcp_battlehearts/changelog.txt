@@ -1,0 +1,38 @@
+#mc+battlehearts
+
+v1.2.0*
+- Bugfix: Health flicker after sleep
+- Config: Can change default max health
+- Config: Can change max health increment
+- Config: Can change level required to increment
+- Config: Can change limit of max health gained
+- Config: Can change if reset health on death
+- Config: Can change if heal on sleep
+- Added decrease in max health on death
+- Added command "setmaxhealth"
+- Added sound for increasing max health
+- Removed decrease in max health
+- Major reorganization to source
+- Updated to MC+ API v1.5
+
+v1.1.1*
+- Bugfix: Sleep crash
+- Bugfix: Annoying low exp sound every time you sleep
+
+v1.1.0*
+- Updated to 1.7.10
+
+v1.0.2*
+- Bugfix: Fixed traveling dimension resets max health
+- Bugfix: Uninstalling mod does not reset health
+- Bugfix: Health resets to 4 hearts when traveling dimensions
+
+v1.0.1
+- Bugfix: Constant loop of sound tool breaking
+- Bugfix: Instant update of max health
+- Added sound to lowering xp
+
+v1.0.0*
+- Implemented ability to increase max Health every five levels
+- Implemented ability to update max Health by sleeping
+- Updated to 1.7.2

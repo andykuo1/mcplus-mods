@@ -1,0 +1,16 @@
+#mc+skullcandle
+
+v1.0.2*
+- Bugfix: Casting Error!
+- Added variant Skull Candle (Glowing)
+- Added variant Powered Skull Candle (Glowing)
+- Added config file
+- Updated to MC+ API v1.5
+
+v1.0.1*
+- Updated to 1.7.10
+
+v1.0.0*
+- Added Skull Candle
+- Added Redstone Skull Candle
+- Updated to 1.7.2

@@ -1,0 +1,7 @@
+#mc+pigeon
+
+v1.0.0
+- Added Pigeon
+- Major reorganization to source
+- Updated to 1.7.10
+- Updated to MC+ API v1.5

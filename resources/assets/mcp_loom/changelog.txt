@@ -1,0 +1,48 @@
+#mc+loom
+
+v1.2.4*
+- Major reorganization to code
+- Updated to MC+ API v1.5
+
+v1.2.3*
+- Updated to Minecraft 1.7.10
+
+v1.2.2*
+- Minor reorganization to source
+
+v1.2.1*
+- Bugfix: Server crash due to NoClassDefFound
+
+v1.2.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.1.1*
+- Minor reorganization to source
+
+v1.1.0*
+- Bugfix: Glitchy Wheel rendering
+- Bugfix: Glitchy Wooden Loom rendering
+- Added dependence on MC+ Wheel
+- Implemented sound
+- Implemented animation for working
+- Changed crafting recipe
+- Expanded fuel slots to 2
+- Reworked GUI
+- Updated to 1.6.4
+
+v1.0.2*
+- Bugfix: Missing GUI texture
+- Bugfix: NoClassDef Exception
+
+v1.0.1*
+- Added mirror crafting recipe
+- Implemneted animation for working
+- Implemented experience for spinning wool
+
+v1.0.0*
+- Bugfix: Missing textures
+- Added Wooden Loom
+- Added craftin recipes
+- Implemented custom block render
+- Updated to 1.6.2

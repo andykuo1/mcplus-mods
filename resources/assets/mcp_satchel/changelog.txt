@@ -1,0 +1,52 @@
+#mc+satchel
+
+v1.3.3
+- Updated to MC+ API v1.5
+
+v1.3.2*
+- Updated to Minecraft 1.7.10
+
+v1.3.1*
+- Minor reorganization to source
+
+v1.3.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.2.2*
+- Removed item generation in dungeon chests, etc.
+
+v1.2.1*
+- Added Ender Satchel
+- Removed ability to expand inventory
+- Implemented ability to erase color with Cauldron
+- Changed Ender Satchel default color
+
+v1.2.0*
+- Implemented item generation in dungeon chests, etc.
+- Implemented ability to expand inventory
+- Changed Satchel texture
+- Limited default inventory size to 9
+- Major reorganization to source
+- Updated to 1.6.4
+
+v1.1.0*
+- Bugfix: GUI inventory offset by a pixel
+- Removed bag-ception
+- Implemented animation for opening Satchel
+- Implemented anvil renaming to affect inventory
+- Limited sound volume for Satchel
+- Major reorganization to source
+
+v1.0.3*
+- Implemented sound to opening Satchel
+- Updated to 1.6.2
+
+v1.0.1*
+- Updated to 1.6.1
+
+v1.0.0*
+- Added Satchel
+- Added crafting recipes
+- Implemented ability to dye Satchel
+- Updated to 1.5.2

@@ -1,0 +1,25 @@
+#mc+soulextractor
+
+v1.0.4*
+- Implemented amount of exp per bottle in name
+- Changed experience per bottle
+- Updated to MC+ API v1.5
+
+v1.0.3*
+- Updated to 1.7.10
+
+v1.0.2*
+- Bugfix: Unable to open Soul Extractor gui
+- Bugfix: Quick gui flash
+- Minor reorganization to source
+
+v1.0.1*
+- Bugfix: Server crash with NoClassDefFound Error
+
+v1.0.0*
+- Added Soul Extractor
+- Added crafting recipes
+- Implemented particle effects
+- Changed Bottle o' Enchanting max stack size to 1
+- Major reorganization
+- Updated to 1.7.2

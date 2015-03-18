@@ -1,0 +1,32 @@
+v1.3.1*
+- Major reorganization to code
+- Updated to MC+ API v1.5
+
+v1.3.0*
+- Updated to Minecraft 1.7.10
+
+v1.2.1*
+- Bugfix: Pushes larger animals when hooked to them
+- Bugfix: Jukebox on Wooden Cart does not play music
+- Bugfix: Plays animal hurt sound
+
+v1.2.0*
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.1.0*
+- Bugfix: TOO MANY TO LIST
+- Remove ability to put large animals in Wooden Cart
+- Implemented ability to mount animals while pulling Wooden Cart
+- Implemented ability to put animals in Wooden Cart
+
+v1.0.4*
+- Added Cart API
+- Implemented ability to attach Wooden Cart to animal
+- Increased Wooden Cart speed
+- Major reorganization to source
+
+v1.0.0*
+- Added Wooden Cart
+- Implemented dependency on MC+ Wheel
+- Updated to 1.6.2

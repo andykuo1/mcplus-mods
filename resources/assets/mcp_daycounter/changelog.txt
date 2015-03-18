@@ -1,0 +1,37 @@
+#mc+daycounter
+
+v1.1.3*
+- Updated to MC+ API v1.5
+
+v1.1.2*
+- Updated to Minecraft 1.7.10
+
+v1.1.1*
+- Bugfix: Render followed Player
+- Changed crafting recipe for Day Counter
+
+v1.1.0*
+- Bugfix: Flickering textures
+- Major reorganization to source
+- Updated to 1.7.2
+
+v1.0.4*
+- Bugfix: Does not drop when block is broken
+
+v1.0.3*
+- Bugfix: Drops when broken in creative mode
+- Bugfix: Hanging on North face has flickering textures
+
+v1.0.2*
+- Adjusted time to count in Days and Eras
+- Adjusted crafting recipe
+
+v1.0.1*
+- Bugfix: Time rendered in wall
+- Bugfix: NBT save errors
+- Adjusted crafting recipe
+
+v1.0.0*
+- Added Day Counter
+- Added crafting recipe for Day Counter
+- Updated to 1.6.4
