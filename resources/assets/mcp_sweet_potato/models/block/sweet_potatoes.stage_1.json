@@ -1,0 +1,6 @@
+{
+	"parent": "block/crop",
+	"textures": {
+		"crop": "mcp_sweet_potato:blocks/sweet_potatoes.stage_1"
+	}
+}

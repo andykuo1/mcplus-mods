@@ -1,0 +1,28 @@
+{
+	"variants": {
+		"age=0": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_0"
+		},
+		"age=1": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_0"
+		},
+		"age=2": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_1"
+		},
+		"age=3": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_1"
+		},
+		"age=4": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_2"
+		},
+		"age=5": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_2"
+		},
+		"age=6": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_3"
+		},
+		"age=7": {
+			"model": "mcp_sweet_potato:sweet_potatoes.stage_3"
+		}
+	}
+}

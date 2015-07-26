@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "mcp_saw:blocks/saw.side",
+		"down": "mcp_saw:blocks/saw.bottom",
+		"up": "mcp_saw:blocks/saw.top",
+		"north": "mcp_saw:blocks/saw.side",
+		"east": "mcp_saw:blocks/saw.side",
+		"south": "mcp_saw:blocks/saw.side",
+		"west": "mcp_saw:blocks/saw.side"
+	}
+}

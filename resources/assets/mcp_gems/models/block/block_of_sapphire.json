@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all": "mcp_gems:blocks/block_of_sapphire"
+	}
+}

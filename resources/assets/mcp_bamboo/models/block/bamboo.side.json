@@ -1,0 +1,7 @@
+{
+	"parent": "block/column_side",
+	"textures": {
+		"end": "mcp_bamboo:blocks/bamboo.top",
+		"side": "mcp_bamboo:blocks/bamboo"
+	}
+}

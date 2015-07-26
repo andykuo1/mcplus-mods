@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "mcp_fossil:blocks/fossil_stone.side",
+		"down": "mcp_fossil:blocks/fossil_stone.bottom",
+		"up": "mcp_fossil:blocks/fossil_stone.top",
+		"north": "mcp_fossil:blocks/fossil_stone.side",
+		"east": "mcp_fossil:blocks/fossil_stone.side",
+		"south": "mcp_fossil:blocks/fossil_stone.side",
+		"west": "mcp_fossil:blocks/fossil_stone.side"
+	}
+}
