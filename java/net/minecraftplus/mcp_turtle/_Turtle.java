@@ -6,10 +6,10 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftplus._api.base._Mod;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftplus._api.MCP;
+import net.minecraftplus._api.base._Mod;
 
 @Mod(modid = _Turtle.MODID, version = _Turtle.VERSION, dependencies = "required-after:mcp_api")
 public class _Turtle extends _Mod
@@ -31,8 +31,10 @@ public class _Turtle extends _Mod
 	@Override
 	public void PreInitialize(FMLPreInitializationEvent parEvent)
 	{
-		//TODO: Add Items, Blocks, EventHandlers, Localizations for MCP_TURTLE
+		MCP.guiHandler(new GuiHandlerTurtle());
 		
+		MCP.lang("entity.Turtle.name", "Turtle");
+
 		super.PreInitialize(parEvent);
 	}
 
@@ -41,7 +43,7 @@ public class _Turtle extends _Mod
 	public void Initialize(FMLInitializationEvent parEvent)
 	{
 		//TODO: Add Recipes for MCP_TURTLE
-		
+
 		proxy.Initialize();
 		super.Initialize(parEvent);
 	}
@@ -51,7 +53,7 @@ public class _Turtle extends _Mod
 	public void PostInitialize(FMLPostInitializationEvent parEvent)
 	{
 		//TODO: Add Communications for MCP_TURTLE
-		
+
 		super.PostInitialize(parEvent);
 	}
 
@@ -60,7 +62,7 @@ public class _Turtle extends _Mod
 	public void Configure(Configuration parConfiguration)
 	{
 		//TODO: Add config for MCP_TURTLE
-		
+
 		super.Configure(parConfiguration);
 	}
 
@@ -68,7 +70,7 @@ public class _Turtle extends _Mod
 	public void Munge()
 	{
 		//TODO: Add factory functions for MCP_TURTLE
-		
+
 		super.Munge();
 	}
 }

@@ -4,6 +4,11 @@ public final class ColorUtil
 {
 	private ColorUtil() {}
 
+	public static final int rgbToHex(int R, int G, int B)
+	{
+		return (R << 16) + (G << 8) + B;
+	}
+
 	public static final int hexToR(int parColor)
 	{
 		return (parColor & 0xFF0000) >> 16;

@@ -33,6 +33,8 @@ public class _Pigeon extends _Mod
 	{
 		MCP.guiHandler(new GuiHandlerPigeon());
 
+		MCP.lang("entity.Pigeon.name", "Pigeon");
+		
 		super.PreInitialize(parEvent);
 	}
 
