@@ -20,16 +20,18 @@ public class BlockOreBase extends BlockOre
 	private int expMin = 2;
 	private int expMax = 5;
 
-	public BlockOreBase(Item parItem)
+	public BlockOreBase(Item parItem, int parHarvestLevel)
 	{
-		this(parItem, 1, 0);
+		this(parItem, parHarvestLevel, 1, 0);
 	}
 
-	public BlockOreBase(Item parItem, int parAmount, int parAmountRandom)
+	public BlockOreBase(Item parItem, int parHarvestLevel, int parAmount, int parAmountRandom)
 	{
 		this.dropItem = parItem;
 		this.dropAmount = parAmount;
 		this.dropAmountRand = parAmountRandom;
+		
+		this.setHarvestLevel("pickaxe", parHarvestLevel);
 	}
 
 	public Block setDropExp(int parMinExp, int parMaxExp)
@@ -48,7 +50,7 @@ public class BlockOreBase extends BlockOre
 	@Override
 	public int quantityDropped(Random parRandom)
 	{
-		return this.dropAmount + parRandom.nextInt(this.dropAmountRand);
+		return this.dropAmount + (this.dropAmountRand > 0 ? parRandom.nextInt(this.dropAmountRand) : 0);
 	}
 
 	@Override

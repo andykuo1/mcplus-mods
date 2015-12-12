@@ -1,14 +1,14 @@
 package net.minecraftplus._api.dictionary;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import net.minecraftplus._api.util.ArrayUtil;
 import net.minecraftplus._api.util.collection.SmallMap;
 import net.minecraftplus._api.util.json.JSONMap;
+import net.minecraftplus._api.util.vector.Log;
 import net.minecraftplus._api.util.vector.Matrix3f;
-import net.minecraftplus._api.util.vector.Quaternion;
-import net.minecraftplus._api.util.vector.Vector3f;
+import net.minecraftplus._api.util.vector.Vec3f;
+import net.minecraftplus._api.util.vector.Vec4f;
 
 public class Models
 {
@@ -150,7 +150,7 @@ public class Models
 				);
 	}
 
-	public static final JSONMap ITEM(String parParent, String[] parTextures, Matrix3f parThirdPerson, Matrix3f parFirstPerson, Vector3f parGui)
+	public static final JSONMap ITEM(String parParent, String[] parTextures, Matrix3f parThirdPerson, Matrix3f parFirstPerson, Vec3f parGui)
 	{
 		JSONMap map = new JSONMap();
 		map.put("parent", parParent);
@@ -192,7 +192,7 @@ public class Models
 			if (parGui != null)
 			{
 				JSONMap gui = new JSONMap();
-				gui.put("rotation", (int) parGui.getX(), (int) parGui.getY(), (int) parGui.getZ());
+				gui.put("rotation", (int) parGui.x, (int) parGui.y, (int) parGui.z);
 				display.put("gui", gui);
 			}
 
@@ -250,7 +250,11 @@ public class Models
 	public static final JSONMap BLOCK(String parParent, boolean parAmbientOcclusion, Map<String, String> parTextures, JSONMap... parElements)
 	{
 		JSONMap map = new JSONMap();
-		map.put("parent", parParent);
+
+		if (parParent != null)
+		{
+			map.put("parent", parParent);
+		}
 
 		if (!parAmbientOcclusion)
 		{
@@ -275,29 +279,35 @@ public class Models
 		return map;
 	}
 
-	public static final JSONMap BLOCK_ELEMENT(Vector3f parFrom, Vector3f parTo, JSONMap parDown, JSONMap parUp, JSONMap parNorth, JSONMap parSouth, JSONMap parWest, JSONMap parEast)
+	public static final JSONMap BLOCK_TEXTURE_ELEMENTS(String[][] parTextures, JSONMap... parElements)
+	{
+		Log.ASSERT(ArrayUtil.validMaxLength(parTextures, Integer.MAX_VALUE, 2));
+		return BLOCK(null, true, entryMap(parTextures), parElements);
+	}
+
+	public static final JSONMap BLOCK_ELEMENT(Vec3f parFrom, Vec3f parTo, JSONMap parDown, JSONMap parUp, JSONMap parNorth, JSONMap parSouth, JSONMap parWest, JSONMap parEast)
 	{
 		JSONMap map = new JSONMap();
-		map.put("from", (int) parFrom.getX(), (int) parFrom.getY(), (int) parFrom.getZ());
-		map.put("to", (int) parTo.getX(), (int) parTo.getY(), (int) parTo.getZ());
+		map.put("from", (int) parFrom.x, (int) parFrom.y, (int) parFrom.z);
+		map.put("to", (int) parTo.x, (int) parTo.y, (int) parTo.z);
 
-		ArrayList<JSONMap> faces = new ArrayList<JSONMap>();
-		if (parDown != null) faces.add(parDown);
-		if (parUp != null) faces.add(parUp);
-		if (parNorth != null) faces.add(parNorth);
-		if (parSouth != null) faces.add(parSouth);
-		if (parWest != null) faces.add(parWest);
-		if (parEast != null) faces.add(parEast);
+		JSONMap faces = new JSONMap();
+		if (parDown != null) faces.put("down", parDown.get("down"));
+		if (parUp != null) faces.put("up", parUp.get("up"));
+		if (parNorth != null) faces.put("north", parNorth.get("north"));
+		if (parSouth != null) faces.put("south", parSouth.get("south"));
+		if (parWest != null) faces.put("west", parWest.get("west"));
+		if (parEast != null) faces.put("east", parEast.get("east"));
 
-		map.put("faces", faces.toArray(new JSONMap[faces.size()]));
+		map.put("faces", faces);
 		return map;
 	}
 
-	public static final JSONMap BLOCK_ELEMENT_FACE(String parID, Quaternion parUV, String parTexture, String parCullFace, int parRotation)
+	public static final JSONMap BLOCK_ELEMENT_FACE(String parID, Vec4f parUV, String parTexture, String parCullFace, int parRotation)
 	{
 		JSONMap map = new JSONMap();
 		JSONMap face = new JSONMap();
-		face.put("uv", parUV.getX(), parUV.getY(), parUV.getZ(), parUV.getW());
+		face.put("uv", parUV.x, parUV.y, parUV.z, parUV.w);
 		face.put("texture", parTexture);
 
 		if (parCullFace != null)
@@ -314,7 +324,7 @@ public class Models
 		return map;
 	}
 
-	private static final Map<String, String> entryMap(String[][] parTextures)
+	public static final Map<String, String> entryMap(String[]... parTextures)
 	{
 		if (!ArrayUtil.valid(parTextures)) return null;
 

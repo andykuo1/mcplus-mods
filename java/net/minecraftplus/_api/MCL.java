@@ -10,6 +10,7 @@ import net.minecraftplus._api.util.StringUtil;
 public final class MCL
 {
 	private static PrintStream stream = System.out;
+	private static boolean toSystemStream = false;
 
 	private MCL() {}
 
@@ -35,10 +36,28 @@ public final class MCL
 
 	public static final void error(Object... parObjects)
 	{
+		toSystemStream = true;
 		log("[ERROR]", StringUtil.joinWith(StringUtil.toStrings(parObjects), " "));
+		toSystemStream = false;
 	}
 
 	protected static final void log(String parType, String parBody)
+	{
+		if (toSystemStream)
+		{
+			log(parType, parBody, System.err);
+			if (stream != System.err && stream != System.out)
+			{
+				log(parType, parBody, stream);
+			}
+		}
+		else
+		{
+			log(parType, parBody, stream);
+		}
+	}
+
+	private static final void log(String parType, String parBody, PrintStream stream)
 	{
 		String mod = null;
 		ModContainer container = MCP.mod();

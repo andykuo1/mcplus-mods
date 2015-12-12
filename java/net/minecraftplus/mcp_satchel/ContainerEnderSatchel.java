@@ -2,6 +2,7 @@ package net.minecraftplus.mcp_satchel;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class ContainerEnderSatchel extends ContainerBase
@@ -12,9 +13,9 @@ public class ContainerEnderSatchel extends ContainerBase
 	protected final int rows;
 	protected final int columns;
 
-	public ContainerEnderSatchel(EntityPlayer parEntityPlayer, ItemStack parItemStack)
+	public ContainerEnderSatchel(EntityPlayer parEntityPlayer, IInventory parInventory, ItemStack parItemStack)
 	{
-		super(parEntityPlayer.inventory, ItemEnderSatchel.getItemChest(parItemStack, parEntityPlayer));
+		super(parEntityPlayer.inventory, parInventory);
 		this.player = parEntityPlayer;
 		this.enderSatchel = parItemStack;
 
@@ -31,9 +32,9 @@ public class ContainerEnderSatchel extends ContainerBase
 	}
 
 	@Override
-	protected SlotSatchel getNewSlot(IInventory parInventory, int parSlotIndex, int parOffsetX, int parOffsetY)
+	protected Slot getNewSlot(IInventory parInventory, int parSlotIndex, int parOffsetX, int parOffsetY)
 	{
-		return new SlotSatchel(parInventory, parSlotIndex, parOffsetX, parOffsetY);
+		return new Slot(parInventory, parSlotIndex, parOffsetX, parOffsetY);
 	}
 
 	@Override

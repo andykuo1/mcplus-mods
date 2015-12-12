@@ -62,6 +62,14 @@ public class _Satchel extends _Mod
 				Character.valueOf('X'), Blocks.chest,
 				Character.valueOf('Y'), Items.string);
 
+		GameRegistry.addShapedRecipe(new ItemStack(enderSatchel),
+				"###",
+				"YXY",
+				"###",
+				Character.valueOf('#'), Items.leather,
+				Character.valueOf('X'), Blocks.ender_chest,
+				Character.valueOf('Y'), Items.string);
+
 		MCP.recipe(Recipes.DYEABLE(satchel));
 		MCP.recipe(Recipes.DYEABLE(enderSatchel));
 
@@ -73,8 +81,6 @@ public class _Satchel extends _Mod
 	@Override
 	public void PostInitialize(FMLPostInitializationEvent parEvent)
 	{
-		//TODO: Add Communications for MCP_SATCHEL
-
 		super.PostInitialize(parEvent);
 	}
 
@@ -82,8 +88,6 @@ public class _Satchel extends _Mod
 	@Override
 	public void Configure(Configuration parConfiguration)
 	{
-		//TODO: Add config for MCP_SATCHEL
-
 		super.Configure(parConfiguration);
 	}
 

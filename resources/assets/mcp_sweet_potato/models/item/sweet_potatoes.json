@@ -1,5 +1,5 @@
 {
-	"parent": "mcp_sweet_potato:block/sweet_potatoes",
+	"parent": "mcp_sweet_potato:block/sweet_potatoes.stage_3",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10.0, -45.0, 170.0 ],

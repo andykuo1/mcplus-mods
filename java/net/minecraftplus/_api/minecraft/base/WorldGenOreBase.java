@@ -36,7 +36,7 @@ public class WorldGenOreBase implements IWorldGenerator
 	{
 		if (world.provider.getDimensionId() == this.dimensionID)
 		{
-			WorldGens.SPAWN_ORE(this.oreBlock, world, random, chunkX * 16, chunkZ * 16, this.veinSize, this.veinSize, this.spawnFrequency, 0, Math.abs(this.spawnHeight));
+			WorldGens.SPAWN_ORE(this.oreBlock, world, random, chunkX * 16, chunkZ * 16, this.veinSize, this.veinSize, this.spawnFrequency, 0, this.spawnHeight < 0 ? world.getActualHeight() : this.spawnHeight);
 		}
 	}
 }

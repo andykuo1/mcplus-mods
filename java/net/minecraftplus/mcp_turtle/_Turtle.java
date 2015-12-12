@@ -25,15 +25,13 @@ public class _Turtle extends _Mod
 
 	public _Turtle() {}
 
-	//TODO: Add registers here for MCP_TURTLE
-
 	@EventHandler
 	@Override
 	public void PreInitialize(FMLPreInitializationEvent parEvent)
 	{
 		MCP.guiHandler(new GuiHandlerTurtle());
-		
-		MCP.lang("entity.Turtle.name", "Turtle");
+
+		MCP.lang("entity.mcp_turtle.Turtle.name", "Turtle");
 
 		super.PreInitialize(parEvent);
 	}
@@ -42,8 +40,6 @@ public class _Turtle extends _Mod
 	@Override
 	public void Initialize(FMLInitializationEvent parEvent)
 	{
-		//TODO: Add Recipes for MCP_TURTLE
-
 		proxy.Initialize();
 		super.Initialize(parEvent);
 	}
@@ -52,25 +48,18 @@ public class _Turtle extends _Mod
 	@Override
 	public void PostInitialize(FMLPostInitializationEvent parEvent)
 	{
-		//TODO: Add Communications for MCP_TURTLE
-
 		super.PostInitialize(parEvent);
 	}
-
 
 	@Override
 	public void Configure(Configuration parConfiguration)
 	{
-		//TODO: Add config for MCP_TURTLE
-
 		super.Configure(parConfiguration);
 	}
 
 	@Override
 	public void Munge()
 	{
-		//TODO: Add factory functions for MCP_TURTLE
-
 		super.Munge();
 	}
 }

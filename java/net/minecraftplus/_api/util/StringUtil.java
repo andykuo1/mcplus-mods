@@ -19,15 +19,15 @@ public class StringUtil
 		return str.toString();
 	}
 
-	public static final String joinWith(String[] parStrings, String parSeperator)
+	public static final String joinWith(Object[] parStrings, String parSeperator)
 	{
 		assert(parStrings != null);
 		assert(parStrings.length > 0);
 
-		String result = parStrings[0];
+		String result = parStrings[0].toString();
 		for(int i = 1; i < parStrings.length; ++i)
 		{
-			result += parSeperator + parStrings[i];
+			result += parSeperator + parStrings[i].toString();
 		}
 
 		return result;

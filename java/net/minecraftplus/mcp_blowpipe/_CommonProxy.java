@@ -8,7 +8,7 @@ public class _CommonProxy extends Proxy
 	@Override
 	public void Initialize()
 	{
-		MCS.entity(EntitySeeds.class, "seeds");
+		MCS.entity(EntitySeeds.class, "Seeds");
 
 		super.Initialize();
 	}

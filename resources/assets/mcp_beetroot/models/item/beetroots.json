@@ -1,5 +1,5 @@
 {
-	"parent": "mcp_beetroot:block/beetroots",
+	"parent": "mcp_beetroot:block/beetroots.stage_3",
 	"display": {
 		"thirdperson": {
 			"rotation": [ 10.0, -45.0, 170.0 ],

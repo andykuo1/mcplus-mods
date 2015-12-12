@@ -36,8 +36,6 @@ public class EntityTurtleBase extends EntityTameable
 		return 0.6D;
 	}
 
-	private boolean toggleRiding = true;
-
 	public EntityTurtleBase(World worldIn)
 	{
 		super(worldIn);
@@ -46,6 +44,7 @@ public class EntityTurtleBase extends EntityTameable
 		this.tasks.addTask(1, new EntityAISwimming(this));
 		this.tasks.addTask(2, this.aiSit);
 		this.tasks.addTask(3, new EntityAITempt(this, 1.2D, Items.fish, false));
+		this.tasks.addTask(3, new EntityAITempt(this, 1.2D, Items.melon, false));
 		this.tasks.addTask(4, new EntityAIMate(this, this.getMoveSpeed()));
 		this.tasks.addTask(5, new EntityAIFollowOwner(this, this.getMoveSpeed(), 2.0F, 2.0F));
 		this.tasks.addTask(6, new EntityAIFollowParent(this, this.getMoveSpeed() * 1.1D));
@@ -53,8 +52,6 @@ public class EntityTurtleBase extends EntityTameable
 		this.tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
 		this.tasks.addTask(9, new EntityAILookIdle(this));
 		this.setTamed(false);
-
-		this.setRiding(null);
 	}
 
 	@Override
@@ -121,36 +118,31 @@ public class EntityTurtleBase extends EntityTameable
 	@Override
 	protected String getLivingSound()
 	{
-		//Compare to: @EntityOcelot
 		return this.isTamed() ? (this.isInLove() ? "mob.cat.purr" : (this.rand.nextInt(4) == 0 ? "mob.cat.purreow" : "mob.cat.meow")) : "";
 	}
 
 	@Override
 	protected String getHurtSound()
 	{
-		//Compare to: @EntityOcelot
 		return "mob.cat.hitt";
 	}
 
 	@Override
 	protected String getDeathSound()
 	{
-		//Compare to: @EntityOcelot
 		return "mob.cat.hitt";
 	}
 
 	@Override
 	protected float getSoundVolume()
 	{
-		//Compare to: @EntityOcelot
 		return 0.4F;
 	}
 
 	@Override
 	protected Item getDropItem()
 	{
-		//Compare to: @EntityOcelot
-		return Items.feather;
+		return Items.fish;
 	}
 
 	@Override
@@ -158,28 +150,6 @@ public class EntityTurtleBase extends EntityTameable
 	{
 		//Compare to: @EntityOcelot
 		return p_70652_1_.attackEntityFrom(DamageSource.causeMobDamage(this), 3.0F);
-	}
-
-	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount)
-	{
-		//Compare to: @EntityOcelot
-		if (this.isEntityInvulnerable(source))
-		{
-			return false;
-		}
-		else
-		{
-			Entity entity = source.getEntity();
-
-			if (this.ridingEntity != null && this.ridingEntity.equals(entity))
-			{
-				return false;
-			}
-
-			this.aiSit.setSitting(false);
-			return super.attackEntityFrom(source, amount);
-		}
 	}
 
 	//Compare to: @EntityOcelot
@@ -192,47 +162,12 @@ public class EntityTurtleBase extends EntityTameable
 	{
 		super.onLivingUpdate();
 
-		if (this.isInWater() && !this.getRiding())
+		if (this.isInWater() && !this.isRiding())
 		{
 			this.motionX += Math.cos(Math.toRadians((this.rotationYaw + 90D) % 360)) * 0.02D;
-			this.motionY += 0.05F;
+			this.motionY *= 0.6F;
+			this.motionY += 0.01F;
 			this.motionZ += -Math.sin(Math.toRadians((this.rotationYaw - 90D) % 360)) * 0.02D;
-		}
-
-		if (this.isTamed())
-		{
-			if (this.getRiding())
-			{
-				this.rotationYaw = this.ridingEntity.rotationYaw;
-				if (this.ridingEntity.isInWater())
-				{
-					this.ridingEntity.motionX += Math.cos(Math.toRadians((this.ridingEntity.rotationYaw + 90D) % 360)) * 0.02D;
-					this.ridingEntity.motionY += this.ridingEntity.isSneaking() ? 0.01F : 0.025;
-					this.ridingEntity.motionZ += -Math.sin(Math.toRadians((this.ridingEntity.rotationYaw - 90D) % 360)) * 0.02D;
-				}
-
-				if (this.toggleRiding)
-				{
-					this.ignoreFrustumCheck = true;
-					this.setSize(0.05F, 0.05F);
-					this.toggleRiding = false;
-				}
-			}
-			else
-			{
-				if (!this.toggleRiding)
-				{
-					this.ignoreFrustumCheck = false;
-					this.setSize(0.6F, 0.7F);
-					this.toggleRiding = true;
-				}
-
-				if (this.isEntityInsideOpaqueBlock())
-				{
-					this.pushOutOfBlocks(this.posX, this.posY, this.posZ);
-					this.motionY += 0.2F;
-				}
-			}
 		}
 
 		if (!this.worldObj.isRemote)
@@ -242,12 +177,9 @@ public class EntityTurtleBase extends EntityTameable
 				this.heal(1.0F);
 			}
 
-			if (this.isTamed())
+			if (this.isTamed() && this.isInWater() && this.isSitting())
 			{
-				if (this.isInWater())
-				{
-					this.aiSit.setSitting(false);
-				}
+				this.aiSit.setSitting(false);
 			}
 		}
 	}
@@ -278,23 +210,6 @@ public class EntityTurtleBase extends EntityTameable
 
 						return true;
 					}
-				}
-			}
-
-			if (!player.isSneaking())
-			{
-				if (!this.getRiding())
-				{
-					if (player.getDistanceSqToEntity(this) < 0.8D)
-					{
-						this.setRiding(player);
-						return true;
-					}
-				}
-				else
-				{
-					this.setRiding(null);
-					return true;
 				}
 			}
 
@@ -359,8 +274,7 @@ public class EntityTurtleBase extends EntityTameable
 	@Override
 	public boolean isBreedingItem(ItemStack stack)
 	{
-		//Compare to: @EntityOcelot
-		return stack != null && stack.getItem() == Items.fish;
+		return stack != null && stack.getItem() == Items.melon;
 	}
 
 	@Override
@@ -467,34 +381,6 @@ public class EntityTurtleBase extends EntityTameable
 		return this.func_180493_b(ageable);
 	}
 
-	/*
-	protected boolean getRiding()
-	{
-		return this.dataWatcher.getWatchableObjectByte(18) == (byte)1;
-	}*/
-
-	@Override
-	public boolean isRiding()
-	{
-		return false;
-	}
-
-	protected boolean getRiding()
-	{
-		return this.ridingEntity != null;
-	}
-
-	protected void setRiding(Entity parEntity)
-	{
-		if (parEntity != null && parEntity.riddenByEntity != null && parEntity.riddenByEntity instanceof EntityTurtleBase)
-		{
-			EntityTurtleBase entityturtle = (EntityTurtleBase) parEntity.riddenByEntity;
-			entityturtle.setRiding(null);
-		}
-
-		this.mountEntity(parEntity);
-	}
-
 	@Override
 	public float getEyeHeight()
 	{
@@ -502,21 +388,9 @@ public class EntityTurtleBase extends EntityTameable
 	}
 
 	@Override
-	public double getYOffset()
-	{
-		return this.getRiding() ? this.ridingEntity.isSneaking() ? -0.85D : -0.8D : 0.0D;
-	}
-
-	@Override
 	public boolean canBreatheUnderwater()
 	{
 		return true;
-	}
-
-	@Override
-	public boolean isEntityInsideOpaqueBlock()
-	{
-		return this.getRiding() ? false : super.isEntityInsideOpaqueBlock();
 	}
 
 	@Override

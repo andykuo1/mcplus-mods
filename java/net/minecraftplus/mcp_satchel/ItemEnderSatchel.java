@@ -22,9 +22,4 @@ public class ItemEnderSatchel extends ItemSatchel
 		parEntityPlayer.openGui(_Satchel.INSTANCE, 1, parWorld, (int) parEntityPlayer.posX, (int) parEntityPlayer.posY, (int) parEntityPlayer.posZ);
 		parWorld.playSoundAtEntity(parEntityPlayer, Sounds.MOB_HORSE_LEATHER, 0.15F, 1.0F);
 	}
-
-	public static IInventory getItemChest(ItemStack parItemStack, EntityPlayer parEntityPlayer)
-	{
-		return new InventoryEnderSatchel(parItemStack, parEntityPlayer, 18);
-	}
 }

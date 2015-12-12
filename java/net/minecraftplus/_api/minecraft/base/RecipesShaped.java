@@ -34,7 +34,7 @@ public abstract class RecipesShaped implements IRecipe
 	public ItemStack getRecipeOutput()
 	{
 		//Compare To: ShapedRecipes
-		return this.recipeOutput;
+		return this.recipeOutput.copy();
 	}
 
 	@Override

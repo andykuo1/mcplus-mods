@@ -102,7 +102,7 @@ public class BlockSaw extends Block
 
 		if (outblock.getBlock() != Blocks.air)
 		{
-			if (outblock.getBlock() instanceof BlockLog && worldIn.rand.nextBoolean())
+			if ((outblock.getBlock() instanceof BlockLog || outblock.getBlock().getMaterial() == Material.wood) && worldIn.rand.nextBoolean())
 			{
 				worldIn.playAuxSFX(2001, outpos, Block.getIdFromBlock(outblock.getBlock()));
 
@@ -147,10 +147,16 @@ public class BlockSaw extends Block
 
 		BlockPos outpos = pos.offset(getFacing(this.getMetaFromState(state)));
 		IBlockState outblock = worldIn.getBlockState(outpos);
+
+		worldIn.playAuxSFX(2001, outpos, Block.getIdFromBlock(state.getBlock()));
 		if (outblock.getBlock() instanceof BlockLog)
 		{
-			worldIn.playAuxSFX(2001, outpos, Block.getIdFromBlock(state.getBlock()));
 			this.breakWood(worldIn, outpos, outblock, rand);
+		}
+		else if (outblock.getBlock().getMaterial() == Material.wood)
+		{
+			worldIn.setBlockToAir(outpos);
+			this.dropBlockAsItem(worldIn, outpos, outblock, 0);
 		}
 	}
 

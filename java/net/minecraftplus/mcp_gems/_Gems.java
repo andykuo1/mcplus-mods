@@ -19,6 +19,7 @@ import net.minecraftplus._api.MCF;
 import net.minecraftplus._api.MCP;
 import net.minecraftplus._api.base._Mod;
 import net.minecraftplus._api.dictionary.Dimensions;
+import net.minecraftplus._api.dictionary.ExperienceDrops;
 import net.minecraftplus._api.dictionary.Models;
 import net.minecraftplus._api.dictionary.Recipes;
 import net.minecraftplus._api.dictionary.Resources;
@@ -43,15 +44,15 @@ public class _Gems extends _Mod
 	public _Gems() {}
 
 	public static final Item ruby = new Item().setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("ruby");
-	public static final Block rubyOre = new BlockOreBase(ruby).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ruby_ore");
+	public static final Block rubyOre = new BlockOreBase(ruby, 2).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("ruby_ore");
 	public static final Block rubyBlock = new BlockCompressed(MapColor.redColor).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("block_of_ruby");
 
 	public static final Item sapphire = new Item().setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("sapphire");
-	public static final Block sapphireOre = new BlockOreBase(sapphire).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("sapphire_ore");
+	public static final Block sapphireOre = new BlockOreBase(sapphire, 2).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("sapphire_ore");
 	public static final Block sapphireBlock = new BlockCompressed(MapColor.blueColor).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("block_of_sapphire");
 
 	public static final Item amethyst = new Item().setCreativeTab(CreativeTabs.tabMaterials).setUnlocalizedName("amethyst");
-	public static final Block amethystOre = new BlockOreBase(amethyst).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("amethyst_ore");
+	public static final Block amethystOre = new BlockOreBase(amethyst, 1).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("amethyst_ore");
 	public static final Block amethystBlock = new BlockCompressed(MapColor.purpleColor).setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("block_of_amethyst");
 
 
@@ -69,7 +70,7 @@ public class _Gems extends _Mod
 		MCP.block(rubyBlock);
 		MCP.block(sapphireBlock);
 		MCP.block(amethystBlock);
-
+		
 		MCP.lang(rubyBlock.getUnlocalizedName() + ".name", "Block of Ruby");
 		MCP.lang(sapphireBlock.getUnlocalizedName() + ".name", "Block of Sapphire");
 		MCP.lang(amethystBlock.getUnlocalizedName() + ".name", "Block of Amethyst");
@@ -85,6 +86,10 @@ public class _Gems extends _Mod
 	@Override
 	public void Initialize(FMLInitializationEvent parEvent)
 	{
+		MCP.smelt(rubyOre, new ItemStack(ruby), ExperienceDrops.EMERALD);
+		MCP.smelt(sapphireOre, new ItemStack(sapphire), ExperienceDrops.LAPIS);
+		MCP.smelt(amethystOre, new ItemStack(amethyst), ExperienceDrops.QUARTZ);
+
 		MCP.recipe(Recipes.COMPRESSED(new ItemStack(rubyBlock),
 				ruby));
 		MCP.recipe(Recipes.COMPRESSED(new ItemStack(sapphireBlock),

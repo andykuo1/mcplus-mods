@@ -24,10 +24,8 @@ import net.minecraftplus._api.MCP;
 import net.minecraftplus._api.base._Mod;
 import net.minecraftplus._api.dictionary.FuelTimes;
 import net.minecraftplus._api.dictionary.Models;
-import net.minecraftplus._api.dictionary.Recipes;
 import net.minecraftplus._api.dictionary.Resources;
 import net.minecraftplus._api.factory.ModelFactory;
-import net.minecraftplus._api.util.ArrayUtil;
 
 @Mod(modid = _Blowpipe.MODID, version = _Blowpipe.VERSION, dependencies = "required-after:mcp_api")
 public class _Blowpipe extends _Mod
@@ -44,7 +42,7 @@ public class _Blowpipe extends _Mod
 	public _Blowpipe() {}
 
 	public static final Item blowpipe = new ItemBlowpipe().setUnlocalizedName("blowpipe");
-	public static final Item grainMix = new ItemSoup(5).setMaxStackSize(1).setUnlocalizedName("grain_mix");
+	public static final Item grainMix = new ItemSoup(2).setUnlocalizedName("grain_mix");
 
 	@EventHandler
 	@Override
@@ -62,6 +60,8 @@ public class _Blowpipe extends _Mod
 	{
 		MCP.fuel(blowpipe, FuelTimes.UNIT);
 
+		MCP.recipe(new RecipesGrainMix());
+
 		GameRegistry.addShapedRecipe(new ItemStack(blowpipe, 1),
 				"#Y",
 				"YX",
@@ -72,20 +72,6 @@ public class _Blowpipe extends _Mod
 		GameRegistry.addShapedRecipe(new ItemStack(blowpipe, 1),
 				"XY",
 				"Y#",
-				Character.valueOf('#'), Items.stick,
-				Character.valueOf('X'), Items.gunpowder,
-				Character.valueOf('Y'), Items.paper);
-
-		GameRegistry.addShapedRecipe(new ItemStack(blowpipe, 1),
-				"Y#",
-				"XY",
-				Character.valueOf('#'), Items.stick,
-				Character.valueOf('X'), Items.gunpowder,
-				Character.valueOf('Y'), Items.paper);
-
-		GameRegistry.addShapedRecipe(new ItemStack(blowpipe, 1),
-				"YX",
-				"#Y",
 				Character.valueOf('#'), Items.stick,
 				Character.valueOf('X'), Items.gunpowder,
 				Character.valueOf('Y'), Items.paper);
@@ -99,23 +85,7 @@ public class _Blowpipe extends _Mod
 	public void PostInitialize(FMLPostInitializationEvent parEvent)
 	{
 		//Get all seed items
-		List<ItemSeeds> seedList = new ArrayList<ItemSeeds>();
-		Iterator iter = Item.itemRegistry.getKeys().iterator();
-		while(iter.hasNext())
-		{
-			Object obj = Item.itemRegistry.getObject(iter.next());
-			if (obj instanceof ItemSeeds) seedList.add((ItemSeeds) obj);
-		}
-
-		//Grain mix recipe
-		for(ItemSeeds[] recipe : ArrayUtil.findCombinations(seedList.toArray(new ItemSeeds[seedList.size()]), 3))
-		{
-			MCP.recipe(Recipes.SHAPELESS(new ItemStack(grainMix),
-					recipe[0],
-					recipe[1],
-					recipe[2],
-					Items.bowl));
-		}
+		List<ItemSeeds> seedList = getSeedItems();
 
 		//Seed fuels
 		for(ItemSeeds seed : seedList)
@@ -127,22 +97,33 @@ public class _Blowpipe extends _Mod
 	}
 
 	public static int seedBurnTime = FuelTimes.UNIT / 8;
+	public static boolean customProjectile = false;
 
 	@Override
 	public void Configure(Configuration parConfiguration)
 	{
 		ArrayList<Item> projectiles = new ArrayList<Item>();
-		Property prop0 = parConfiguration.get("Projectiles", "itemID", new String[] {"minecraft:wheat_seeds", "minecraft:pumpkin_seeds", "minecraft:melon_seeds"});
-		Property prop1 = parConfiguration.get("SeedFuel", "burnTime", FuelTimes.UNIT / 8);
+		Property propProjectileEnabled = parConfiguration.get("Projectiles", "enabled", false);
+		Property propProjectileItems = parConfiguration.get("Projectiles", "itemID", new String[] {"minecraft:wheat_seeds", "minecraft:pumpkin_seeds", "minecraft:melon_seeds"});
+		Property propSeedBurnTime = parConfiguration.get("SeedFuel", "burnTime", FuelTimes.UNIT / 8);
 
-		for(String id : prop0.getStringList())
+		customProjectile = propProjectileEnabled.getBoolean();
+
+		if (customProjectile)
 		{
-			Item item = Item.getByNameOrId(id);
-			if (item != null) projectiles.add(item);
+			for(String id : propProjectileItems.getStringList())
+			{
+				Item item = Item.getByNameOrId(id);
+				if (item != null) projectiles.add(item);
+			}
+			ItemBlowpipe.PROJECTILES = projectiles.toArray(new Item[projectiles.size()]);
 		}
-		ItemBlowpipe.PROJECTILES = projectiles.toArray(new Item[projectiles.size()]);
+		else
+		{
+			projectiles.addAll(getSeedItems());
+		}
 
-		seedBurnTime = prop1.getInt();
+		seedBurnTime = propSeedBurnTime.getInt();
 
 		super.Configure(parConfiguration);
 	}
@@ -158,5 +139,17 @@ public class _Blowpipe extends _Mod
 				).toJSON());
 
 		super.Munge();
+	}
+
+	public static final List<ItemSeeds> getSeedItems()
+	{
+		List<ItemSeeds> seedList = new ArrayList<ItemSeeds>();
+		Iterator iter = Item.itemRegistry.getKeys().iterator();
+		while(iter.hasNext())
+		{
+			Object obj = Item.itemRegistry.getObject(iter.next());
+			if (obj instanceof ItemSeeds) seedList.add((ItemSeeds) obj);
+		}
+		return seedList;
 	}
 }

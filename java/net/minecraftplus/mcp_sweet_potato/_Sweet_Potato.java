@@ -91,9 +91,8 @@ public class _Sweet_Potato extends _Mod
 				Resources.ofTexture(bakedSweetPotato)
 				));
 
-		//TODO: This is missing an inventory model apparently . . .
 		MCF.makeItemModel(Resources.of(sweetPotatoes), Models.ITEM_BLOCK(
-				Resources.ofModelParent(sweetPotatoes)
+				Resources.ofModelParent(sweetPotatoes, "stage_3")
 				));
 		MCF.makeBlockModel(Resources.of(sweetPotatoes, "stage_0"), Models.BLOCK_CROP(
 				Resources.ofTexture(sweetPotatoes, "stage_0")

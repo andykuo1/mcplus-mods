@@ -11,8 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderTurtle extends RenderLiving
 {
-	private static final ResourceLocation turtleSkinTexture = new ResourceLocation(_Turtle.MODID + ":" + "textures/entity/model.turtle.png");
-	private static final ResourceLocation turtleTamedTexture = new ResourceLocation(_Turtle.MODID + ":" + "textures/entity/model.turtle.tamed.png");
+	private static final ResourceLocation turtleSkinTexture = new ResourceLocation(_Turtle.MODID + ":" + "textures/entity/turtle.png");
+	private static final ResourceLocation turtleTamedTexture = new ResourceLocation(_Turtle.MODID + ":" + "textures/entity/turtle_tamed.png");
 
 	public RenderTurtle(RenderManager renderManager, ModelBase modelBase, float size)
 	{

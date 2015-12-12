@@ -46,6 +46,8 @@ public class _Saw extends _Mod
 
 	public static final Block saw = new BlockSaw().setHardness(2.0F).setStepSound(Block.soundTypeWood).setUnlocalizedName("saw");	
 
+	//TODO: Make Saw block face direction of face pointing at; with vertical inverted
+	
 	@EventHandler
 	@Override
 	public void PreInitialize(FMLPreInitializationEvent parEvent)

@@ -3,9 +3,12 @@ package net.minecraftplus._api;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.fml.relauncher.Side;
@@ -47,7 +50,7 @@ public final class MCC
 	public static final Block block(Block parBlock, String... parAttributes)
 	{
 		assert(MCP.isClientSide());
-		
+
 		item(Item.getItemFromBlock(parBlock), parAttributes);
 		return parBlock;
 	}
@@ -56,5 +59,11 @@ public final class MCC
 	public static final void entity(Class<? extends Entity> parEntity, Render parRender)
 	{
 		RenderingRegistry.registerEntityRenderingHandler(parEntity, parRender);
+	}
+
+	/**Register the tile entity special renders*/
+	public static final void tileEntity(Class<? extends TileEntity> parTileEntity, TileEntitySpecialRenderer parRender)
+	{
+		ClientRegistry.bindTileEntitySpecialRenderer(parTileEntity, parRender);
 	}
 }

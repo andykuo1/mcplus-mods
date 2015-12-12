@@ -7,6 +7,7 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemSoup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -46,7 +47,7 @@ public class _Beetroot extends _Mod
 
 	public static final Item beetroot = new ItemFood(2, 0.4F, false).setUnlocalizedName("beetroot");
 	public static final Item beetrootSeeds = new ItemSeeds(beetroots, Blocks.farmland).setUnlocalizedName("beetroot_seeds");
-	public static final Item beetrootSoup = new ItemFood(8, 0.6F, false).setUnlocalizedName("beetroot_soup");
+	public static final Item beetrootSoup = new ItemSoup(8).setUnlocalizedName("beetroot_soup");
 
 	@EventHandler
 	@Override
@@ -70,7 +71,6 @@ public class _Beetroot extends _Mod
 		MCP.recipe(Recipes.CONVERT(new ItemStack(Items.dye, 1, EnumDyeColor.RED.getDyeDamage()),
 				beetroot));
 		MCP.recipe(Recipes.SHAPELESS(new ItemStack(beetrootSoup),
-				beetroot,
 				beetroot,
 				beetroot,
 				beetroot,
@@ -108,7 +108,7 @@ public class _Beetroot extends _Mod
 				).toJSON());
 
 		ModelFactory.write(MCF.itemModelDirectory(MODID), Resources.of(beetroots) + ".json", Models.ITEM_BLOCK(
-				Resources.ofModelParent(beetroots)
+				Resources.ofModelParent(beetroots, "stage_3")
 				).toJSON());
 		ModelFactory.write(MCF.blockModelDirectory(MODID), Resources.of(beetroots, "stage_0") + ".json", Models.BLOCK_CROP(
 				Resources.ofTexture(beetroots, "stage_0")

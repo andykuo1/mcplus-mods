@@ -1,6 +1,10 @@
 package net.minecraftplus.mcp_turtle;
 
+import java.util.List;
+
+import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -11,8 +15,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftplus._api.dictionary.Sounds;
 
 public class EntityTurtle extends EntityTurtleBase implements IInvBasic
@@ -31,8 +38,8 @@ public class EntityTurtle extends EntityTurtleBase implements IInvBasic
 	@Override
 	protected void entityInit()
 	{
-		//Compare To: @EntityHorse
 		super.entityInit();
+		//Compare To: @EntityHorse
 		this.dataWatcher.addObject(21, Integer.valueOf(0));
 	}
 
@@ -138,12 +145,32 @@ public class EntityTurtle extends EntityTurtleBase implements IInvBasic
 		//Compare To: @EntityHorse
 		ItemStack itemstack = player.inventory.getCurrentItem();
 
+		if (this.isTamed() && itemstack == null && !this.isSitting())
+		{
+			if (!player.isSneaking())
+			{
+				if (!this.isRiding())
+				{
+					if (player.getDistanceSqToEntity(this) < 0.4D)
+					{
+						this.mountEntity(player);
+						return true;
+					}
+				}
+				else
+				{
+					this.mountEntity(null);
+					return true;
+				}
+			}
+		}
+
 		if (this.worldObj.isRemote && this.isChested() && this.turtleChest.getSizeInventory() != this.getChestSize())
 		{
 			this.chestInit();
 		}
 
-		if (itemstack != null && (itemstack.getItem() == Items.spawn_egg || itemstack.getItem() == Items.fish))
+		if (itemstack != null && (itemstack.getItem() == Items.spawn_egg || itemstack.getItem() == Items.fish || itemstack.getItem() == Items.melon))
 		{
 			return super.interact(player);
 		}
@@ -179,6 +206,110 @@ public class EntityTurtle extends EntityTurtleBase implements IInvBasic
 		}
 
 		return super.interact(player);
+	}
+
+	@Override
+	public boolean attackEntityFrom(DamageSource source, float amount)
+	{
+		//Compare to: @EntityOcelot
+		if (this.isEntityInvulnerable(source))
+		{
+			return false;
+		}
+		else
+		{
+			Entity entity = source.getEntity();
+
+			if (this.ridingEntity != null && this.ridingEntity.equals(entity))
+			{
+				return false;
+			}
+
+			this.aiSit.setSitting(false);
+			return super.attackEntityFrom(source, amount);
+		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	private boolean toggleRiding = true;
+
+	@Override
+	public double getYOffset()
+	{
+		return this.isRiding() ? this.ridingEntity.isSneaking() ? -0.85D : -0.8D : 0.0D;
+	}
+
+	@Override
+	public boolean isEntityInsideOpaqueBlock()
+	{
+		return this.isRiding() ? false : super.isEntityInsideOpaqueBlock();
+	}
+
+	@Override
+	public void onLivingUpdate()
+	{
+		super.onLivingUpdate();
+
+		if (this.isTamed())
+		{
+			if (this.isRiding())
+			{
+				this.rotationYaw = this.ridingEntity.rotationYaw;
+				if (this.ridingEntity.isInWater())
+				{
+					this.ridingEntity.motionX += Math.cos(Math.toRadians((this.ridingEntity.rotationYaw + 90D) % 360)) * 0.02D;
+					this.ridingEntity.motionY += this.ridingEntity.isSneaking() ? 0.01F : 0.025F;
+					this.ridingEntity.motionZ += -Math.sin(Math.toRadians((this.ridingEntity.rotationYaw - 90D) % 360)) * 0.02D;
+				}
+
+				if (this.worldObj.isRemote)
+				{
+					if (this.toggleRiding)
+					{
+						this.ignoreFrustumCheck = true;
+						this.setSize(0.05F, 0.05F);
+						this.toggleRiding = false;
+					}
+				}
+			}
+			else
+			{
+				if (this.worldObj.isRemote)
+				{
+					if (!this.toggleRiding)
+					{
+						this.ignoreFrustumCheck = false;
+						this.setSize(0.6F, 0.7F);
+						this.toggleRiding = true;
+					}
+				}
+
+				if (this.isEntityInsideOpaqueBlock())
+				{
+					this.pushOutOfBlocks(this.posX, this.posY, this.posZ);
+					this.motionY += 0.2F;
+				}
+			}
+		}
+
+		if (!this.worldObj.isRemote && this.isTamed() && this.isChested())
+		{
+			//Compare To: @TileEntityHopper: func_145897_a(World, double, double, double)
+			List list = this.worldObj.getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(this.posX, this.posY, this.posZ, this.posX + 1.0D, this.posY + 1.0D, this.posZ + 1.0D), IEntitySelector.selectAnything);
+			for(Object o : list)
+			{
+				EntityItem entityitem = (EntityItem) o;
+				ItemStack itemstack = this.turtleChest.func_174894_a(entityitem.getEntityItem());
+				if (itemstack != null)
+				{
+					entityitem.getEntityItem().stackSize = itemstack.stackSize;
+				}
+				else
+				{
+					entityitem.setDead();
+				}
+			}
+		}
 	}
 
 	@Override

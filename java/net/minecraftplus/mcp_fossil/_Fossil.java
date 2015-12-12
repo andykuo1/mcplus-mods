@@ -71,7 +71,6 @@ public class _Fossil extends _Mod
 	@Override
 	public void Munge()
 	{
-		//TODO: Test new MCF functions
 		MCF.makeBlockModel(Resources.of(fossilStone), Models.BLOCK_MULTI_TEXTURE(
 				Resources.ofTexture(fossilStone, "side"),
 				Resources.ofTexture(fossilStone, "bottom"),
@@ -86,6 +85,7 @@ public class _Fossil extends _Mod
 		MCF.makeVariant(Resources.of(fossilStone), Variants.NORMAL(
 				Resources.ofModel(fossilStone)
 				));
+		
 		super.Munge();
 	}
 }

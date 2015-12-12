@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class LayerTurtle implements LayerRenderer
 {
 	//Compare To: @EntityWolf
-	private static final ResourceLocation field_177147_a = new ResourceLocation(_Turtle.MODID + ":" + "textures/entity/model.turtle.collar.png");
+	private static final ResourceLocation field_177147_a = new ResourceLocation(_Turtle.MODID + ":" + "textures/entity/turtle_collar.png");
 	private final RenderTurtle field_177146_b;
 	private final ModelBase model = new ModelTurtleCollar();
 

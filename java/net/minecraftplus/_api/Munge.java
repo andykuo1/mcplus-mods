@@ -17,25 +17,39 @@ import net.minecraftplus.mcp_blowpipe._Blowpipe;
 import net.minecraftplus.mcp_clay_tools._Clay_Tools;
 import net.minecraftplus.mcp_clippers._Clippers;
 import net.minecraftplus.mcp_cocoa._Cocoa;
+import net.minecraftplus.mcp_collision._Collision;
 import net.minecraftplus.mcp_fossil._Fossil;
 import net.minecraftplus.mcp_gems._Gems;
-import net.minecraftplus.mcp_pigeon._Pigeon;
-import net.minecraftplus.mcp_quartz._Quartz;
+import net.minecraftplus.mcp_gift_box._Gift_Box;
+import net.minecraftplus.mcp_glowing_slime._Glowing_Slime;
+import net.minecraftplus.mcp_ice_box._Ice_Box;
+import net.minecraftplus.mcp_loom._Loom;
+import net.minecraftplus.mcp_loose_stone._Loose_Stone;
+import net.minecraftplus.mcp_lumber._Lumber;
+import net.minecraftplus.mcp_overgrowth._Overgrowth;
+import net.minecraftplus.mcp_rotten._Rotten;
 import net.minecraftplus.mcp_satchel._Satchel;
 import net.minecraftplus.mcp_saw._Saw;
 import net.minecraftplus.mcp_shatter._Shatter;
 import net.minecraftplus.mcp_sickle._Sickle;
 import net.minecraftplus.mcp_sweet_potato._Sweet_Potato;
+import net.minecraftplus.mcp_torch._Torch;
+import net.minecraftplus.mcp_turnip._Turnip;
 import net.minecraftplus.mcp_turtle._Turtle;
+import net.minecraftplus.mcp_wheel._Wheel;
+import net.minecraftplus.mcp_wild_animal._Wild_Animal;
 
 public final class Munge
 {
+	private static final boolean MUNGE = true;
 	private static final ResourceWriter mungeLog = new ResourceWriter(Assets.directory(), "munge.log");
 	private static boolean running = false;
 	private static boolean dirty = false;
 
 	public static void Open()
 	{
+		if (!MUNGE) return;
+
 		assert(!mungeLog.isOpen());
 
 		if (mungeLog.exists())
@@ -60,6 +74,8 @@ public final class Munge
 
 	public static void Close()
 	{
+		if (!MUNGE) return;
+
 		if (mungeLog.isOpen())
 		{
 			try
@@ -83,21 +99,28 @@ public final class Munge
 
 	public static void PreInitialize()
 	{
+		if (!MUNGE) return;
+
 		assert(mungeLog.isOpen());
 
-		//		String modid = "mcp_turtle";
-		//		String modclass = "_Turtle";
-		//		MCF.makeMod(MCF.modDirectory(modid), modclass + ".java");
-		//		MCF.makeProxy(MCF.modDirectory(modid));
-		//		MCF.makeDirectory(Assets.directory() + "/" + modid + "/textures/items");
-		//		MCF.makeDirectory(Assets.directory() + "/" + modid + "/textures/blocks");
-		//		MCF.makeDirectory(Assets.directory() + "/" + modid + "/models/item");
-		//		MCF.makeDirectory(Assets.directory() + "/" + modid + "/models/block");
-		//		dirty = true;
+		/*
+		String modid = "mcp_glowing_slimeball";
+		String modclass = "_Glowing_Slimeball";
+		MCF.makeMod(MCF.modDirectory(modid), modclass + ".java");
+		MCF.makeProxy(MCF.modDirectory(modid));
+		MCF.makeDirectory(Assets.directory() + "/" + modid + "/textures/items");
+		MCF.makeDirectory(Assets.directory() + "/" + modid + "/textures/blocks");
+		MCF.makeDirectory(Assets.directory() + "/" + modid + "/models/item");
+		MCF.makeDirectory(Assets.directory() + "/" + modid + "/models/block");
+		 */
+
+		dirty = true;
 	}
 
 	public static void Initialize(ModContainer parModContainer)
 	{
+		if (!MUNGE) return;
+
 		assert(mungeLog.isOpen());
 
 		_Mod mod = (_Mod) parModContainer.getMod();
@@ -173,22 +196,77 @@ public final class Munge
 			mod.Munge();
 			MCL.debug("Completed Initialization:", mod);
 		}
-		else if (mod == _Quartz.INSTANCE)
-		{
-			mod.Munge();
-			MCL.debug("Completed Initialization:", mod);
-		}
 		else if (mod == _Clay_Tools.INSTANCE)
 		{
 			mod.Munge();
 			MCL.debug("Completed Initialization:", mod);
 		}
-		else if (mod == _Pigeon.INSTANCE)
+		else if (mod == _Turnip.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Overgrowth.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Loose_Stone.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Gift_Box.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Lumber.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Wheel.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Torch.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Rotten.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Wild_Animal.INSTANCE)
 		{
 			mod.Munge();
 			MCL.debug("Completed Initialization:", mod);
 		}
 		else if (mod == _Turtle.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Loom.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Ice_Box.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Glowing_Slime.INSTANCE)
+		{
+			mod.Munge();
+			MCL.debug("Completed Initialization:", mod);
+		}
+		else if (mod == _Collision.INSTANCE)
 		{
 			mod.Munge();
 			MCL.debug("Completed Initialization:", mod);
@@ -201,8 +279,7 @@ public final class Munge
 
 	public static void setDirty()
 	{
-		//TODO: Enable dirty later for actual implementation
-		//dirty = true;
+		dirty = true;
 	}
 
 	public static boolean isRunning()

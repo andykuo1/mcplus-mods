@@ -3,9 +3,6 @@ package net.minecraftplus._api.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-
-import net.minecraftplus._api.util.collection.SmallSet;
 
 public class ArrayUtil
 {
@@ -60,6 +57,27 @@ public class ArrayUtil
 		return true;
 	}
 
+	public static final <E> boolean validMaxLength(E[] parArray, int parLength)
+	{
+		assert(parArray != null);
+
+		return parArray.length <= parLength;
+	}
+
+	public static final <E> boolean validMaxLength(E[][] parArray, int parLength1, int parLength2)
+	{
+		assert(parArray != null);
+
+		if (parArray.length > parLength1) return false;
+
+		for(int i = 0; i < parArray.length; ++i)
+		{
+			if (parArray[i].length > parLength2) return false;
+		}
+
+		return true;
+	}
+
 	public static final <E> List<E> put(E[] parArray, E... parElements)
 	{
 		assert(parArray != null);
@@ -95,18 +113,18 @@ public class ArrayUtil
 		return result;
 	}
 
-	public static <E> Set<E[]> findCombinations(E[] parArray, int parLength)
+	public static <E> List<E[]> findCombinations(E[] parArray, int parLength)
 	{
-		Set<E[]> list = new SmallSet<E[]>();
-		combinations(parArray, parLength, 0, Arrays.copyOf(parArray, parArray.length), list);
+		List<E[]> list = new ArrayList<E[]>();
+		combinations(parArray, parLength, 0, Arrays.copyOf(parArray, parLength), list);
 		return list;
 	}
 
-	private static <E> void combinations(E[] parArray, int parLength, int parPosition, E[] parOutput, Set<E[]> parResult)
+	private static <E> void combinations(E[] parArray, int parLength, int parPosition, E[] parOutput, List<E[]> parResult)
 	{
 		if (parLength == 0)
 		{
-			parResult.add(parOutput);
+			parResult.add(Arrays.copyOf(parOutput, parOutput.length));
 			return;
 		}
 

@@ -8,8 +8,6 @@ public class _CommonProxy extends Proxy
 	@Override
 	public void Initialize()
 	{
-		//TODO: Add server-side operations for MCP_SATCHEL
-		
 		super.Initialize();
 	}
 }
