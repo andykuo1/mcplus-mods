@@ -1,0 +1,40 @@
+{
+	"variants": {
+		"facing=down": {
+			"model": "mcp_loom:loom",
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"facing=up": {
+			"model": "mcp_loom:loom",
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"facing=north": {
+			"model": "mcp_loom:loom",
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"facing=south": {
+			"model": "mcp_loom:loom",
+			"x": 0,
+			"y": 180,
+			"z": 0
+		},
+		"facing=west": {
+			"model": "mcp_loom:loom",
+			"x": 0,
+			"y": 270,
+			"z": 0
+		},
+		"facing=east": {
+			"model": "mcp_loom:loom",
+			"x": 0,
+			"y": 90,
+			"z": 0
+		}
+	}
+}

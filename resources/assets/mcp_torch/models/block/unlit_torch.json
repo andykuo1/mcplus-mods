@@ -1,0 +1,6 @@
+{
+	"parent": "block/torch",
+	"textures": {
+		"torch": "mcp_torch:blocks/unlit_torch"
+	}
+}

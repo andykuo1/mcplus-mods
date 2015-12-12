@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"normal": {
+			"model": "mcp_soul_extractor:soul_extractor"
+		}
+	}
+}

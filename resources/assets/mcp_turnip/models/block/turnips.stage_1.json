@@ -1,0 +1,6 @@
+{
+	"parent": "block/crop",
+	"textures": {
+		"crop": "mcp_turnip:blocks/turnips.stage_1"
+	}
+}
